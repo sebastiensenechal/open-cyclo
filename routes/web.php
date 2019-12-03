@@ -11,6 +11,14 @@
 |
 */
 
-Route::get('/', function () {
+Route::get('/', ['as' => 'home', function () {
     return view('welcome');
-});
+}]);
+
+Route::get('article/{n}', function($n) {
+    return view('article')->withNumero($n);
+})->where('n', '[0-9]+');
+
+Route::get('facture/{n}', function($n) {
+    return view('facture')->withNumero($n);
+})->where('n', '[0-9]+');
