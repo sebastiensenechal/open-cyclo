@@ -11,14 +11,24 @@
 |
 */
 
-Route::get('/', ['as' => 'home', function () {
-    return view('welcome');
-}]);
+// Créer un controller depuis le terminal : php artisan make:controller ArticleController
 
-Route::get('article/{n}', function($n) {
-    return view('article')->withNumero($n);
-})->where('n', '[0-9]+');
+// Route::get('/', ['as' => 'home', function () {
+//     return view('welcome');
+// }]);
+
+Route::get('/', ['uses' => 'WelcomeController@index', 'as' => 'home']);
+
+// Route::get('article/{n}', function($n) {
+//     return view('article')->withNumero($n);
+// })->where('n', '[0-9]+');
+
+Route::get('article/{n}', 'ArticleController@show')->where('n', '[0-9]+');
 
 Route::get('facture/{n}', function($n) {
     return view('facture')->withNumero($n);
 })->where('n', '[0-9]+');
+
+// Formulaire users
+Route::get('users', 'UsersController@getInfos');
+Route::post('users', 'UsersController@postInfos');
