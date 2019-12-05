@@ -32,3 +32,7 @@ Route::get('facture/{n}', function($n) {
 // Formulaire users
 Route::get('users', 'UsersController@getInfos');
 Route::post('users', 'UsersController@postInfos');
+
+// Formulaire de contact
+Route::get('contact', 'ContactController@getForm');
+Route::post('contact', 'ContactController@postForm');
