@@ -29,6 +29,11 @@ Route::get('facture/{n}', function($n) {
     return view('facture')->withNumero($n);
 })->where('n', '[0-9]+');
 
+/* Page d'aide */
+Route::get('aide', function () {
+    return view('help');
+});
+
 // Formulaire users
 Route::get('users', 'UsersController@getInfos');
 Route::post('users', 'UsersController@postInfos');

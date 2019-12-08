@@ -40,17 +40,28 @@ body#home {
   color:#f1f1f1;
 }
 
-body#home header {
+body#home header, body > header {
   min-height: 20vh;
   text-align: center;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
+body > header {
+  background:#333;
+  color:#f1f1f1;
+}
 body#home main {
   display: flex;
   flex-direction: row-reverse;
   min-height: 100vh;
+  padding: 0;
+}
+body > main {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding: 1em 2.5em 1em 1em;
 }
 
 
@@ -60,7 +71,7 @@ body#home main {
  TYPOGRAPHY
 
  ******************** */
-h1#title_site {
+h1#title-site {
   font-family: 'Montserrat', sans-serif;
   font-weight: 400;
 }
@@ -162,6 +173,66 @@ nav#toolbar .active {
   background-color: #01bfb2;
   color: #ffffff;
 }
+
+
+
+
+/* COMPOSENTS */
+.form-center {
+  margin: auto;
+}
+input, button, input[type="file"] {
+	outline: none !important;
+}
+input[type="submit"], input[type="file"] {
+  cursor: pointer;
+}
+input {
+	border: none;
+}
+textarea {
+  border: 1px solid #ccc;
+}
+input, textarea {
+  border-bottom: 2px solid #01bfb2;
+	width: 100%;
+	font-family: 'Nunito Sans', Verdana, sans-serif;
+	color: #333;
+  font-size: 1em;
+  margin-bottom: 2em;
+  padding: 1em .2em;
+}
+::-webkit-input-placeholder {
+   color: #333;
+	font-family: 'Nunito Sans', Verdana, sans-serif;
+	font-weight:100;
+}
+
+:-moz-placeholder {
+   color: #333;
+	font-family: 'Nunito Sans', Verdana, sans-serif;
+	font-weight:100;
+}
+
+::-moz-placeholder {
+   color: #333;
+	font-family: 'Nunito Sans', Verdana, sans-serif;
+	font-weight:100;
+}
+
+:-ms-input-placeholder {
+   color: #333;
+	font-family: 'Nunito Sans', Verdana, sans-serif;
+	font-weight:100;
+}
+.hidden {
+   position: absolute !important;
+   clip: rect(1px, 1px, 1px, 1px);
+   height: 1px;
+   overflow: hidden;
+   width: 1px;
+}
+
 
 
 

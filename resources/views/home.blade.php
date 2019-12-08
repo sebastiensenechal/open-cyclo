@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Laravel</title>
-        {{ Html::style('../resources/css/style.css') }}
+        {{ Html::style('../public/css/style.css') }}
         {{ Html::style('https://fonts.googleapis.com/icon?family=Material+Icons') }}
         <!--[if lt IE 9]>
     			{{ Html::style('https://oss.maxcdn.com/libs/html5shiv/3.7.2/html5shiv.js') }}
@@ -14,13 +14,13 @@
     <body id="home">
 
         <header>
-          <h1 id="title_site">Opencyclo</h1>
+          <h1 id="title-site">Opencyclo</h1>
           <nav id="nav">
             <ul>
               <li><a class="active" href="{{ route('home') }}">Home</a></li>
               <li><a href="#news">News</a></li>
               <li><a href="{{ url('contact') }}">Contact</a></li>
-              <li><a href="#help">Help</a></li>
+              <li><a href="aide">Aide</a></li>
             </ul>
           </nav>
 
@@ -28,8 +28,8 @@
             <ul>
               <li><a href="#"><i class="material-icons">location_searching</i></a></li>
               <li><a href="#"><i class="material-icons">comment</i></a></li>
-              <li><a href="#"><i class="material-icons">help_outline</i></a></li>
-              <li><a href="#"><i class="material-icons">person</i></a></li>
+              <li><a href="aide"><i class="material-icons">help_outline</i></a></li>
+              <li><a href="users"><i class="material-icons">person</i></a></li>
             </ul>
           </nav>
         </header>

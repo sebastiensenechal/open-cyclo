@@ -1,23 +1,30 @@
 @extends('template')
 
-<h1>Contactez-moi</h1>
+@section('titre')
+		Nous contacter
+@endsection
 
 @section('contenu')
 
-	{!! Form::open(['url' => 'contact']) !!}
-		<div class="form-group {!! $errors->has('nom') ? 'has-error' : '' !!}">
-			{!! Form::text('nom', null, ['class' => 'form-control', 'placeholder' => 'Votre nom']) !!}
-			{!! $errors->first('nom', '<small class="help-block">:message</small>') !!}
-		</div>
-		<div class="form-group {!! $errors->has('email') ? 'has-error' : '' !!}">
-			{!! Form::email('email', null, ['class' => 'form-control', 'placeholder' => 'Votre email']) !!}
-			{!! $errors->first('email', '<small class="help-block">:message</small>') !!}
-		</div>
-		<div class="form-group {!! $errors->has('texte') ? 'has-error' : '' !!}">
-			{!! Form::textarea ('texte', null, ['class' => 'form-control', 'placeholder' => 'Votre message']) !!}
-			{!! $errors->first('texte', '<small class="help-block">:message</small>') !!}
-		</div>
-		{!! Form::submit('Envoyer !', ['class' => 'btn btn-info']) !!}
-	{!! Form::close() !!}
+	<section class="form-center">
+		{!! Form::open(['url' => 'contact']) !!}
+			<div class="form-group {!! $errors->has('nom') ? 'has-error' : '' !!}">
+				{!! Form::label('name', 'Nom', array('class' => 'hidden')); !!}
+				{!! Form::text('name', null, ['class' => 'form-control', 'placeholder' => 'Votre nom']) !!}
+				{!! $errors->first('name', '<small class="help-block">:message</small>') !!}
+			</div>
+			<div class="form-group {!! $errors->has('email') ? 'has-error' : '' !!}">
+				{!! Form::label('email', 'Email', array('class' => 'hidden')); !!}
+				{!! Form::email('email', null, ['class' => 'form-control', 'placeholder' => 'Votre email']) !!}
+				{!! $errors->first('email', '<small class="help-block">:message</small>') !!}
+			</div>
+			<div class="form-group {!! $errors->has('texte') ? 'has-error' : '' !!}">
+				{!! Form::label('mess', 'Message', array('class' => 'hidden')); !!}
+				{!! Form::textarea ('mess', null, ['class' => 'form-control', 'placeholder' => 'Votre message']) !!}
+				{!! $errors->first('mess', '<small class="help-block">:message</small>') !!}
+			</div>
+			{!! Form::submit('Envoyer !') !!}
+		{!! Form::close() !!}
+	</section>
 
 @endsection

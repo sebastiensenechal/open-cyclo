@@ -1,10 +1,13 @@
 @extends('template')
 
+@section('titre')
+		Envoi d'une photo
+@endsection
+
 @section('contenu')
 
-			<h1>Envoi d'une photo</h1>
+	<section class="form-center">
+		<p>Merci. Votre photo à bien été reçue et enregistrée.</p>
+	</section>
 
-			<div>
-				<p>Merci. Votre photo à bien été reçue et enregistrée.</p>
-			</div>
 @endsection
