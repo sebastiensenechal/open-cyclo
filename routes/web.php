@@ -36,3 +36,7 @@ Route::post('users', 'UsersController@postInfos');
 // Formulaire de contact
 Route::get('contact', 'ContactController@getForm');
 Route::post('contact', 'ContactController@postForm');
+
+// Formulaire ajout d'images
+Route::get('photo', 'PhotoController@getForm');
+Route::post('photo', 'PhotoController@postForm');

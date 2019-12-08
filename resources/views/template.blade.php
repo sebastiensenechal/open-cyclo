@@ -13,6 +13,16 @@
 <body>
   <header>
     @yield('header')
+    
+    <nav id="nav">
+      <ul>
+        <li><a class="active" href="{{ route('home') }}">Home</a></li>
+        <li><a href="#news">News</a></li>
+        <li><a href="{{ url('contact') }}">Contact</a></li>
+        <li><a href="#help">Help</a></li>
+      </ul>
+    </nav>
+
   </header>
 
   <main>
