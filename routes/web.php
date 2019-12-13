@@ -11,7 +11,19 @@
 |
 */
 
-// Créer un controller depuis le terminal : php artisan make:controller ArticleController
+
+
+/*
+|--------------------------------------------------------------------------
+| COMMANDES TERMINAL
+|--------------------------------------------------------------------------
+|
+| Créer un controller depuis le terminal : php artisan make:controller ArticleController
+| Afficher la liste des routes : php artisan route:list
+|
+*/
+
+
 
 // Route::get('/', ['as' => 'home', function () {
 //     return view('welcome');
@@ -49,3 +61,7 @@ Route::post('photo', 'PhotoController@postForm');
 // Emails (base de données)
 Route::get('email', 'EmailController@getForm');
 Route::post('email', ['uses' => 'EmailController@postForm', 'as' => 'storeEmail']);
+
+
+// Route pour la gestion des utilisateurs
+Route::resource('user', 'UserController');

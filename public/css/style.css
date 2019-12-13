@@ -95,6 +95,16 @@ body main {
  TYPOGRAPHY
 
  ******************** */
+ a {
+   color: rgb(68, 68, 68);
+   text-decoration: underline;
+ }
+ a:hover {
+   color: rgb(1, 191, 178);
+ }
+ a:visited {
+   color: rgb(100, 100, 100);
+ }
 .material-icons.md-cyan {
   color:  rgba(24, 255, 255, 1);
 }
