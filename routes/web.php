@@ -45,3 +45,7 @@ Route::post('contact', 'ContactController@postForm');
 // Formulaire ajout d'images
 Route::get('photo', 'PhotoController@getForm');
 Route::post('photo', 'PhotoController@postForm');
+
+// Emails (base de données)
+Route::get('email', 'EmailController@getForm');
+Route::post('email', ['uses' => 'EmailController@postForm', 'as' => 'storeEmail']);

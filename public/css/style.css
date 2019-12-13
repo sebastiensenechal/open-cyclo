@@ -21,9 +21,9 @@ html {
 }
 
 body {
-  margin: 0;
   padding: 0;
-  width: 100vw;
+  margin: 5vh auto;
+  width: 90vw;
   height:auto;
   color: #444;
   font-size: 1em;
@@ -33,23 +33,47 @@ body {
   font-family: 'Nunito Sans', Verdana, sans-serif;
   display: flex;
   flex-direction: column;
+  background: #d6d6d6;
+}
+#page-container {
+    -moz-box-shadow: -30px 30px 8px -18px #bbb;
+    -webkit-box-shadow: -30px 30px 8px -18px #bbb;
+    -o-box-shadow: -30px 30px 8px -18px #bbb;
+    box-shadow: -30px 30px 8px -18px #bbb;
+    filter: progid:DXImageTransform.Microsoft.Shadow(color=#bbb, Direction=224, Strength=8);
+    background: #fff;
 }
 
 body#home {
+  margin: 0;
+  width: 100vw;
   background:#333;
   color:#f1f1f1;
 }
 
-body#home header, body > header {
+body#home header, body #header {
   min-height: 20vh;
   text-align: center;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
-body > header {
+body #header {
   background:#333;
   color:#f1f1f1;
+  display: flex;
+  flex-direction: column;
+  height: 70vh;
+}
+#header #left, #header #right {
+  width: 100%;
+}
+#header #left {
+  background: url('../../public/img/topo-jaune.svg'), url('https://sebastiensenechal.com/vendors/img/abstract.jpg'), linear-gradient(to right, rgba(30, 75, 115, 1), rgba(255, 255, 255, 0));
+  background-position: left, center;
+  background-repeat: no-repeat, no-repeat;
+  background-size: cover, cover;
+  height: 100%;
 }
 body#home main {
   display: flex;
@@ -57,11 +81,11 @@ body#home main {
   min-height: 100vh;
   padding: 0;
 }
-body > main {
-  min-height: 100vh;
+body main {
+  min-height: 73vh;
   display: flex;
   flex-direction: column;
-  padding: 1em 2.5em 1em 1em;
+  padding: 1em 2em 1em 1em;
 }
 
 
@@ -71,9 +95,17 @@ body > main {
  TYPOGRAPHY
 
  ******************** */
+.material-icons.md-cyan {
+  color:  rgba(24, 255, 255, 1);
+}
+.material-icons.md-36 {
+    font-size: 36px;
+}
 h1#title-site {
   font-family: 'Montserrat', sans-serif;
   font-weight: 400;
+  color: #FCE4EC;
+  font-size: 2em;
 }
 
 
@@ -92,8 +124,18 @@ div#map {
   height: 93.5vh;
   z-index: 0;
 }
-
-
+main header#header-content {
+  padding: 2em 0;
+  background-color: transparent;
+  color:inherit;
+  text-align: left;
+}
+#left > div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80%;
+}
 
 
 
@@ -185,17 +227,31 @@ nav#toolbar .active {
   height: 10vh;
 }
 
+/* Navigation footer - mentions légales */
+#page-container > footer {
+  border-top: 1px solid #ccc;
+  padding: 1em 2em 1em 1em;
+}
+#page-container nav#legal ul {
+  list-style: none;
+  padding-left: 1em;
+}
 
 
 /* COMPOSENTS */
 .form-center {
   margin: auto;
+  width: 70vw;
 }
 input, button, input[type="file"] {
 	outline: none !important;
 }
 input[type="submit"], input[type="file"] {
   cursor: pointer;
+}
+input[type="submit"]:hover, input[type="file"]:hover {
+  background: #01bfb2;
+  color: #fff;
 }
 input {
 	border: none;

@@ -10,27 +10,51 @@
 			{{ Html::style('https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js') }}
 		<![endif]-->
 </head>
+
+
 <body>
-  <header>
-    <h1 id="title-site">@yield('titre')</h1>
 
-    <nav id="nav">
-      <ul>
-        <li><a class="active" href="{{ route('home') }}">Home</a></li>
-        <li><a href="#news">News</a></li>
-        <li><a href="{{ url('contact') }}">Contact</a></li>
-        <li><a href="aide">Aide</a></li>
-      </ul>
-    </nav>
+  <div id="page-container">
 
-  </header>
+    <header id="header">
+      <div id="left">
+        <nav id="nav">
+          <ul>
+            <li><a class="active" href="{{ route('home') }}">Home</a></li>
+            <li><a href="#news">News</a></li>
+            <li><a href="{{ url('contact') }}">Contact</a></li>
+            <li><a href="aide">Aide</a></li>
+          </ul>
+        </nav>
 
-  <main>
-  	@yield('contenu')
-  </main>
+        <div>
+          <h1 id="title-site">@yield('titre')</h1>
+        </div>
 
-  <footer>
-    @yield('footer')
-  </footer>
+        <i class="material-icons md-cyan md-36">arrow_downward</i>
+      </div>
+
+      <div id='right'>
+        @yield('sous-titre')
+      </div>
+    </header>
+
+    <main>
+    	@yield('contenu')
+    </main>
+
+    <footer>
+      @yield('footer')
+      <nav id="legal">
+        <ul>
+          <li><a href="mention-lagel">Mentions légales</a></li>
+          <li><a href="rgpd">Données personnelles</a></li>
+          <li><a href="accessibilite">Accessibilité</a></li>
+        </ul>
+      </nav>
+    </footer>
+
+  </div>
+
 </body>
 </html>

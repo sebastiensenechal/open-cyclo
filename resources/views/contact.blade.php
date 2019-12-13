@@ -7,6 +7,14 @@
 @section('contenu')
 
 	<section class="form-center">
+		<header id="header-content">
+			<h2>Nous sommes à votre écoute</h2>
+
+			<p>&laquo;&nbsp;Pédagogie&nbsp;&raquo;, voilà un mot qui revet un sens particulier chez OpenCyclo.<br />
+			Nous mettons un point d'honneur à informer et à fournir des guides, pour un cyclisme en toute sécurité.<br />
+			<a href="email#header-content">Inscrivez-vous à notre newsletters</a></p>
+		</header>
+
 		{!! Form::open(['url' => 'contact']) !!}
 			<div class="form-group {!! $errors->has('nom') ? 'has-error' : '' !!}">
 				{!! Form::label('name', 'Nom', array('class' => 'hidden')); !!}

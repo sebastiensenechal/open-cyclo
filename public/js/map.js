@@ -21,7 +21,7 @@ var Maps = {
   // Méthode d'initialisation des markers : Récupère les données stockées dans la variable "listStations"
   initMarkers : function(latitude, longitude) {
       markers = L.marker([latitude, longitude]).addTo(mapCyclo);
-      markers.bindPopup("<b>Hello world!</b><br>I am a popup.");
+      markers.bindPopup("Vous êtes ici !");
   }
 
 }
