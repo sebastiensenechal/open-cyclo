@@ -18,7 +18,7 @@ var Maps = {
 		}).addTo(mapCyclo);
 	},
 
-  // Méthode d'initialisation des markers : Récupère les données stockées dans la variable "listStations"
+  // Méthode d'initialisation des markers : Récupère les données de position
   initMarkers : function(latitude, longitude) {
       markers = L.marker([latitude, longitude]).addTo(mapCyclo);
       markers.bindPopup("Vous êtes ici !");
@@ -47,17 +47,19 @@ function geoFindMe() {
     console.log(`Latitude: ${latitude} °, Longitude: ${longitude} °`);
   }
 
+
+
   function error() {
     status.textContent = 'Impossible de vous localiser';
   }
+
+
 
   var geo_options = {
     enableHighAccuracy: true,
     maximumAge        : 30000,
     timeout           : 27000
   }
-
-  var wpid = navigator.geolocation.watchPosition(success, error, geo_options);
 
   if (!navigator.geolocation) {
     status.textContent = 'Geolocation n\'est pas supporté sur votre navigateur';
