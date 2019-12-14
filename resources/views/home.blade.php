@@ -17,7 +17,7 @@
     <body id="home">
 
         <header>
-          <h1 id="title-site">Opencyclo</h1>
+          <h1 id="title-home">Opencyclo</h1>
           <nav id="nav">
             <ul>
               <li><a class="active" href="{{ route('home') }}">Home</a></li>

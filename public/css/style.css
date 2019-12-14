@@ -67,13 +67,24 @@ body #header {
 }
 #header #left, #header #right {
   width: 100%;
+  height: 100%;
+}
+#header #right {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  background: #6534FF;
+  font-size: 4vmin;
+  line-height: 8vmin;
 }
 #header #left {
-  background: url('../../public/img/topo-jaune.svg'), url('https://sebastiensenechal.com/vendors/img/abstract.jpg'), linear-gradient(to right, rgba(30, 75, 115, 1), rgba(255, 255, 255, 0));
+  background: url('../../public/img/topo-jaune.svg'),
+  url('https://sebastiensenechal.com/vendors/img/abstract.jpg'),
+  linear-gradient(to right, rgba(30, 75, 115, 1), rgba(255, 255, 255, 0));
   background-position: left, center;
   background-repeat: no-repeat, no-repeat;
   background-size: cover, cover;
-  height: 100%;
 }
 body#home main {
   display: flex;
@@ -111,13 +122,16 @@ body main {
 .material-icons.md-36 {
     font-size: 36px;
 }
-h1#title-site {
+h1 {
   font-family: 'Montserrat', sans-serif;
   font-weight: 400;
   color: #FCE4EC;
-  font-size: 2em;
 }
 
+h1#title-site {
+  font-size: 8vmin;
+  line-height: 14vmin;
+}
 
 
 
@@ -145,6 +159,7 @@ main header#header-content {
   justify-content: center;
   align-items: center;
   height: 80%;
+  text-align: center;
 }
 
 
@@ -310,24 +325,34 @@ input, textarea {
 }
 
 
+@media (orientation: landscape) and (min-width: 960px) {
+  /* Tablet */
+  body #header {
+    flex-direction: row;
+  }
+  #header #left, #header #right {
+    width: 50%;
+  }
+}
 
 
-@media only screen and (min-width: 480px) and (max-width: 959px) {
+
+@media (min-width: 480px) and (max-width: 959px) {
   /* Tablet */
 }
 
 
-@media only screen and (min-width: 960px) and (max-width: 1279px) {
+@media (min-width: 960px) and (max-width: 1279px) {
   /* Tablet and small screen */
 }
 
 
-@media only screen and (min-width: 1919px) {
+@media (min-width: 1919px) and (max-width: 2559px) {
   /* Medium and large screen */
 }
 
 
-@media only screen and (min-width: 2559px) {
+@media (min-width: 2560px) {
   /* HD 4K device */
 }
 

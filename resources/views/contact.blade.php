@@ -4,6 +4,10 @@
 		Nous contacter
 @endsection
 
+@section('sous-titre')
+		<p>Sous-titre</p>
+@endsection
+
 @section('contenu')
 
 	<section class="form-center">
