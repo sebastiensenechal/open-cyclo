@@ -264,6 +264,10 @@ nav#toolbar .active {
 
 
 /* COMPOSENTS */
+#content {
+  margin: 2em auto;
+  width: 70vw;
+}
 .form-center {
   margin: auto;
   width: 70vw;
@@ -322,6 +326,16 @@ input, textarea {
    height: 1px;
    overflow: hidden;
    width: 1px;
+}
+.checkbox label {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-content: baseline;
+  align-items: baseline;
+}
+.checkbox input {
+  width: auto;
 }
 
 

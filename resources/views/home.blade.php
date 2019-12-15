@@ -50,7 +50,7 @@
               <li id="find-me"><i class="material-icons">location_searching</i></li>
               <li><a href="#"><i class="material-icons">comment</i></a></li>
               <li><a href="aide"><i class="material-icons">help_outline</i></a></li>
-              <li><a href="users"><i class="material-icons">person</i></a></li>
+              <li><a href="user"><i class="material-icons">person</i></a></li>
             </ul>
           </nav>
         </footer>
