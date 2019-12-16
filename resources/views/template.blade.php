@@ -20,8 +20,8 @@
       <div id="left">
         <nav id="nav">
           <ul>
-            <li><a class="active" href="{{ route('home') }}">Home</a></li>
-            <li><a href="#news">News</a></li>
+            <li><a class="active" href="{{ route('map') }}">Carte</a></li>
+            <li><a href="{{ route('home') }}">Log</a></li>
             <li><a href="{{ url('contact') }}">Contact</a></li>
             <li><a href="aide">Aide</a></li>
           </ul>

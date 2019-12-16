@@ -29,7 +29,7 @@
 //     return view('welcome');
 // }]);
 
-Route::get('/', ['uses' => 'WelcomeController@index', 'as' => 'home']);
+Route::get('/', ['uses' => 'MapController@index', 'as' => 'map']);
 
 // Route::get('article/{n}', function($n) {
 //     return view('article')->withNumero($n);
@@ -65,3 +65,9 @@ Route::post('email', ['uses' => 'EmailController@postForm', 'as' => 'storeEmail'
 
 // Route pour la gestion des utilisateurs
 Route::resource('user', 'UserController');
+
+
+// Routes d'authentification
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
