@@ -17,11 +17,11 @@
 
 			{!! Form::model($user, ['route' => ['user.update', $user->id], 'method' => 'put', 'class' => 'form-horizontal panel']) !!}
 			<div class="form-group {!! $errors->has('name') ? 'has-error' : '' !!}">
-			  	{!! Form::text('name', null, ['class' => 'form-control', 'placeholder' => 'Nom']) !!}
+			  	{!! Form::text('name', null, ['class' => 'form-control', 'placeholder' => 'Nom', 'required']) !!}
 			  	{!! $errors->first('name', '<small class="help-block">:message</small>') !!}
 			</div>
 			<div class="form-group {!! $errors->has('email') ? 'has-error' : '' !!}">
-			  	{!! Form::email('email', null, ['class' => 'form-control', 'placeholder' => 'Email']) !!}
+			  	{!! Form::email('email', null, ['class' => 'form-control', 'placeholder' => 'Email', 'required']) !!}
 			  	{!! $errors->first('email', '<small class="help-block">:message</small>') !!}
 			</div>
 			<div class="form-group">

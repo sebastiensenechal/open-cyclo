@@ -73,6 +73,8 @@ class UserController extends Controller
 		return redirect()->back();
 	}
 
+
+  // Gère la checkbox "Adminitrateur" du formulaire.
 	private function setAdmin($request)
 	{
 		if(!$request->has('admin'))
