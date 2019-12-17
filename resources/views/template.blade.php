@@ -1,8 +1,11 @@
 <!doctype html>
 <html lang="fr">
 <head>
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Open Cyclo | @yield('titre')</title>
+    <!-- CSRF Token -->
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     {{ Html::style('../public/css/style.css') }}
     {{ Html::style('https://fonts.googleapis.com/icon?family=Material+Icons') }}
     <!--[if lt IE 9]>
@@ -21,9 +24,28 @@
         <nav id="nav">
           <ul>
             <li><a class="active" href="{{ route('map') }}">Carte</a></li>
-            <li><a href="{{ route('home') }}">Log</a></li>
-            <li><a href="{{ url('contact') }}">Contact</a></li>
             <li><a href="aide">Aide</a></li>
+            <li><a href="{{ url('contact') }}">Contact</a></li>
+            @guest
+                <li>
+                    <a href="{{ route('login') }}">{{ __('Login') }}</a>
+                </li>
+                @if (Route::has('register'))
+                    <li>
+                        <a href="{{ route('register') }}">{{ __('Register') }}</a>
+                    </li>
+                @endif
+            @else
+                <li><a href="{{ route('home') }}">Dashbord</a></li>
+                <li>
+                    <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                        {{ __('Logout') }}
+                    </a>
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                        @csrf
+                    </form>
+                </li>
+            @endguest
           </ul>
         </nav>
 

@@ -24,50 +24,50 @@
 */
 
 
-
-// Route::get('/', ['as' => 'home', function () {
-//     return view('welcome');
-// }]);
-
+// --------------------------
+//          Racine
+// --------------------------
 Route::get('/', ['uses' => 'MapController@index', 'as' => 'map']);
 
-// Route::get('article/{n}', function($n) {
-//     return view('article')->withNumero($n);
-// })->where('n', '[0-9]+');
 
+
+// ------------------------------
+//   Routes d'authentification
+// ------------------------------
+Auth::routes();
+Route::get('/home', 'HomeController@index')->name('home');
+
+
+
+
+// --------------------------
+//   Utilisateur connecté
+// --------------------------
+Route::middleware('auth')->group(function () {
+    // Route pour la gestion des utilisateurs
+    Route::resource('user', 'UserController');
+    // Formulaire ajout d'images
+    Route::get('photo', 'PhotoController@getForm');
+    Route::post('photo', 'PhotoController@postForm');
+});
+
+
+
+
+// --------------------------
+//           Divers
+// --------------------------
 Route::get('article/{n}', 'ArticleController@show')->where('n', '[0-9]+');
 
-Route::get('facture/{n}', function($n) {
-    return view('facture')->withNumero($n);
-})->where('n', '[0-9]+');
-
-/* Page d'aide */
+// Page d'aide, FAQ
 Route::get('aide', function () {
     return view('help');
 });
-
-// Formulaire users
-Route::get('users', 'UsersController@getInfos');
-Route::post('users', 'UsersController@postInfos');
 
 // Formulaire de contact
 Route::get('contact', 'ContactController@getForm');
 Route::post('contact', 'ContactController@postForm');
 
-// Formulaire ajout d'images
-Route::get('photo', 'PhotoController@getForm');
-Route::post('photo', 'PhotoController@postForm');
-
-// Emails (base de données)
+// Inscription lettre d'information
 Route::get('email', 'EmailController@getForm');
 Route::post('email', ['uses' => 'EmailController@postForm', 'as' => 'storeEmail']);
-
-
-// Route pour la gestion des utilisateurs
-Route::resource('user', 'UserController');
-
-
-// Routes d'authentification
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
