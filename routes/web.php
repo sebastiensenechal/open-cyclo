@@ -35,6 +35,7 @@ Route::get('/', ['uses' => 'MapController@index', 'as' => 'map']);
 //   Routes d'authentification
 // ------------------------------
 Auth::routes();
+Auth::routes(['verify' => true]); // Activer la vérification des adresses mails. Implement dans User.php
 Route::get('/home', 'HomeController@index')->name('home');
 
 
@@ -51,6 +52,15 @@ Route::middleware('auth')->group(function () {
     Route::post('photo', 'PhotoController@postForm');
 });
 
+
+
+// -------------------------------------------------------
+//   Bloque l'accès à certaines zones si mail non vérifié
+//                Middleware "verified"
+// -------------------------------------------------------
+// Route::get('protege', function () {
+//     return 'affichage de la route protégé';
+// })->middleware('verified');
 
 
 
