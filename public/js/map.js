@@ -27,6 +27,10 @@ var Maps = {
       markers.bindPopup("Vous êtes ici !");
   }
 
+	// locate : function() {
+	// 	mapCyclo.locate({setView: true, maxZoom: 16});
+	// }
+
 }
 
 
