@@ -22,16 +22,16 @@
           <h1 id="title-home">Opencyclo</h1>
           <nav id="nav">
             <ul>
-              <li><a class="active" href="{{ route('map') }}">Carte</a></li>
-              <li><a href="aide">Aide</a></li>
-              <li><a href="{{ url('contact') }}">Contact</a></li>
+              <li><a class="active" href="{{ route('map') }}" title="Carte"><i class="material-icons">map</i> <span>Carte</span></a></li>
+              <li><a href="aide" title="Demander de l'aider"><i class="material-icons">help_outline</i> <span>Aide</span></a></li>
+              <li><a href="{{ url('contact') }}"><i class="material-icons">mail_outline</i> <span>Contact</span></a></li>
               @guest
                   <li>
-                      <a href="{{ route('login') }}">{{ __('Login') }}</a>
+                      <a href="{{ route('login') }}" title="Se connecter">{{ __('Login') }}</a>
                   </li>
                   @if (Route::has('register'))
                       <li>
-                          <a href="{{ route('register') }}">{{ __('Register') }}</a>
+                          <a href="{{ route('register') }}" title="S'inscrire gratuitement">{{ __('Register') }}</a>
                       </li>
                   @endif
               @else
