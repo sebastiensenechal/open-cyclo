@@ -127,10 +127,13 @@ h1 {
   font-weight: 400;
   color: #FCE4EC;
 }
-
 h1#title-site {
   font-size: 8vmin;
-  line-height: 14vmin;
+  line-height: 10vmin;
+}
+h2, h3 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
 }
 
 
