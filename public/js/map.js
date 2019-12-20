@@ -18,7 +18,7 @@ var Maps = {
 			maxZoom: 22
 		}).addTo(mapCyclo);
 
-		bikeLabes = L.tileLayer('http://tiles.mapc.org/trailmap-onroad/{z}/{x}/{y}.png',{maxZoom: 22,minZoom: 8}).addTo(mapCyclo);
+		// bikeLabes = L.tileLayer('http://tiles.mapc.org/trailmap-onroad/{z}/{x}/{y}.png',{maxZoom: 22,minZoom: 8}).addTo(mapCyclo);
 	},
 
   // Méthode d'initialisation des markers : Récupère les données de position

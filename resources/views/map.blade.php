@@ -55,14 +55,14 @@
 
         <main>
           <div id ="status"></div>
-          <!-- <section id="map-infos">
-            <h2>Informations</h2>
-            <article>
-            </article>
-          </section> -->
-          <div id="map">
-            <!-- API cartographique -->
-          </div>
+            <!-- <section id="map-infos">
+              <h2>Informations</h2>
+              <article>
+              </article>
+            </section> -->
+            <div id="map">
+              <!-- API cartographique -->
+            </div>
         </main>
 
 
