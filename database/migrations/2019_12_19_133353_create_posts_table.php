@@ -13,7 +13,7 @@ class CreatePostsTable extends Migration
      */
     public function up()
     {
-        Schema::create('posts', function (Blueprint $table) {
+        Schema::create('posts', function(Blueprint $table) {
             $table->increments('id');
             $table->timestamps();
             $table->string('titre', 80);
@@ -35,7 +35,7 @@ class CreatePostsTable extends Migration
     public function down()
     {
         Schema::table('posts', function(Blueprint $table) {
-          $table->dropForeign('posts_user_id_foreign');
+            $table->dropForeign('posts_user_id_foreign');
         });
         Schema::dropIfExists('posts');
     }
