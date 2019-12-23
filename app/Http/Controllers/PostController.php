@@ -2,28 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use App\Post;
-// use Illuminate\Http\Request;
+use Illuminate\Http\Request;
+// use App\Post;
+use App\{Post, User};
 use App\Http\Requests\Post as PostRequest;
 // use App\Repositories\PostRepository;
 // use App\Http\Requests\PostRequest;
 
 class PostController extends Controller
 {
-
-    // protected $postRepository;
-    //
-    // protected $nbrPerPage = 4;
-    //
-    // public function __construct(PostRepository $postRepository)
-  	// {
-    // 		$this->middleware('auth', ['except' => 'index']);
-    // 		$this->middleware('admin', ['only' => 'destroy']);
-    //
-    // 		$this->postRepository = $postRepository;
-  	// }
-
-
 
     /**
      * Display a listing of the resource.
@@ -32,12 +19,8 @@ class PostController extends Controller
      */
      public function index()
    	{
-     		// $posts = $this->postRepository->getPaginate($this->nbrPerPage);
-     		// $links = $posts->render();
-        //
-     		// return view('liste', compact('posts', 'links'));
-
-        $posts = Post::paginate(8);
+        // $posts = Post::paginate(5);
+        $posts = Post::oldest('titre')->paginate(10);
         return view('liste', compact('posts'));
    	}
 
@@ -45,7 +28,6 @@ class PostController extends Controller
 
     /**
      * Show the form for creating a new resource.
-     *
      * @return \Illuminate\Http\Response
      */
     public function create()
@@ -58,13 +40,13 @@ class PostController extends Controller
 
     /**
      * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  App\Http\Requests\PostRequest  $postRequest
      * @return \Illuminate\Http\Response
      */
      public function store(PostRequest $postRequest)
      {
        Post::create($postRequest->all());
+
        return redirect()->route('posts.index')->with('info', 'Le film a bien été créé');
      }
 
@@ -74,7 +56,7 @@ class PostController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Post $post
      * @return \Illuminate\Http\Response
      */
     public function show(Post $post)
@@ -88,7 +70,7 @@ class PostController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Post $post
      * @return \Illuminate\Http\Response
      */
     public function edit(Post $post)
@@ -103,7 +85,7 @@ class PostController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  App\Http\Requests\PostRequest  $postRequest
      * @return \Illuminate\Http\Response
      */
     public function update(PostRequest $postRequest, Post $post)
@@ -118,12 +100,12 @@ class PostController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Post $post
      * @return \Illuminate\Http\Response
      */
      public function destroy(Post $post)
    	 {
        $post->delete();
-       return back()->with('info', 'Le film a bien été supprimé dans la base de données.');
+       return redirect()->route('posts.index')->with('info', 'Le film a bien été supprimé dans la base de données.');
    	 }
 }

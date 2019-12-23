@@ -13,12 +13,14 @@ class CreatePostsTable extends Migration
      */
     public function up()
     {
+        Schema::disableForeignKeyConstraints();
         Schema::create('posts', function(Blueprint $table) {
             $table->increments('id');
             $table->timestamps();
             $table->string('titre', 80);
       			$table->text('contenu');
       			$table->integer('user_id')->unsigned();
+            // $table->unsignedBigInteger('user_id');
       			$table->foreign('user_id')
       				  ->references('id')
       				  ->on('users')

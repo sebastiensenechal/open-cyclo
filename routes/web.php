@@ -41,6 +41,8 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 
 
+Route::resource('posts', 'PostController');
+
 // --------------------------
 //   Utilisateur connecté
 // --------------------------
@@ -50,8 +52,20 @@ Route::middleware('auth')->group(function () {
     // Formulaire ajout d'images
     Route::get('photo', 'PhotoController@getForm');
     Route::post('photo', 'PhotoController@postForm');
+
+    Route::get('posts.create', 'PostController@create');
+    Route::post('posts.store', 'PostController@store');
+    Route::put('posts.update', 'PostController@update');
+    Route::get('posts.edit', 'PostController@edit');
 });
 
+
+// --------------------------
+//   Administrateur
+// --------------------------
+Route::middleware('admin')->group(function () {
+    //
+});
 
 
 // -------------------------------------------------------
@@ -81,6 +95,3 @@ Route::post('contact', 'ContactController@postForm');
 // Inscription lettre d'information
 Route::get('email', 'EmailController@getForm');
 Route::post('email', ['uses' => 'EmailController@postForm', 'as' => 'storeEmail']);
-
-
-Route::resource('posts', 'PostController');

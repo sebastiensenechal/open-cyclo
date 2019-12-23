@@ -34,14 +34,18 @@
                         @foreach($posts as $post)
                             <tr>
                                 <td>{{ $post->id }}</td>
-                                <td><strong>{{ $post->title }}</strong></td>
+                                <td><strong>{{ $post->titre }}</strong></td>
                                 <td><a class="button is-primary" href="{{ route('posts.show', $post->id) }}">Voir</a></td>
                                 <td><a class="button is-warning" href="{{ route('posts.edit', $post->id) }}">Modifier</a></td>
                                 <td>
                                     <form action="{{ route('posts.destroy', $post->id) }}" method="post">
                                         @csrf
                                         @method('DELETE')
-                                        <button class="button is-danger" type="submit">Supprimer</button>
+																				@if(Auth::check() and Auth::user()->admin)
+												      						{!! Form::open(['method' => 'DELETE', 'route' => ['posts.destroy', $post->id]]) !!}
+												      							{!! Form::submit('Supprimer cet article', ['class' => 'btn btn-danger btn-xs ', 'onclick' => 'return confirm(\'Vraiment supprimer cet article ?\')']) !!}
+												      						{!! Form::close() !!}
+												      					@endif
                                     </form>
                                 </td>
                             </tr>

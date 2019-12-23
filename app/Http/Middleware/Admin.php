@@ -21,7 +21,7 @@ class Admin
 		{
 			return $next($request);
 		}
-		return new RedirectResponse(url('post'));
+		return new RedirectResponse(url('posts'));
 	}
 
 }

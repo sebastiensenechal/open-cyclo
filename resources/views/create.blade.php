@@ -9,27 +9,27 @@
 			<header class="card-header">
 					<p class="card-header-title">Création d'un article</p>
 			</header>
-        <div class="card-content">
+        <!-- <div class="card-content">
             <div class="content">
                 <form action="{{ route('posts.store') }}" method="POST">
                     @csrf
                     <div class="field">
                         <label class="label">Titre</label>
                         <div class="control">
-                          <input class="input @error('titre') is-danger @enderror" type="text" name="titre" value="{{ old('titre') }}" placeholder="Titre du film" required>
+                          <input class="input @error('titre') is-danger @enderror" type="text" name="titre" value="{{ old('titre') }}" placeholder="Titre du film">
                         </div>
-                        <!-- @error('titre')
+                        @error('titre')
                             <p class="help is-danger">{{ $message }}</p>
-                        @enderror -->
+                        @enderror
                     </div>
 										<div class="field">
 	                      <label class="label">Article</label>
 	                      <div class="control">
-	                          <textarea class="textarea" name="contenu" placeholder="Article" required>{{ old('contenu') }}</textarea>
+	                          <textarea class="textarea" name="contenu" placeholder="Article">{{ old('contenu') }}</textarea>
 	                      </div>
-	                      <!-- @error('contenu')
+	                      @error('contenu')
 	                          <p class="help is-danger">{{ $message }}</p>
-	                      @enderror -->
+	                      @enderror
 	                  </div>
                     <div class="field">
                         <div class="control">
@@ -38,35 +38,40 @@
                     </div>
                 </form>
             </div>
-        </div>
+        </div> -->
 
-							<!-- <form action="{{ route('posts.store') }}" method="POST">
-									@csrf
-									<div class="field">
-											<label class="label">Titre</label>
-											<div class="control">
-												<input class="input @error('titre') is-danger @enderror" type="text" name="titre" value="{{ old('titre') }}" placeholder="Titre de l'article" required>
-											</div>
-											@error('titre')
-													<p class="help is-danger">{{ $message }}</p>
-											@enderror
+				<div class="card">
+	<div class="card-content">
+			<div class="content">
+					<form action="{{ route('posts.store') }}" method="POST">
+							@csrf
+							<div class="field">
+									<label class="label">Titre</label>
+									<div class="control">
+										<input class="input @error('titre') is-danger @enderror" type="text" name="titre" value="{{ old('titre') }}" placeholder="Titre">
 									</div>
-
-									<div class="field">
-											<label class="label">Article</label>
-											<div class="control">
-													<textarea class="textarea" name="post" placeholder="Description du post" required>{{ old('post') }}</textarea>
-											</div>
-											@error('post')
-													<p class="help is-danger">{{ $message }}</p>
-											@enderror
+									@error('titre')
+											<p class="help is-danger">{{ $message }}</p>
+									@enderror
+							</div>
+							<div class="field">
+									<label class="label">Article</label>
+									<div class="control">
+											<textarea class="textarea" name="contenu" placeholder="Article">{{ old('contenu') }}</textarea>
 									</div>
-									<div class="field">
-											<div class="control">
-												<button class="button is-link">Envoyer</button>
-											</div>
+									@error('contenu')
+											<p class="help is-danger">{{ $message }}</p>
+									@enderror
+							</div>
+							<div class="field">
+									<div class="control">
+										<button class="button is-link">Envoyer</button>
 									</div>
-							</form> -->
+							</div>
+					</form>
+			</div>
+	</div>
+</div>
 
 
 							<!-- {!! Form::open(['route' => 'posts.store', 'class' => 'form-horizontal panel']) !!}
