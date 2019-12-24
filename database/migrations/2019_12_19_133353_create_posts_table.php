@@ -13,7 +13,7 @@ class CreatePostsTable extends Migration
      */
     public function up()
     {
-        Schema::disableForeignKeyConstraints();
+        // Schema::disableForeignKeyConstraints();
         Schema::create('posts', function(Blueprint $table) {
             $table->increments('id');
             $table->timestamps();
@@ -36,9 +36,9 @@ class CreatePostsTable extends Migration
      */
     public function down()
     {
-        Schema::table('posts', function(Blueprint $table) {
-            $table->dropForeign('posts_user_id_foreign');
-        });
+        // Schema::table('posts', function(Blueprint $table) {
+        //     $table->dropForeign('posts_user_id_foreign');
+        // });
         Schema::dropIfExists('posts');
     }
 }

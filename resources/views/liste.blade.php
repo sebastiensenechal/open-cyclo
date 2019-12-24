@@ -11,49 +11,33 @@
 
 @section('contenu')
 
-@if(session()->has('info'))
-    <div class="notification is-success">
-        {{ session('info') }}
-    </div>
-@endif
+		<section>
+				<header id="header-content">
+					<h2>Nos actualités</h2>
+
+					@if(session()->has('info'))
+					    <div class="notification is-success">
+					        {{ session('info') }}
+					    </div>
+					@endif
+				</header>
 
 
-      <div class="card-content">
-            <div class="content">
-                <table class="table is-hoverable">
-                    <thead>
-                        <tr>
-                            <th>#</th>
-                            <th>Titre</th>
-                            <th></th>
-                            <th></th>
-                            <th></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach($posts as $post)
-                            <tr>
-                                <td>{{ $post->id }}</td>
-                                <td><strong>{{ $post->titre }}</strong></td>
-                                <td><a class="button is-primary" href="{{ route('posts.show', $post->id) }}">Voir</a></td>
-                                <td><a class="button is-warning" href="{{ route('posts.edit', $post->id) }}">Modifier</a></td>
-                                <td>
-                                    <form action="{{ route('posts.destroy', $post->id) }}" method="post">
-                                        @csrf
-                                        @method('DELETE')
-																				@if(Auth::check() and Auth::user()->admin)
-												      						{!! Form::open(['method' => 'DELETE', 'route' => ['posts.destroy', $post->id]]) !!}
-												      							{!! Form::submit('Supprimer cet article', ['class' => 'btn btn-danger btn-xs ', 'onclick' => 'return confirm(\'Vraiment supprimer cet article ?\')']) !!}
-												      						{!! Form::close() !!}
-												      					@endif
-                                    </form>
-                                </td>
-                            </tr>
-                        @endforeach
-                    </tbody>
-                </table>
-            </div>
-        </div>
+	      @foreach($posts as $post)
+						<article>
+			      	<h3>{{ $post->titre }}</h3>
 
-{{ $posts->links() }}
+								<ul class="list-meta">
+									<li><a href="{{ route('posts.show', $post->id) }}">Voir</a></li>
+									<li><a href="{{ route('posts.edit', $post->id) }}">Modifier</a></li>
+								</ul>
+						</article>
+	      @endforeach
+
+				<footer class="pagination">
+					{{ $posts->links() }}
+				</footer>
+		</section>
+
+
 @endsection

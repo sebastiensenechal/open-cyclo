@@ -45,7 +45,11 @@ class PostController extends Controller
      */
      public function store(PostRequest $postRequest)
      {
-       Post::create($postRequest->all());
+       $user = auth()->user();
+       $data = $postRequest->all();
+       $data['user_id']=$user->id;
+       
+       Post::create($data);
 
        return redirect()->route('posts.index')->with('info', 'Le film a bien été créé');
      }

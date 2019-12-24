@@ -135,6 +135,9 @@ h2, h3 {
   font-family: 'Montserrat', sans-serif;
   font-weight: 600;
 }
+#right a:visited {
+  color:#FCE4EC;
+}
 
 
 
@@ -156,6 +159,11 @@ main header#header-content {
   background-color: transparent;
   color:inherit;
   text-align: left;
+  color: rgb(68, 68, 68);
+}
+#post-content #header-content h1 {
+  padding: 0;
+  color: rgb(68, 68, 68);
 }
 #left > div {
   display: flex;
@@ -164,7 +172,18 @@ main header#header-content {
   height: 80%;
   text-align: center;
 }
-
+#content {
+  margin: 2em auto;
+  width: 70vw;
+}
+section {
+  margin: 1em auto;
+  width: 70vw;
+}
+.form-center {
+  margin: auto;
+  width: 70vw;
+}
 
 
 /* ********************
@@ -212,6 +231,30 @@ nav#nav li span {
 nav#nav .active {
   background-color: #01bfb2;
   color: #ffffff;
+}
+
+ul.list-meta {
+  list-style: none;
+  padding-left: 0;
+  display: flex;
+}
+ul.list-meta li {
+  margin-right: 1em;
+}
+
+ul.pagination {
+  list-style: none;
+  display: flex;
+}
+ul.pagination li {
+  margin: 0 .5em;
+}
+ul.pagination li.active {
+  background-color: #01bfb2;
+  color:#fff;
+}
+ul.pagination li a {
+  padding: 1em;
 }
 
 
@@ -277,14 +320,7 @@ nav#toolbar .active {
 
 
 /* COMPOSENTS */
-#content {
-  margin: 2em auto;
-  width: 70vw;
-}
-.form-center {
-  margin: auto;
-  width: 70vw;
-}
+
 input, button, input[type="file"] {
 	outline: none !important;
 }

@@ -38,9 +38,6 @@ Auth::routes();
 Auth::routes(['verify' => true]); // Activer la vérification des adresses mails. Implement dans User.php
 Route::get('/home', 'HomeController@index')->name('home');
 
-
-
-
 Route::resource('posts', 'PostController');
 
 // --------------------------
@@ -52,11 +49,6 @@ Route::middleware('auth')->group(function () {
     // Formulaire ajout d'images
     Route::get('photo', 'PhotoController@getForm');
     Route::post('photo', 'PhotoController@postForm');
-
-    Route::get('posts.create', 'PostController@create');
-    Route::post('posts.store', 'PostController@store');
-    Route::put('posts.update', 'PostController@update');
-    Route::get('posts.edit', 'PostController@edit');
 });
 
 
@@ -64,7 +56,11 @@ Route::middleware('auth')->group(function () {
 //   Administrateur
 // --------------------------
 Route::middleware('admin')->group(function () {
-    //
+    Route::get('posts.create', 'PostController@create');
+    Route::post('posts.store', 'PostController@store');
+    Route::put('posts.update', 'PostController@update');
+    Route::get('posts.edit', 'PostController@edit');
+    Route::delete('posts.destroy', 'PostController@destroy');
 });
 
 

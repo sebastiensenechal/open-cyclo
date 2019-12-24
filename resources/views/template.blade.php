@@ -24,7 +24,7 @@
         <nav id="nav">
           <ul>
             <li><a class="active" href="{{ route('map') }}">Carte</a></li>
-            <li><a href="{{ url('posts') }}">News</a></li>
+            <li><a href="{{ url('posts') }}">Actualités</a></li>
             <li><a href="aide">Aide</a></li>
             <li><a href="{{ url('contact') }}">Contact</a></li>
             @guest
