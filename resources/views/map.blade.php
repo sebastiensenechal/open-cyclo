@@ -6,6 +6,7 @@
         <title>{{ config('app.name', 'Opencyclo') }}</title>
         <!-- CSRF Token -->
         <meta name="csrf-token" content="{{ csrf_token() }}">
+        <script src="{{ asset('js/app.js') }}" defer></script>
         {{ Html::style('../public/css/style.css') }}
         {{ Html::style('https://fonts.googleapis.com/icon?family=Material+Icons') }}
         <!--[if lt IE 9]>
@@ -49,9 +50,7 @@
             </ul>
           </nav>
 
-          <!-- <exemple-component></exemple-component> -->
         </header>
-
 
 
         <main>
@@ -62,7 +61,10 @@
               </article>
             </section> -->
             <div id="map">
-              <!-- API cartographique -->
+              <div id="app">
+                <example-component></example-component>
+                <!-- API cartographique -->
+              </div>
             </div>
         </main>
 

@@ -17,11 +17,19 @@ class Admin
 	 */
 	public function handle($request, Closure $next)
 	{
-		if ($request->user()->admin)
-		{
-			return $next($request);
-		}
-		return new RedirectResponse(url('posts'));
+		$user = $request->user();
+
+		if ($user && $user->role === 'admin') {
+        return $next($request);
+    }
+
+		return redirect()->route('map');
+
+		// if ($request->user()->admin)
+		// {
+		// 	return $next($request);
+		// }
+		// return new RedirectResponse(url('posts'));
 	}
 
 }

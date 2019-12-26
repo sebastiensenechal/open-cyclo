@@ -1,18 +1,14 @@
-@extends('template')
+@extends('layouts.app')
 
 @section('titre')
-		Modification d'un utilisateur
+		Modifier le profil
 @endsection
 
-@section('sous-titre')
-		<p>Loem ipsum</p>
-@endsection
+@section('content')
 
-@section('contenu')
-
-<section id="content">
+<section class="container">
   <header id="header-content">
-    <h2>Modification d'un utilisateur</h2>
+    <h2>Modifier le profil</h2>
   </header>
 
 			{!! Form::model($user, ['route' => ['user.update', $user->id], 'method' => 'put', 'class' => 'form-horizontal panel']) !!}
@@ -31,13 +27,15 @@
 					</label>
 				</div>
 			</div>
-				{!! Form::submit('Envoyer', ['class' => 'btn btn-primary pull-right']) !!}
+				{!! Form::submit('Envoyer', ['class' => 'btn btn-primary']) !!}
 			{!! Form::close() !!}
 
 
-		<a href="javascript:history.back()" class="btn btn-primary">
-			<span class="glyphicon glyphicon-circle-arrow-left"></span> Retour
-		</a>
+			{!! Form::open(['method' => 'DELETE', 'route' => ['user.destroy', $user->id]]) !!}
+				{!! Form::submit('Supprimer', ['class' => 'btn btn-primary', 'onclick' => 'return confirm(\'Vraiment supprimer cet utilisateur ?\')']) !!}
+			{!! Form::close() !!}
+
+		<p><a href="javascript:history.back()" class="btn btn-primary">Retour</a></p>
 
 </section>
 

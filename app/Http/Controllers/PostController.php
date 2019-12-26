@@ -48,10 +48,10 @@ class PostController extends Controller
        $user = auth()->user();
        $data = $postRequest->all();
        $data['user_id']=$user->id;
-       
+
        Post::create($data);
 
-       return redirect()->route('posts.index')->with('info', 'Le film a bien été créé');
+       return redirect()->route('posts.index')->with('info', 'Votre article a bien été créé');
      }
 
 
@@ -95,7 +95,7 @@ class PostController extends Controller
     public function update(PostRequest $postRequest, Post $post)
     {
         $post->update($postRequest->all());
-        return redirect()->route('posts.index')->with('info', 'Le film a bien été modifié');
+        return redirect()->route('posts.index')->with('info', 'Votre article a bien été modifié');
     }
 
 
@@ -110,6 +110,6 @@ class PostController extends Controller
      public function destroy(Post $post)
    	 {
        $post->delete();
-       return redirect()->route('posts.index')->with('info', 'Le film a bien été supprimé dans la base de données.');
+       return redirect()->route('posts.index')->with('info', 'Votre article a bien été supprimé avec succès.');
    	 }
 }

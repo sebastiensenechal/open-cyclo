@@ -40,6 +40,21 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::resource('posts', 'PostController');
 
+
+
+// Route::middleware('auth')->group(function () {
+//     Route::get('/', function ()    {
+//         return view('map');
+//     });
+//     // Route::get('comptes', function () {
+//     //     // Réservé aux utilisateurs authentifiés
+//     // });
+// });
+//
+// Route::middleware('admin')->group(function () {
+//     ...
+// }
+
 // --------------------------
 //   Utilisateur connecté
 // --------------------------

@@ -20,10 +20,6 @@
             <p>{{ $post->contenu }}</p>
         </article>
 
-				@if(Auth::check() and Auth::user()->admin)
-					{!! Form::open(['method' => 'DELETE', 'route' => ['posts.destroy', $post->id]]) !!}
-						{!! Form::submit('Supprimer cet article', ['class' => 'btn btn-danger btn-xs ', 'onclick' => 'return confirm(\'Vraiment supprimer cet article ?\')']) !!}
-					{!! Form::close() !!}
-				@endif
+				
     </section>
 @endsection

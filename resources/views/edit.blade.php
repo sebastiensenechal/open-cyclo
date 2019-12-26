@@ -7,7 +7,7 @@
 @section('contenu')
 	<section>
     <header class="card-header">
-          <p class="card-header-title">Modification d'un article</p>
+          <p class="card-header-title">Modifier un article</p>
       </header>
       <div class="card-content">
           <div class="content">
@@ -33,10 +33,16 @@
                           <p class="help is-danger">{{ $message }}</p>
                       @enderror
                   </div>
-                  
+
                   <div class="field">
                       <div class="control">
-                        <button class="button is-link">Envoyer</button>
+                        {!! Form::submit('Envoyer !') !!}
+
+												@if(Auth::check() and Auth::user()->admin)
+													{!! Form::open(['method' => 'DELETE', 'route' => ['posts.destroy', $post->id]]) !!}
+														{!! Form::submit('Supprimer cet article', ['class' => 'btn btn-danger btn-xs ', 'onclick' => 'return confirm(\'Vraiment supprimer cet article ?\')']) !!}
+													{!! Form::close() !!}
+												@endif
                       </div>
                   </div>
               </form>
