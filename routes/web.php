@@ -36,31 +36,28 @@ Route::get('/', ['uses' => 'MapController@index', 'as' => 'map']);
 // ------------------------------
 Auth::routes();
 Auth::routes(['verify' => true]); // Activer la vérification des adresses mails. Implement dans User.php
-Route::get('/home', 'HomeController@index')->name('home');
-
+Route::get('home', 'HomeController@index')->name('home')->middleware('admin'); // Admin
+Route::get('contribute', 'ContributeController@index')->name('contribute')->middleware('contribute'); // Abonnés
 Route::resource('posts', 'PostController');
+// Route::resource('user', 'UserController');
 
-
-
-// Route::middleware('auth')->group(function () {
-//     Route::get('/', function ()    {
-//         return view('map');
+// Route::middleware('contribute')->group(function () {
+//     Route::get('user', function ()    {
+//         return view('user');
 //     });
 //     // Route::get('comptes', function () {
 //     //     // Réservé aux utilisateurs authentifiés
 //     // });
 // });
-//
-// Route::middleware('admin')->group(function () {
-//     ...
-// }
 
 // --------------------------
 //   Utilisateur connecté
 // --------------------------
-Route::middleware('auth')->group(function () {
-    // Route pour la gestion des utilisateurs
-    Route::resource('user', 'UserController');
+Route::middleware('contribute')->group(function () {
+    Route::resource('user', 'UserController', ['except' => ['destroy']]);
+    Route::get('user.show', 'UserController@show');
+    Route::get('user.edit', 'UserController@edit');
+    Route::put('user.update', 'UserController@update');
     // Formulaire ajout d'images
     Route::get('photo', 'PhotoController@getForm');
     Route::post('photo', 'PhotoController@postForm');
@@ -71,13 +68,15 @@ Route::middleware('auth')->group(function () {
 //   Administrateur
 // --------------------------
 Route::middleware('admin')->group(function () {
+    Route::resource('user', 'UserController');
     Route::get('posts.create', 'PostController@create');
     Route::post('posts.store', 'PostController@store');
     Route::put('posts.update', 'PostController@update');
     Route::get('posts.edit', 'PostController@edit');
-    Route::delete('posts.destroy', 'PostController@destroy');
+
 });
 
+Route::delete('posts.destroy', 'PostController@destroy')->middleware('admin');
 
 // -------------------------------------------------------
 //   Bloque l'accès à certaines zones si mail non vérifié

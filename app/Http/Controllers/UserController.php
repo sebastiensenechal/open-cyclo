@@ -17,70 +17,73 @@ class UserController extends Controller
     protected $nbrPerPage = 4;
 
     public function __construct(UserRepository $userRepository)
-	{
-		$this->userRepository = $userRepository;
-	}
+  	{
+        // $this->middleware('contribute', ['except' => 'index']);
+        // $this->middleware('admin');
 
-	public function index()
-	{
-		$users = $this->userRepository->getPaginate($this->nbrPerPage);
-		$links = $users->render();
+  		  $this->userRepository = $userRepository;
+  	}
 
-		return view('indexUsers', compact('users', 'links'));
-	}
+  	public function index()
+  	{
+    		$users = $this->userRepository->getPaginate($this->nbrPerPage);
+    		$links = $users->render();
 
-	public function create()
-	{
-		return view('createUser');
-	}
+    		return view('indexUsers', compact('users', 'links'));
+  	}
 
-	public function store(UserCreateRequest $request)
-	{
-		$this->setAdmin($request);
+  	public function create()
+  	{
+  		  return view('createUser');
+  	}
 
-		$user = $this->userRepository->store($request->all());
+  	public function store(UserCreateRequest $request)
+  	{
+    		$this->setAdmin($request);
 
-		return redirect('user')->withOk("L'utilisateur " . $user->name . " a été créé.");
-	}
+    		$user = $this->userRepository->store($request->all());
 
-	public function show($id)
-	{
-		$user = $this->userRepository->getById($id);
+    		return redirect('user')->withOk("L'utilisateur " . $user->name . " a été créé.");
+  	}
 
-		return view('showUser',  compact('user'));
-	}
+  	public function show($id)
+  	{
+    		$user = $this->userRepository->getById($id);
 
-	public function edit($id)
-	{
-		$user = $this->userRepository->getById($id);
+    		return view('showUser',  compact('user'));
+  	}
 
-		return view('editUser',  compact('user'));
-	}
+  	public function edit($id)
+  	{
+    		$user = $this->userRepository->getById($id);
 
-	public function update(UserUpdateRequest $request, $id)
-	{
-		$this->setAdmin($request);
+    		return view('editUser',  compact('user'));
+  	}
 
-		$this->userRepository->update($id, $request->all());
+  	public function update(UserUpdateRequest $request, $id)
+  	{
+    		$this->setAdmin($request);
 
-		return redirect('user')->withOk("L'utilisateur " . $request->input('name') . " a été modifié.");
-	}
+    		$this->userRepository->update($id, $request->all());
 
-	public function destroy($id)
-	{
-		$this->userRepository->destroy($id);
+    		return redirect('user')->withOk("L'utilisateur " . $request->input('name') . " a été modifié.");
+  	}
 
-		return redirect()->back();
-	}
+  	public function destroy($id)
+  	{
+    		$this->userRepository->destroy($id);
+
+    		return redirect()->back();
+  	}
 
 
-  // Gère la checkbox "Adminitrateur" du formulaire.
-	private function setAdmin($request)
-	{
-		if(!$request->has('admin'))
-		{
-			$request->merge(['admin' => 0]);
-		}
-	}
+    // Gère la checkbox "Adminitrateur" du formulaire.
+  	private function setAdmin($request)
+  	{
+    		if(!$request->has('admin'))
+    		{
+    			$request->merge(['admin' => 0]);
+    		}
+  	}
 
 }

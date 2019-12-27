@@ -62,7 +62,7 @@
             </section> -->
             <div id="map">
               <div id="app">
-                <example-component></example-component>
+                <map-component></map-component>
                 <!-- API cartographique -->
               </div>
             </div>
@@ -76,7 +76,7 @@
               <li id="find-me"><i class="material-icons">location_searching</i></li>
               <li><a href="#"><i class="material-icons">comment</i></a></li>
               <li><a href="aide"><i class="material-icons">help_outline</i></a></li>
-              <li><a href="user"><i class="material-icons">person</i></a></li>
+              <li><a href="contribute"><i class="material-icons">person</i></a></li>
             </ul>
           </nav>
         </footer>

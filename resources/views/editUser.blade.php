@@ -20,6 +20,7 @@
 			  	{!! Form::email('email', null, ['class' => 'form-control', 'placeholder' => 'Email', 'required']) !!}
 			  	{!! $errors->first('email', '<small class="help-block">:message</small>') !!}
 			</div>
+			@if (Auth::user()->admin === 1)
 			<div class="form-group">
 				<div class="checkbox">
 					<label>
@@ -27,6 +28,7 @@
 					</label>
 				</div>
 			</div>
+			@endif
 				{!! Form::submit('Envoyer', ['class' => 'btn btn-primary']) !!}
 			{!! Form::close() !!}
 
