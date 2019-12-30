@@ -30,12 +30,14 @@
 							{{ $post->excerpt }}
 								<ul class="list-meta">
 									<li><a href="{{ route('posts.show', $post->id) }}">Voir</a></li>
-									<li><a href="{{ route('posts.edit', $post->id) }}">Modifier</a></li>
-									<li>
-										{!! Form::open(['method' => 'DELETE', 'route' => ['posts.destroy', $post->id]]) !!}
-												{!! Form::submit('Supprimer cet article', ['class' => 'btn btn-danger btn-inline ', 'onclick' => 'return confirm(\'Vraiment supprimer cet article ?\')']) !!}
-											{!! Form::close() !!}
-									</li>
+									@if(Auth::check() and Auth::user()->admin)
+										<li><a href="{{ route('posts.edit', $post->id) }}">Modifier</a></li>
+										<li>
+											{!! Form::open(['method' => 'DELETE', 'route' => ['posts.destroy', $post->id]]) !!}
+													{!! Form::submit('Supprimer cet article', ['class' => 'btn btn-danger btn-inline ', 'onclick' => 'return confirm(\'Vraiment supprimer cet article ?\')']) !!}
+												{!! Form::close() !!}
+										</li>
+									@endif
 								</ul>
 						</article>
 	      @endforeach

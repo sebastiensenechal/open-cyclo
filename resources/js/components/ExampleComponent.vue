@@ -3,11 +3,10 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header">name {{ name }}</div>
-                    <input type="text" v-model="name">
+                    <div class="card-header">Example Component</div>
 
                     <div class="card-body">
-                        I'm an example component.
+                        {{ info }}
                     </div>
                 </div>
             </div>
@@ -17,21 +16,15 @@
 
 <script>
     export default {
-        data: function() {
-          return {
-          name: 0
-          }
-        }
-        mounted() {
-            console.log('Component mounted.')
+        data () {
+            return {
+              info: null
+            }
+        },
+        mounted () {
+            axios
+              .get('https://api.coindesk.com/v1/bpi/currentprice.json')
+              .then(response => (this.info = response))
         }
     }
 </script>
-
-<style lang="scss" scope>
-  .container {
-    .card-header{
-      background: green;
-    }
-  }
-</style>

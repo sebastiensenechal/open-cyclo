@@ -6,7 +6,6 @@
         <title>{{ config('app.name', 'Opencyclo') }}</title>
         <!-- CSRF Token -->
         <meta name="csrf-token" content="{{ csrf_token() }}">
-        <script src="{{ asset('js/app.js') }}" defer></script>
         {{ Html::style('../public/css/style.css') }}
         {{ Html::style('https://fonts.googleapis.com/icon?family=Material+Icons') }}
         <!--[if lt IE 9]>
@@ -17,7 +16,7 @@
         integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
         crossorigin=""/>
     </head>
-    <body id="home"> <!-- Vue.js, identifiant "app" -->
+    <body id="home">
 
         <header>
           <h1 id="title-home">Opencyclo</h1>
@@ -62,7 +61,7 @@
             </section> -->
             <div id="map">
               <div id="app">
-                <map-component></map-component>
+                <example-component></example-component>
                 <!-- API cartographique -->
               </div>
             </div>
@@ -81,7 +80,7 @@
           </nav>
         </footer>
 
-        <!-- <script src="{{ asset('js/app.js') }}"></script> -->
+        <script src="{{ asset('js/app.js') }}"></script>
         <script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js" integrity="sha512-GffPMF3RvMeYyc1LWMHtK8EbPv0iNZ8/oTtHPx9/cc2ILxQ+u905qIwdpULaqDkyBKgOaB57QTMg7ztg8Jm2Og==" crossorigin=""></script>
         {{ Html::script('../public/js/map.js') }}
         <script>Maps.initMap();</script>
