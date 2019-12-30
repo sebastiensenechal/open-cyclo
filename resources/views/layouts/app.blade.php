@@ -76,5 +76,7 @@
             @yield('content')
         </main>
     </div>
+
+    <script src="{{ asset('node_modules/tinymce/tinymce.js') }}"></script>
 </body>
 </html>

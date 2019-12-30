@@ -24,7 +24,7 @@
           <nav id="nav">
             <ul>
               <li><a class="active" href="{{ route('map') }}" title="Carte"><i class="material-icons">map</i> <span>Carte</span></a></li>
-              <li><a href="{{ url('posts') }}" title="Rester informé"><i class="material-icons">info</i> <span> Actualités</a></li>
+              <li><a href="{{ url('posts') }}" title="Rester informé"><i class="material-icons">info</i> <span> Infos cyclo</a></li>
               <li><a href="aide" title="Demander de l'aider"><i class="material-icons">help_outline</i> <span>Aide</span></a></li>
               <li><a href="{{ url('contact') }}"><i class="material-icons">mail_outline</i> <span>Contact</span></a></li>
               @guest

@@ -15,16 +15,32 @@ class PostTableSeeder extends Seeder {
     		DB::table('posts')->delete();
 
         // Création de 100 articles
-    		for($i = 0; $i < 100; ++$i)
+    		for($i = 0; $i < 20; ++$i)
     		{
       			$date = $this->randDate();
       			DB::table('posts')->insert([
       				'titre' => 'Titre' . $i,
-      				'contenu' => 'Contenu' . $i . ' Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
-      				'user_id' => rand(1, 10),
+      				'contenu' => $ret,
+              'excerpt' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+      				'user_id' => rand(2, 6),
+              // 'user_id' => $this->random('User')->id
       				'created_at' => $date,
       				'updated_at' => $date
       			]);
     		}
   	}
+
+
+    public function getFakeData(Generator $faker)
+     {
+         $paragraphs = rand(1, 5);
+         $nb = 0;
+         $ret = "";
+         while ($nb < $paragraphs) {
+             $ret .= "<p>" . $faker->paragraph(rand(2, 6)) . "</p>";
+             $nb++;
+         }
+         return $ret;
+     }
+
 }

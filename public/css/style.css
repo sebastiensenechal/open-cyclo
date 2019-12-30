@@ -387,6 +387,29 @@ input, textarea {
   width: auto;
 }
 
+#header-content form {
+  display:inline-block;
+}
+form .btn-inline {
+  padding: 0;
+  background: none;
+  color: rgb(68, 68, 68);
+  text-align: left;
+  margin-bottom: 0;
+  border: 0;
+  font-family: inherit;
+  text-decoration: underline;
+  width: auto;
+  display: inline-block;
+}
+#header-content form .btn-inline:visited {
+  color: rgb(100, 100, 100);
+}
+form .btn-danger:hover {
+  background: red;
+  color: #fff;
+}
+
 
 @media (orientation: landscape) and (min-width: 960px) {
   /* Tablet */

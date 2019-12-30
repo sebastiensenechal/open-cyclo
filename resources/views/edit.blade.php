@@ -1,13 +1,19 @@
 @extends('template')
 
 @section('titre')
-		Ajouter un article
+		Modifier un article
 @endsection
 
 @section('contenu')
 	<section>
     <header class="card-header">
-          <p class="card-header-title">Modifier un article</p>
+          <h2>Renseignez les champs ci-dessous</h2>
+
+					<ul class="list-meta">
+						<li>
+							<a href="{{ url('posts') }}">Retour à la liste des articles</a>
+						</li>
+					</ul>
       </header>
       <div class="card-content">
           <div class="content">
@@ -24,10 +30,20 @@
                       @enderror
                   </div>
 
-                  <div class="field">
+									<div class="field">
+                      <label class="label">Extrait</label>
+                      <div class="control">
+                          <textarea class="textarea" name="excerpt" placeholder="Extrait" required>{{ old('excerpt', $post->excerpt) }}</textarea>
+                      </div>
+                      @error('excerpt')
+                          <p class="help is-danger">{{ $message }}</p>
+                      @enderror
+                  </div>
+
+									<div class="field">
                       <label class="label">Article</label>
                       <div class="control">
-                          <textarea class="textarea" name="contenu" placeholder="Article" required>{{ old('contenu', $post->contenu) }}</textarea>
+                          <textarea class="textarea" id="content" name="contenu" rows="25" placeholder="Article" required>{{ old('contenu', $post->contenu) }}</textarea>
                       </div>
                       @error('contenu')
                           <p class="help is-danger">{{ $message }}</p>
@@ -37,14 +53,10 @@
                   <div class="field">
                       <div class="control">
                         {!! Form::submit('Envoyer !') !!}
-
-												@if(Auth::check() and Auth::user()->admin)
-													{!! Form::open(['method' => 'DELETE', 'route' => ['posts.destroy', $post->id]]) !!}
-														{!! Form::submit('Supprimer cet article', ['class' => 'btn btn-danger btn-xs ', 'onclick' => 'return confirm(\'Vraiment supprimer cet article ?\')']) !!}
-													{!! Form::close() !!}
-												@endif
                       </div>
                   </div>
+
+
               </form>
           </div>
       </div>

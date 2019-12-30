@@ -1,7 +1,7 @@
 @extends('template')
 
 @section('titre')
-		Nous contacter
+		Nos articles
 @endsection
 
 @section('sous-titre')
@@ -12,14 +12,24 @@
 
         <header id="header-content">
             <h1>{{ $post->titre }}</h1>
-						<em>{{ $post->user->name }} le {!! $post->created_at->format('d-m-Y') !!} @if(Auth::check() and Auth::user()->admin)
-							<span><a href="{{ route('posts.edit', $post->id) }}">Modifier</a></span>@endif</em>
+						<p>{{ $post->user->name }} le {!! $post->created_at->format('d-m-Y') !!}</p>
+
+						@if(Auth::check() and Auth::user()->admin)
+						<ul class="list-meta">
+							<li><span><a href="{{ route('posts.edit', $post->id) }}">Modifier</a></li>
+							<li>{!! Form::open(['method' => 'DELETE', 'route' => ['posts.destroy', $post->id]]) !!}
+										{!! Form::submit('Supprimer cet article', ['class' => 'btn btn-danger btn-inline ', 'onclick' => 'return confirm(\'Vraiment supprimer cet article ?\')']) !!}
+									{!! Form::close() !!}
+								</span></li>
+						</ul>
+						@endif
+
         </header>
 
         <article class="content">
-            <p>{{ $post->contenu }}</p>
+            {!! $post->contenu !!}
         </article>
 
-				
+
     </section>
 @endsection

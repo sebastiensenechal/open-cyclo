@@ -54,15 +54,27 @@
 											<p class="help is-danger">{{ $message }}</p>
 									@enderror
 							</div>
+
+							<div class="field">
+									<label class="label">Extrait</label>
+									<div class="control">
+											<textarea class="textarea" name="excerpt" placeholder="Extrait"></textarea>
+									</div>
+									@error('excerpt')
+											<p class="help is-danger">{{ $message }}</p>
+									@enderror
+							</div>
+
 							<div class="field">
 									<label class="label">Article</label>
 									<div class="control">
-											<textarea class="textarea" name="contenu" placeholder="Article">{{ old('contenu') }}</textarea>
+											<textarea class="textarea" id="content" rows="25" name="contenu" placeholder="Article"></textarea>
 									</div>
 									@error('contenu')
 											<p class="help is-danger">{{ $message }}</p>
 									@enderror
 							</div>
+
 							<div class="field">
 									<div class="control">
 										<button class="button is-link">Envoyer</button>

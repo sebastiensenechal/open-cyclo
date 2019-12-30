@@ -17,67 +17,71 @@
 
 <body>
 
-  <div id="page-container">
+    <div id="page-container">
 
-    <header id="header">
-      <div id="left">
-        <nav id="nav">
-          <ul>
-            <li><a class="active" href="{{ route('map') }}">Carte</a></li>
-            <li><a href="{{ url('posts') }}">Actualités</a></li>
-            <li><a href="aide">Aide</a></li>
-            <li><a href="{{ url('contact') }}">Contact</a></li>
-            @guest
-                <li>
-                    <a href="{{ route('login') }}">{{ __('Login') }}</a>
-                </li>
-                @if (Route::has('register'))
-                    <li>
-                        <a href="{{ route('register') }}">{{ __('Register') }}</a>
-                    </li>
-                @endif
-            @else
-                <li><a href="{{ route('home') }}">Dashbord</a></li>
-                <li>
-                    <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                        {{ __('Logout') }}
-                    </a>
-                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                        @csrf
-                    </form>
-                </li>
-            @endguest
-          </ul>
-        </nav>
+      <header id="header">
+        <div id="left">
+          <nav id="nav">
+            <ul>
+              <li><a class="active" href="{{ route('map') }}">Carte</a></li>
+              <li><a href="{{ url('posts') }}">Infos cyclo</a></li>
+              <li><a href="aide">Aide</a></li>
+              <li><a href="{{ url('contact') }}">Contact</a></li>
+              @guest
+                  <li>
+                      <a href="{{ route('login') }}">{{ __('Login') }}</a>
+                  </li>
+                  @if (Route::has('register'))
+                      <li>
+                          <a href="{{ route('register') }}">{{ __('Register') }}</a>
+                      </li>
+                  @endif
+              @else
+                  <li><a href="{{ route('home') }}">Dashbord</a></li>
+                  <li>
+                      <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                          {{ __('Logout') }}
+                      </a>
+                      <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                          @csrf
+                      </form>
+                  </li>
+              @endguest
+            </ul>
+          </nav>
 
-        <div>
-          <h1 id="title-site">@yield('titre')</h1>
+          <div>
+            <h1 id="title-site">@yield('titre')</h1>
+          </div>
+
+          <i class="material-icons md-cyan md-36">arrow_downward</i>
         </div>
 
-        <i class="material-icons md-cyan md-36">arrow_downward</i>
-      </div>
+        <div id='right'>
+          @yield('sous-titre')
+        </div>
+      </header>
 
-      <div id='right'>
-        @yield('sous-titre')
-      </div>
-    </header>
+      <main>
+      	@yield('contenu')
+      </main>
 
-    <main>
-    	@yield('contenu')
-    </main>
+      <footer>
+        @yield('footer')
+        <nav id="legal">
+          <ul>
+            <li><a href="mention-lagel">Mentions légales</a></li>
+            <li><a href="rgpd">Données personnelles</a></li>
+            <li><a href="accessibilite">Accessibilité</a></li>
+          </ul>
+        </nav>
+      </footer>
 
-    <footer>
-      @yield('footer')
-      <nav id="legal">
-        <ul>
-          <li><a href="mention-lagel">Mentions légales</a></li>
-          <li><a href="rgpd">Données personnelles</a></li>
-          <li><a href="accessibilite">Accessibilité</a></li>
-        </ul>
-      </nav>
-    </footer>
+    </div>
 
-  </div>
-
+    <!-- Scripts -->
+    <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="{{ asset('node_modules/tinymce/tinymce.js') }}"></script>
+    {{ Html::script('../public/js/script.js') }}
 </body>
 </html>
