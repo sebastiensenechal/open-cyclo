@@ -1,30 +1,30 @@
 <template>
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-8">
-                <div class="card">
-                    <div class="card-header">Example Component</div>
+  <gmap-map
+    :ref="map"
+    :center="center"
+    :zoom="7"
+    style="width: 100vw; height: 100vh"
 
-                    <div class="card-body">
-                        {{ info }}
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+  >
+    <gmap-marker
+      :key="index"
+      v-for="(m, index) in markers"
+      :position="m.position"
+      :clickable="true"
+      :draggable="true"
+      @click="center=m.position"
+    ></gmap-marker>
+
+  </gmap-map>
 </template>
 
 <script>
-    export default {
-        data () {
-            return {
-              info: null
-            }
-        },
-        mounted () {
-            axios
-              .get('https://api.coindesk.com/v1/bpi/currentprice.json')
-              .then(response => (this.info = response))
-        }
-    }
+  import * as VueGoogleMaps from 'vue2-google-maps';
+  import Vue from 'vue';
+
+  Vue.use(VueGoogleMaps, {
+    load: {
+      key: 'AIzaSyBk23x91Y7W33DfrFMQytqEbRMQEdxuDa4'
+    },
+  });
 </script>

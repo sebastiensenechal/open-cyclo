@@ -25,8 +25,13 @@ var Maps = {
   initMarkers : function(latitude, longitude) {
       markers = L.marker([latitude, longitude]).addTo(mapCyclo);
       markers.bindPopup("Vous êtes ici !");
-  }
+  },
 
+
+	// Méthode d'initialisation des markers : Récupère les données de position
+  initMarkers2 : function(latitude, longitude) {
+			geojson = L.geoJSON(latitude, longitude).addTo(mapCyclo);
+  }
 	// locate : function() {
 	// 	mapCyclo.locate({setView: true, maxZoom: 16});
 	// }
@@ -34,6 +39,67 @@ var Maps = {
 }
 
 
+var Station = {
+  name: null,
+	statusStation: null,
+	nbBicycle: null,
+	nbAttachment: null,
+	reservation : null,
+
+  // Requête HTTP en AJAX pour récupérer les données de JC Decaux
+  ajaxGet: function(url, callback) {
+    // Création d'une requête http
+    var req = new XMLHttpRequest();
+    // Requête HTTP GET asynchrone vers JC Decaux
+    req.open("GET", url); // https://api.jcdecaux.com/vls/v1/stations?contract=creteil&apiKey=d695fb95bd1b81a4415ff3959521a2dc5d57e2f1
+    // Sécurité : Gestion de l'événement indiquant la fin de la requête
+    req.addEventListener("load", function() {
+      // Affiche la réponse reçue pour la requête
+      if ((req.status >= 200) && (req.status < 400)) {
+        console.log(req.responseText);
+        callback(req.responseText);
+      } else {
+        console.error(req.status + " " + req.statusText + " " + url);
+      }
+    });
+    req.addEventListener("error", function(){
+      console.error(`Erreur réseau avec l'URL ${url}`);
+    });
+    // Envoi de la requête
+    req.send(null);
+  }
+}
+
+
+// Appel de la méthode Ajax et récupération de la liste des stations
+Station.ajaxGet("https://opendata.paris.fr/api/records/1.0/search/?dataset=reseau-cyclable&facet=typologie_simple&facet=bidirectionnel&facet=statut&facet=sens_velo&facet=voie&facet=position&facet=circulation&facet=piste&facet=couloir_bus", function(response) {
+    var listStations = JSON.parse(response);
+		listRecords = listStations.records;
+
+		for (var i = 0; i < listRecords.length; i++) {
+				// console.log(listRecords[i]);
+				lineRecord = listRecords[i];
+				geometry = lineRecord.geometry;
+				geo_shape = lineRecord.fields.geo_shape;
+				geo_shape_coords = geo_shape.coordinates;
+
+				lon = geometry.coordinates[0];
+				lat = geometry.coordinates[1];
+				console.log(geo_shape_coords);
+
+				Maps.initMarkers2(lat, lon);
+		}
+
+		// for (var i = 0; i < listRecords.length; i++) {
+		// 	geometry[i];
+		// }
+
+		// // Parcours les données des stations
+    // geometry.forEach(function(response) {
+    //     console.log(geometry[longitude, latitude]);
+    // });
+
+});
 
 
 

@@ -59,11 +59,10 @@
               <article>
               </article>
             </section> -->
-            <div id="map">
-              <div id="app">
+            <div id="map"> <!-- id=map -->
+              <!-- <div id="root">
                 <example-component></example-component>
-                <!-- API cartographique -->
-              </div>
+              </div>-->
             </div>
         </main>
 
@@ -80,8 +79,9 @@
           </nav>
         </footer>
 
-        <script src="{{ asset('js/app.js') }}"></script>
+        <!-- <script src="{{ asset('js/app.js') }}"></script> -->
         <script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js" integrity="sha512-GffPMF3RvMeYyc1LWMHtK8EbPv0iNZ8/oTtHPx9/cc2ILxQ+u905qIwdpULaqDkyBKgOaB57QTMg7ztg8Jm2Og==" crossorigin=""></script>
+        <!-- <script src="//unpkg.com/vue2-leaflet"></script> -->
         {{ Html::script('../public/js/map.js') }}
         <script>Maps.initMap();</script>
     </body>

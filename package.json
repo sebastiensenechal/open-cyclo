@@ -27,6 +27,9 @@
         "vue-template-compiler": "^2.6.10"
     },
     "dependencies": {
-        "tinymce": "^5.1.5"
+        "leaflet": "^1.6.0",
+        "tinymce": "^5.1.5",
+        "vue2-google-maps": "^0.10.7",
+        "vue2-leaflet": "^2.4.2"
     }
 }
