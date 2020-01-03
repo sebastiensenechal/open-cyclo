@@ -26,9 +26,9 @@
 // --------------------------
 //          Racine
 // --------------------------
-Route::get('/', ['uses' => 'MapController@index', 'as' => 'map']);
+// Route::get('/', ['uses' => 'MapController@index', 'as' => 'map']);
 
-
+Route::get('/', 'FlagMapController@index')->name('map');
 
 // ------------------------------
 //   Routes d'authentification
@@ -39,6 +39,9 @@ Route::get('home', 'HomeController@index')->name('home')->middleware('admin'); /
 Route::get('contribute', 'ContributeController@index')->name('contribute')->middleware('contribute'); // Abonnés
 Route::resource('posts', 'PostController');
 // Route::resource('user', 'UserController');
+
+Route::get('/our_flags', 'FlagMapController@index')->name('flag_map.index');
+Route::resource('flags', 'FlagController');
 
 // Route::middleware('contribute')->group(function () {
 //     Route::get('user', function ()    {

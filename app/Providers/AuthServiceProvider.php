@@ -13,7 +13,8 @@ class AuthServiceProvider extends ServiceProvider
      * @var array
      */
     protected $policies = [
-        // 'App\Model' => 'App\Policies\ModelPolicy',
+        'App\Flag' => 'App\Policies\FlagsPolicy',
+        'App\Model'  => 'App\Policies\ModelPolicy',
     ];
 
     /**
@@ -25,6 +26,8 @@ class AuthServiceProvider extends ServiceProvider
     {
         $this->registerPolicies();
 
-        //
+        Gate::define('manage_flag', function () {
+            return auth()->check();
+        });
     }
 }

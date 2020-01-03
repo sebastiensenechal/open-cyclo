@@ -24,7 +24,7 @@ var Maps = {
   // Méthode d'initialisation des markers : Récupère les données de position
   initMarkers : function(latitude, longitude) {
       markers = L.marker([latitude, longitude]).addTo(mapCyclo);
-      markers.bindPopup("Vous êtes ici !");
+      markers.bindPopup("<br><a href=\"{{ route('flags.create') }}?latitude=' + latitude + '&longitude=' + longitude + '\">Add new flag here</a>");
   },
 
 

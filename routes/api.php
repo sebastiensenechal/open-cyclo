@@ -16,3 +16,9 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+
+// URL API JSON : http://localhost/sebastiensenechal/openclassroom/open-cyclo/public/api/flags
+Route::group(['as' => 'api.', 'namespace' => 'Api'], function () {
+    Route::get('flags', 'FlagController@index')->name('flags.index');
+});
