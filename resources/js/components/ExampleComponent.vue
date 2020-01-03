@@ -24,7 +24,7 @@
 
   Vue.use(VueGoogleMaps, {
     load: {
-      key: 'AIzaSyBk23x91Y7W33DfrFMQytqEbRMQEdxuDa4'
+      key: 'APIKEY'
     },
   });
 </script>
