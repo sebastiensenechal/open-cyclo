@@ -15,6 +15,7 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    {{ Html::style('https://fonts.googleapis.com/icon?family=Material+Icons') }}
     @yield('styles')
 </head>
 <body>
@@ -77,6 +78,10 @@
         <main class="py-4">
             @yield('content')
         </main>
+
+        <footer>
+            @yield('footer')
+        </footer>
     </div>
 
     <!-- Scripts -->

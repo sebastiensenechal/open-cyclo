@@ -41,23 +41,37 @@
             </div>
         </div>
 
-
         <div class="col-md-12">
-
             <div class="card">
                 <div class="card-header">
-                  <h2>Liens utiles</h2>
+                  <h2>Carte</h2>
+                </div>
+
+                <div class="card-body">
+                  <ul>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('flags.index') }}">Administrer les signalements</a>
+                    </li>
+                  </ul>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header">
+                  <h2>Utilisateurs</h2>
+                </div>
+
+                <div class="card-body">
                   <ul>
                     <li><a href="user">Administrer les utilisateurs</a></li>
                   </ul>
                 </div>
-
-                <div class="card-body">
-                    <p>Lorem ipsum</p>
-                </div>
             </div>
-
         </div>
+
     </div>
 </div>
 @endsection
