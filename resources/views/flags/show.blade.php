@@ -1,37 +1,33 @@
 @extends('layouts.app')
 
-@section('title', __('flag.detail'))
+@section('title', __('Détails'))
 
 @section('content')
 <div class="row justify-content-center">
     <div class="col-md-6">
         <div class="card">
-            <div class="card-header">{{ __('flag.detail') }}</div>
+            <div class="card-header">{{ __('Détails') }}</div>
             <div class="card-body">
                 <table class="table table-sm">
                     <tbody>
-                        <tr><td>{{ __('flag.name') }}</td><td>{{ $flag->name }}</td></tr>
-                        <tr><td>{{ __('flag.address') }}</td><td>{{ $flag->address }}</td></tr>
-                        <tr><td>{{ __('flag.latitude') }}</td><td>{{ $flag->latitude }}</td></tr>
-                        <tr><td>{{ __('flag.longitude') }}</td><td>{{ $flag->longitude }}</td></tr>
+                        <tr><td>{{ __('Type') }}</td><td>{{ $flag->name }}</td></tr>
+                        <tr><td>{{ __('Latitude') }}</td><td>{{ $flag->latitude }}</td></tr>
+                        <tr><td>{{ __('Longitude') }}</td><td>{{ $flag->longitude }}</td></tr>
                     </tbody>
                 </table>
             </div>
             <div class="card-footer">
                 @can('update', $flag)
-                    <a href="{{ route('flags.edit', $flag) }}" id="edit-flag-{{ $flag->id }}" class="btn btn-warning">{{ __('flag.edit') }}</a>
+                    <a href="{{ route('flags.edit', $flag) }}" id="edit-flag-{{ $flag->id }}" class="btn btn-warning">{{ __('Modifier') }}</a>
+                    <a href="{{ route('flags.index') }}" class="btn btn-link">{{ __('Retour aux signalements') }}</a>
                 @endcan
-                @if(auth()->check())
-                    <a href="{{ route('flags.index') }}" class="btn btn-link">{{ __('flag.back_to_index') }}</a>
-                @else
-                    <a href="{{ route('flag_map.index') }}" class="btn btn-link">{{ __('flag.back_to_index') }}</a>
-                @endif
+                    <a href="{{ route('flag_map.index') }}" class="btn btn-link">{{ __('Retour à la carte') }}</a>
             </div>
         </div>
     </div>
     <div class="col-md-6">
         <div class="card">
-            <div class="card-header">{{ trans('flag.location') }}</div>
+            <div class="card-header">{{ trans('Position') }}</div>
             @if ($flag->coordinate)
             <div class="card-body" id="mapid"></div>
             @else

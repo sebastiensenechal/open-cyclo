@@ -41,6 +41,7 @@ body {
   flex-direction: column;
   background: #d6d6d6;
 }
+#app {overflow-x: hidden;}
 #page-container {
     -moz-box-shadow: -30px 30px 8px -18px #bbb;
     -webkit-box-shadow: -30px 30px 8px -18px #bbb;
@@ -344,14 +345,17 @@ nav#toolbar .active {
 }
 #status {
   display:none;
-  position: absolute;
-  top: 50%;
-  left: 40%;
+  position: relative;
+  /*top: 50%;
+  left: 40%; */
   z-index: 9999;
-  background: #ffffff;
-  color: #000;
-  width: 20%;
-  height: 10vh;
+  background: #6534FF;
+  color: #ffffff;
+  text-align: center;
+  font-size: 2vmin;
+  line-height: 4vmin;
+  width: 100%;
+  height: 3em;
 }
 
 /* Navigation footer - mentions légales */
@@ -455,6 +459,77 @@ form .btn-danger:hover {
   background: red;
   color: #fff;
 }
+
+/* Map popin */
+.smart-popin {
+    position: fixed;
+    left: 0; right: 0;
+    top: 0; bottom: 0;
+    overflow: auto; /* scrollbar will appear if the viewport is too tight to display all the popin content */
+    opacity: 0;
+    visibility: hidden;
+    z-index: 99999;
+
+    /* design */
+
+    background-color: rgba(0,0,0,0.5);
+    -webkit-transition: all 0.4s ease;
+    -moz-transition: all 0.4s ease;
+    -ms-transition: all 0.4s ease;
+    -o-transition: all 0.4s ease;
+    transition: all 0.4s ease;
+}
+.smart-popin:target {
+    opacity: 1;
+    visibility: visible;
+}
+.smart-popin .sp-table {
+    display: flex;
+    height: 100%;
+    width: 100%;
+}
+.smart-popin .sp-cell {
+    margin: auto 60%;
+    padding: 10px; /* this space is important to let the box-shadow exceed around the popin - so it has to be at least equal to the shadow radius */
+}
+.smart-popin .sp-body {
+    position: relative; /* to allow absolute positionning inside */
+    z-index: 1; /* to ensure the popin body will be over the .sp-back layer */
+    width: auto; /* by default the width of the wider element inside */
+    min-width: 20vw;  /* standard width for xs smartphones (320px) minus 2*10px (.sp-cell margins) */
+    margin: 0 auto;
+    background-color: #191919;
+    font-size: 80%;
+    padding: 2em;
+    -webkit-box-shadow: 0 3px 5px 1px rgba(0,0,0,0.25);
+    box-shadow: 0 3px 5px 1px rgba(0,0,0,0.25);
+    width: 66.66%; ;
+}
+.smart-popin .sp-body p, .smart-popin .sp-body a {
+    color: #01bfb2;
+}
+.smart-popin .sp-body * {
+    max-width: 100%;
+}
+.smart-popin .sp-back {
+    position: fixed;
+    left: 0; right: 0;
+    top: 0; bottom: 0;
+    display: block;
+}
+.smart-popin .sp-close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 1em;
+    height: 1em;
+    text-align: center;
+    font-size: 3em;
+    color: #01bfb2;
+    font-weight: 900;
+    text-decoration: none;
+}
+
 
 
 @media (orientation: landscape) and (min-width: 960px) {

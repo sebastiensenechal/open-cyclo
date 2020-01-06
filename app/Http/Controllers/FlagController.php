@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Flag;
+use App\User;
 use Illuminate\Http\Request;
 
 class FlagController extends Controller
@@ -12,13 +13,17 @@ class FlagController extends Controller
      *
      * @return \Illuminate\View\View
      */
-    public function index()
+    public function index(User $user)
     {
-        $this->authorize('manage_flag');
-        $flagQuery = Flag::query();
-        $flagQuery->where('name', 'like', '%'.request('q').'%');
-        $flags = $flagQuery->paginate(25);
-        return view('flags.index', compact('flags'));
+        if ($user->admin = 1)
+        {
+            $this->authorize('manage_flag');
+            $flagQuery = Flag::query();
+            $flagQuery->where('name', 'like', '%'.request('q').'%');
+            $flags = $flagQuery->paginate(25);
+
+            return view('flags.index', compact('flags'));
+        }
     }
     /**
      * Show the form for creating a new flag.

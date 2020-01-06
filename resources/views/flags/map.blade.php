@@ -16,30 +16,24 @@
                 <ul class="sous"> -->
                     <!-- <li class="nav-item"><a class="nav-link" href="{{ route('flag_map.index') }}">{{ __('menu.our_flags') }}</a></li> -->
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                        <a class="nav-link" href="{{ route('login') }}">{{ __('Connexion') }}</a>
                     </li>
                     @if (Route::has('register'))
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                            <a class="nav-link" href="{{ route('register') }}">{{ __('Abonnement') }}</a>
                         </li>
                     @endif
                 @else
                     <li class="nav-item dropdown">
-                        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                            {{ Auth::user()->name }} <span class="caret"></span>
+                        <a class="dropdown-item" href="{{ route('logout') }}"
+                           onclick="event.preventDefault();
+                                         document.getElementById('logout-form').submit();">
+                            {{ __('Déconnection') }}
                         </a>
 
-                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="{{ route('logout') }}"
-                               onclick="event.preventDefault();
-                                             document.getElementById('logout-form').submit();">
-                                {{ __('Logout') }}
-                            </a>
-
-                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                @csrf
-                            </form>
-                        </div>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                            @csrf
+                        </form>
                     </li>
                 <!-- </ul>
             </li> -->
@@ -51,6 +45,22 @@
 @section('content')
     <div id ="status"></div>
 
+    <div class="smart-popin" id="popin1">
+    	  <div class="sp-table">
+    		    <div class="sp-cell">
+
+    			      <div class="sp-body">
+    				        <h2>Contribuer</h2>
+    				        <a href="#" class="sp-close">×</a>
+                    <p><a href="{{ route('flags.create') }}?latitude=' + latitude + '&longitude=' + longitude + '">Ajouter un signalement</a><p>
+    			      </div>
+
+    			      <a href="#" class="sp-back"></a>
+
+    		    </div>
+    	  </div>
+    </div>
+
     <div id="mapid">
         <!-- Cartographie -->
     </div>
@@ -60,7 +70,7 @@
     <nav id="toolbar">
       <ul>
         <li id="find-me"><i class="material-icons">location_searching</i></li>
-        <li><a href="#"><i class="material-icons">comment</i></a></li>
+        <li><a href="#popin1" class="open-popin"><i class="material-icons">comment</i></a></li>
         <li><a href="aide"><i class="material-icons">help_outline</i></a></li>
         <li><a href="contribute"><i class="material-icons">person</i></a></li>
       </ul>
@@ -102,7 +112,7 @@
         let latitude = e.latlng.lat.toString().substring(0, 15);
         let longitude = e.latlng.lng.toString().substring(0, 15);
         L.marker(e.latlng).addTo(map)
-            .bindPopup('<br><a href="{{ route('flags.create') }}?latitude=' + latitude + '&longitude=' + longitude + '">Add new flag here</a>');
+            .bindPopup('<br><a href="{{ route('flags.create') }}?latitude=' + latitude + '&longitude=' + longitude + '">Ajouter un signalement</a>');
 
         // L.circle(e.latlng, radius).addTo(map);
     }
@@ -126,7 +136,7 @@
 
         map.locate({setView: true, maxZoom: 16});
         L.marker(e.latlng).addTo(map)
-            .bindPopup('<a href="{{ route('flags.create') }}?latitude=' + latitude + '&longitude=' + longitude + '">Add new flag here</a>');
+            .bindPopup('<a href="{{ route('flags.create') }}?latitude=' + latitude + '&longitude=' + longitude + '">Ajouter un signalement</a>');
       }
 
       function error() {
@@ -186,7 +196,7 @@
             map.removeLayer(theMarker);
         };
         var popupContent = "Your location : " + latitude + ", " + longitude + ".";
-        popupContent += '<br><a href="{{ route('flags.create') }}?latitude=' + latitude + '&longitude=' + longitude + '">Add new flag here</a>';
+        popupContent += '<br><a href="{{ route('flags.create') }}?latitude=' + latitude + '&longitude=' + longitude + '">Ajouter un signalement</a>';
         theMarker = L.marker([latitude, longitude]).addTo(map);
         theMarker.bindPopup(popupContent)
         .openPopup();

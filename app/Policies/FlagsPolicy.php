@@ -9,6 +9,7 @@ use Illuminate\Auth\Access\HandlesAuthorization;
 class FlagsPolicy
 {
     use HandlesAuthorization;
+
     /**
      * Determine whether the user can view the flag.
      *
@@ -43,7 +44,10 @@ class FlagsPolicy
     public function update(User $user, Flag $flag)
     {
         // Update $user authorization to update $flag here.
-        return true;
+        if ($user->admin == 1)
+        {
+            return true;
+        }
     }
     /**
      * Determine whether the user can delete the flag.
@@ -55,6 +59,10 @@ class FlagsPolicy
     public function delete(User $user, Flag $flag)
     {
         // Update $user authorization to delete $flag here.
-        return true;
+        if ($user->admin == 1)
+        {
+            return true;
+        }
+
     }
 }
