@@ -6,7 +6,9 @@
 
 @section('sous-titre')
 		<p>Restez informé avec nos newsletters, guides pratique et recommandations.<br />
-    <a class="button is-info" href="{{ route('posts.create') }}">Créer un article</a></p>
+		@can('create', new App\Flag)
+    		<a class="button is-info" href="{{ route('posts.create') }}">Créer un article</a></p>
+		@endcan
 @endsection
 
 
