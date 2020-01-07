@@ -26,24 +26,37 @@ class UserController extends Controller
 
   	public function index()
   	{
-    		$users = $this->userRepository->getPaginate($this->nbrPerPage);
-    		$links = $users->render();
+        if ($user->admin == 1)
+        {
+            $users = $this->userRepository->getPaginate($this->nbrPerPage);
+        		$links = $users->render();
 
-    		return view('indexUsers', compact('users', 'links'));
+        		return view('indexUsers', compact('users', 'links'));
+        }
   	}
 
   	public function create()
   	{
-  		  return view('createUser');
+        if ($user->admin == 1)
+        {
+            $this->authorize('create', new User);
+
+            return view('createUser');
+        }
   	}
 
   	public function store(UserCreateRequest $request)
   	{
-    		$this->setAdmin($request);
+        if ($user->admin == 1)
+        {
+            $this->authorize('store', new User);
 
-    		$user = $this->userRepository->store($request->all());
+            $this->setAdmin($request);
 
-    		return redirect('user')->withOk("L'utilisateur " . $user->name . " a été créé.");
+        		$user = $this->userRepository->store($request->all());
+
+        		return redirect('user')->withOk("L'utilisateur " . $user->name . " a été créé.");
+        }
   	}
 
   	public function show($id)
@@ -71,9 +84,14 @@ class UserController extends Controller
 
   	public function destroy($id)
   	{
-    		$this->userRepository->destroy($id);
+        if ($user->admin = 1)
+        {
+            $this->authorize('destroy', new User);
 
-    		return redirect()->back();
+            $this->userRepository->destroy($id);
+
+        		return redirect()->back();
+        }
   	}
 
 
