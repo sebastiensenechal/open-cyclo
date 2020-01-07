@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\UserCreateRequest;
 use App\Http\Requests\UserUpdateRequest;
-
+use App\User;
 use App\Repositories\UserRepository;
 
 use Illuminate\Http\Request;
@@ -18,15 +18,15 @@ class UserController extends Controller
 
     public function __construct(UserRepository $userRepository)
   	{
-        // $this->middleware('contribute', ['except' => 'index']);
         // $this->middleware('admin');
+        // $this->middleware('contribute', ['only' => 'show', 'edit', 'update']);
 
   		  $this->userRepository = $userRepository;
   	}
 
-  	public function index()
+  	public function index(User $user)
   	{
-        if ($user->admin == 1)
+        if ($user->admin = 1)
         {
             $users = $this->userRepository->getPaginate($this->nbrPerPage);
         		$links = $users->render();
@@ -35,9 +35,9 @@ class UserController extends Controller
         }
   	}
 
-  	public function create()
+  	public function create(User $user)
   	{
-        if ($user->admin == 1)
+        if ($user->admin = 1)
         {
             $this->authorize('create', new User);
 
@@ -45,9 +45,9 @@ class UserController extends Controller
         }
   	}
 
-  	public function store(UserCreateRequest $request)
+  	public function store(UserCreateRequest $request, User $user)
   	{
-        if ($user->admin == 1)
+        if ($user->admin = 1)
         {
             $this->authorize('store', new User);
 
@@ -82,7 +82,7 @@ class UserController extends Controller
     		return redirect('user')->withOk("L'utilisateur " . $request->input('name') . " a été modifié.");
   	}
 
-  	public function destroy($id)
+  	public function destroy(User $user, $id)
   	{
         if ($user->admin = 1)
         {

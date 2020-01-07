@@ -19,12 +19,17 @@ class Admin
 	public function handle($request, Closure $next)
 	{
 		$user = $request->user();
+		
+		if (!$user) {
+        return redirect()->route('login');
+    }
+		elseif ($user && $user->admin == 1) {
+        return $next($request);
+    }
+		else {
+			return redirect()->route('contribute');
+		}
 
-		// if ($user && $user->admin === 1) {
-    //     return $next($request);
-    // }
-		//
-		// return redirect()->route('map');
 
 		// if ($request->user()->admin)
 		// {
@@ -32,15 +37,16 @@ class Admin
 		// }
 		// return new RedirectResponse(url('posts'));
 
-		if (!$user) {
-        return redirect()->route('login');
-    }
-    if ($user->admin == 1) {
-        return $next($request);
-    }
-    if ($user->admin == 0) {
-        return redirect()->route('contribute');
-		}
+
+		// if (!$user) {
+    //     return redirect()->route('login');
+    // }
+    // if ($user->admin == 1) {
+    //     return $next($request);
+    // }
+    // if ($user->admin == 0) {
+    //     return redirect()->route('contribute');
+		// }
 
 	}
 

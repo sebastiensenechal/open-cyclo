@@ -38,7 +38,7 @@ Auth::routes(['verify' => true]); // Activer la vérification des adresses mails
 Route::get('home', 'HomeController@index')->name('home')->middleware('admin'); // Admin
 Route::get('contribute', 'ContributeController@index')->name('contribute')->middleware('contribute'); // Abonnés
 Route::resource('posts', 'PostController');
-// Route::resource('user', 'UserController');
+Route::resource('user', 'UserController');
 
 Route::get('/our_flags', 'FlagMapController@index')->name('flag_map.index');
 Route::resource('flags', 'FlagController');
@@ -52,14 +52,16 @@ Route::resource('flags', 'FlagController');
 //     // });
 // });
 
+
+
 // --------------------------
 //   Utilisateur connecté
 // --------------------------
 Route::middleware('contribute')->group(function () {
-    Route::resource('user', 'UserController', ['except' => ['destroy']]);
-    Route::get('user.show', 'UserController@show');
-    Route::get('user.edit', 'UserController@edit');
-    Route::put('user.update', 'UserController@update');
+    // Route::resource('user', 'UserController', ['except' => ['destroy']]);
+    // Route::get('user.show', 'UserController@show');
+    // Route::get('user.edit', 'UserController@edit');
+    // Route::put('user.update', 'UserController@update');
     // Formulaire ajout d'images
     Route::get('photo', 'PhotoController@getForm');
     Route::post('photo', 'PhotoController@postForm');
@@ -70,7 +72,13 @@ Route::middleware('contribute')->group(function () {
 //   Administrateur
 // --------------------------
 Route::middleware('admin')->group(function () {
-    Route::resource('user', 'UserController');
+    Route::get('user.index', 'UserController@index');
+    Route::get('user.create', 'UserController@create');
+    Route::post('user.store', 'UserController@store');
+    Route::put('user.update', 'UserController@update');
+    Route::get('user.edit', 'UserController@edit');
+    Route::delete('user.destroy', 'UserController@destroy');
+    // Route::resource('user', 'UserController');
     Route::get('posts.create', 'PostController@create');
     Route::post('posts.store', 'PostController@store');
     Route::put('posts.update', 'PostController@update');
