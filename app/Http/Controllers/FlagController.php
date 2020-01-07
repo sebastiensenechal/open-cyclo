@@ -87,7 +87,7 @@ class FlagController extends Controller
         $flagData = $request->validate([
             'name'      => 'required|max:60',
             'latitude'  => 'nullable|required_with:longitude|max:15',
-            'longitude' => 'nullable|required_with:latitude|max:15',
+            'longitude' => 'nullable|required_with:latitude|max:15'
         ]);
         $flag->update($flagData);
         return redirect()->route('flags.show', $flag);

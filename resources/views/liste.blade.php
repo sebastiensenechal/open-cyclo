@@ -6,9 +6,11 @@
 
 @section('sous-titre')
 		<p>Restez informé avec nos newsletters, guides pratique et recommandations.<br />
-		@can('create', new App\Flag)
-    		<a class="button is-info" href="{{ route('posts.create') }}">Créer un article</a></p>
-		@endcan
+		@if(Auth::check() and Auth::user()->admin)
+			@can('create', new App\Flag)
+	    		<a class="button is-info" href="{{ route('posts.create') }}">Créer un article</a></p>
+			@endcan
+		@endif
 @endsection
 
 

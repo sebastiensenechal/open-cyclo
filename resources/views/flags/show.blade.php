@@ -17,10 +17,10 @@
                 </table>
             </div>
             <div class="card-footer">
-                @can('update', $flag)
+                @if(Auth::check() and Auth::user()->admin)
                     <a href="{{ route('flags.edit', $flag) }}" id="edit-flag-{{ $flag->id }}" class="btn btn-warning">{{ __('Modifier') }}</a>
                     <a href="{{ route('flags.index') }}" class="btn btn-link">{{ __('Retour aux signalements') }}</a>
-                @endcan
+                @endif
                     <a href="{{ route('flag_map.index') }}" class="btn btn-link">{{ __('Retour à la carte') }}</a>
             </div>
         </div>

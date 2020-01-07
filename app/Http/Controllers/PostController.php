@@ -30,9 +30,13 @@ class PostController extends Controller
      * Show the form for creating a new resource.
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(User $user)
     {
-        return view('create');
+        if ($user->admin = 1)
+        {
+            $this->authorize('create', new Post);
+            return view('create');
+        }
     }
 
 
@@ -43,15 +47,20 @@ class PostController extends Controller
      * @param  App\Http\Requests\PostRequest  $postRequest
      * @return \Illuminate\Http\Response
      */
-     public function store(PostRequest $postRequest)
+     public function store(PostRequest $postRequest, User $user)
      {
-       $user = auth()->user();
-       $data = $postRequest->all();
-       $data['user_id']=$user->id;
+         if ($user->admin = 1)
+         {
+             $this->authorize('store', new Post);
 
-       Post::create($data);
+             $user = auth()->user();
+             $data = $postRequest->all();
+             $data['user_id']=$user->id;
 
-       return redirect()->route('posts.index')->with('info', 'Votre article a bien été créé');
+             Post::create($data);
+
+             return redirect()->route('posts.index')->with('info', 'Votre article a bien été créé');
+         }
      }
 
 
@@ -77,9 +86,14 @@ class PostController extends Controller
      * @param  \App\Post $post
      * @return \Illuminate\Http\Response
      */
-    public function edit(Post $post)
+    public function edit(Post $post, User $user)
     {
-        return view('edit', compact('post'));
+        if ($user->admin = 1)
+        {
+            $this->authorize('edit', new Post);
+
+            return view('edit', compact('post'));
+        }
     }
 
 
@@ -92,10 +106,15 @@ class PostController extends Controller
      * @param  App\Http\Requests\PostRequest  $postRequest
      * @return \Illuminate\Http\Response
      */
-    public function update(PostRequest $postRequest, Post $post)
+    public function update(PostRequest $postRequest, Post $post, User $user)
     {
-        $post->update($postRequest->all());
-        return redirect()->route('posts.index')->with('info', 'Votre article a bien été modifié');
+        if ($user->admin = 1)
+        {
+            $this->authorize('update', new Post);
+
+            $post->update($postRequest->all());
+            return redirect()->route('posts.index')->with('info', 'Votre article a bien été modifié');
+        }
     }
 
 
@@ -107,9 +126,14 @@ class PostController extends Controller
      * @param  \App\Post $post
      * @return \Illuminate\Http\Response
      */
-     public function destroy(Post $post)
+     public function destroy(Post $post, User $user)
    	 {
-       $post->delete();
-       return redirect()->route('posts.index')->with('info', 'Votre article a bien été supprimé avec succès.');
+       if ($user->admin = 1)
+       {
+           $this->authorize('destroy', new Post);
+
+           $post->delete();
+           return redirect()->route('posts.index')->with('info', 'Votre article a bien été supprimé avec succès.');
+       }
    	 }
 }

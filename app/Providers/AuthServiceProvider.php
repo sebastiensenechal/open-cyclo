@@ -30,5 +30,29 @@ class AuthServiceProvider extends ServiceProvider
         Gate::define('manage_flag', function () {
             return auth()->check();
         });
+
+        Gate::define('manage_post', function () {
+            return auth()->check();
+        });
+
+        Gate::define('create', function () {
+            return auth()->check();
+        });
+
+        Gate::define('store', function () {
+            return auth()->check();
+        });
+
+        Gate::define('edit', function () {
+            return auth()->check();
+        });
+
+        Gate::define('update', function () {
+            return auth()->check();
+        });
+
+        Gate::define('destroy', function () {
+            return auth()->check();
+        });
     }
 }
