@@ -4,6 +4,7 @@ namespace App\Policies;
 
 use App\User;
 use App\Post;
+use Auth;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
 class PostsPolicy
@@ -30,7 +31,21 @@ class PostsPolicy
      */
     public function create(User $user, Post $post)
     {
-        if ($user->admin == 1)
+        if (Auth::user()->admin == 1)
+        {
+            return true;
+        }
+    }
+    /**
+     * Determine whether the user can create flag.
+     *
+     * @param  \App\User  $user
+     * @param  \App\Post  $post
+     * @return mixed
+     */
+    public function store(User $user, Post $post)
+    {
+        if (Auth::user()->admin == 1)
         {
             return true;
         }
@@ -44,7 +59,7 @@ class PostsPolicy
      */
     public function update(User $user, Post $post)
     {
-        if ($user->admin == 1)
+        if (Auth::user()->admin == 1)
         {
             return true;
         }
@@ -58,7 +73,7 @@ class PostsPolicy
      */
     public function delete(User $user, Post $post)
     {
-        if ($user->admin == 1)
+        if (Auth::user()->admin == 1)
         {
             return true;
         }

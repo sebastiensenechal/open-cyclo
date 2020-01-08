@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 // use App\Post;
 use App\{Post, User};
+use Auth;
 use App\Http\Requests\Post as PostRequest;
 // use App\Repositories\PostRepository;
 // use App\Http\Requests\PostRequest;
@@ -32,11 +33,8 @@ class PostController extends Controller
      */
     public function create(User $user)
     {
-        if ($user->admin = 1)
-        {
-            $this->authorize('create', new Post);
-            return view('create');
-        }
+        $this->authorize('create', new Post);
+        return view('create');
     }
 
 
@@ -49,18 +47,15 @@ class PostController extends Controller
      */
      public function store(PostRequest $postRequest, User $user)
      {
-         if ($user->admin = 1)
-         {
-             $this->authorize('store', new Post);
+         $this->authorize('store', new Post);
 
-             $user = auth()->user();
-             $data = $postRequest->all();
-             $data['user_id']=$user->id;
+         $user = auth()->user();
+         $data = $postRequest->all();
+         $data['user_id']=$user->id;
 
-             Post::create($data);
+         Post::create($data);
 
-             return redirect()->route('posts.index')->with('info', 'Votre article a bien été créé');
-         }
+         return redirect()->route('posts.index')->with('info', 'Votre article a bien été créé');
      }
 
 
@@ -88,12 +83,9 @@ class PostController extends Controller
      */
     public function edit(Post $post, User $user)
     {
-        if ($user->admin = 1)
-        {
-            $this->authorize('edit', new Post);
+        $this->authorize('edit', new Post);
 
-            return view('edit', compact('post'));
-        }
+        return view('edit', compact('post'));
     }
 
 
@@ -108,13 +100,10 @@ class PostController extends Controller
      */
     public function update(PostRequest $postRequest, Post $post, User $user)
     {
-        if ($user->admin = 1)
-        {
-            $this->authorize('update', new Post);
+        $this->authorize('update', new Post);
 
-            $post->update($postRequest->all());
-            return redirect()->route('posts.index')->with('info', 'Votre article a bien été modifié');
-        }
+        $post->update($postRequest->all());
+        return redirect()->route('posts.index')->with('info', 'Votre article a bien été modifié');
     }
 
 
@@ -128,12 +117,9 @@ class PostController extends Controller
      */
      public function destroy(Post $post, User $user)
    	 {
-       if ($user->admin = 1)
-       {
-           $this->authorize('destroy', new Post);
+        $this->authorize('destroy', new Post);
 
-           $post->delete();
-           return redirect()->route('posts.index')->with('info', 'Votre article a bien été supprimé avec succès.');
-       }
+        $post->delete();
+        return redirect()->route('posts.index')->with('info', 'Votre article a bien été supprimé avec succès.');
    	 }
 }
