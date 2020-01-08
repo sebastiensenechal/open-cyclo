@@ -27,7 +27,7 @@ class Admin
         return $next($request);
     }
 		if ($user && $user->admin == 0) {
-			return redirect()->route('contribute');
+			return redirect()->route('contribute')->with('info',"Vous n'avez pas les droits suffisants.");
 		}
 
 
