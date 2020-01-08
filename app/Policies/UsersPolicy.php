@@ -3,6 +3,7 @@
 namespace App\Policies;
 
 use App\User;
+use Auth;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
 class UsersPolicy
@@ -28,7 +29,7 @@ class UsersPolicy
      */
     public function create(User $user)
     {
-        if ($user->admin == 1)
+        if (Auth::user()->admin == 1)
         {
             return true;
         }
@@ -42,7 +43,7 @@ class UsersPolicy
      */
     public function update(User $user)
     {
-        if ($user->admin == 1)
+        if (Auth::user()->admin == 1)
         {
             return true;
         }
@@ -56,7 +57,7 @@ class UsersPolicy
      */
     public function delete(User $user)
     {
-        if ($user->admin == 1)
+        if (Auth::user()->admin == 1)
         {
             return true;
         }

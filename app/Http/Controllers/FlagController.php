@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Flag;
 use App\User;
+use Auth;
 use Illuminate\Http\Request;
 
 class FlagController extends Controller
@@ -15,8 +16,7 @@ class FlagController extends Controller
      */
     public function index(User $user)
     {
-        if ($user->admin = 1)
-        {
+        if (Auth::user()->admin == 1) {
             $this->authorize('manage_flag');
             $flagQuery = Flag::query();
             $flagQuery->where('name', 'like', '%'.request('q').'%');
@@ -24,6 +24,7 @@ class FlagController extends Controller
 
             return view('flags.index', compact('flags'));
         }
+        return redirect('/');
     }
     /**
      * Show the form for creating a new flag.

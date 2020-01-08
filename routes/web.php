@@ -57,7 +57,7 @@ Route::resource('flags', 'FlagController');
 // --------------------------
 //   Utilisateur connecté
 // --------------------------
-Route::middleware('contribute')->group(function () {
+Route::middleware('auth', 'admin')->group(function () {
     // Route::resource('user', 'UserController', ['except' => ['destroy']]);
     // Route::get('user.show', 'UserController@show');
     // Route::get('user.edit', 'UserController@edit');

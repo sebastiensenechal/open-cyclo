@@ -4,6 +4,7 @@ namespace App\Policies;
 
 use App\User;
 use App\Flag;
+use Auth;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
 class FlagsPolicy
@@ -44,7 +45,7 @@ class FlagsPolicy
     public function update(User $user, Flag $flag)
     {
         // Update $user authorization to update $flag here.
-        if ($user->admin == 1)
+        if (Auth::user()->admin == 1)
         {
             return true;
         }
@@ -59,7 +60,7 @@ class FlagsPolicy
     public function delete(User $user, Flag $flag)
     {
         // Update $user authorization to delete $flag here.
-        if ($user->admin == 1)
+        if (Auth::user()->admin == 1)
         {
             return true;
         }

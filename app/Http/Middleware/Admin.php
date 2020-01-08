@@ -19,14 +19,14 @@ class Admin
 	public function handle($request, Closure $next)
 	{
 		$user = $request->user();
-		
+
 		if (!$user) {
         return redirect()->route('login');
     }
-		elseif ($user && $user->admin == 1) {
+		if ($user && $user->admin == 1) {
         return $next($request);
     }
-		else {
+		if ($user && $user->admin == 0) {
 			return redirect()->route('contribute');
 		}
 

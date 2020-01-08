@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\UserCreateRequest;
 use App\Http\Requests\UserUpdateRequest;
 use App\User;
+use Auth;
 use App\Repositories\UserRepository;
 
 use Illuminate\Http\Request;
@@ -26,37 +27,31 @@ class UserController extends Controller
 
   	public function index(User $user)
   	{
-        if ($user->admin = 1)
-        {
-            $users = $this->userRepository->getPaginate($this->nbrPerPage);
-        		$links = $users->render();
 
-        		return view('indexUsers', compact('users', 'links'));
-        }
+          $this->authorize('create', new User);
+
+          $users = $this->userRepository->getPaginate($this->nbrPerPage);
+          $links = $users->render();
+
+          return view('indexUsers', compact('users', 'links'));
   	}
 
   	public function create(User $user)
   	{
-        if ($user->admin = 1)
-        {
-            $this->authorize('create', new User);
+        $this->authorize('create', new User);
 
-            return view('createUser');
-        }
+        return view('createUser');
   	}
 
   	public function store(UserCreateRequest $request, User $user)
   	{
-        if ($user->admin = 1)
-        {
-            $this->authorize('store', new User);
+        $this->authorize('store', new User);
 
-            $this->setAdmin($request);
+        $this->setAdmin($request);
 
-        		$user = $this->userRepository->store($request->all());
+        $user = $this->userRepository->store($request->all());
 
-        		return redirect('user')->withOk("L'utilisateur " . $user->name . " a été créé.");
-        }
+        return redirect('user')->withOk("L'utilisateur " . $user->name . " a été créé.");
   	}
 
   	public function show($id)
@@ -77,21 +72,20 @@ class UserController extends Controller
   	{
     		$this->setAdmin($request);
 
+        $user = $this->userRepository->getById($id);
     		$this->userRepository->update($id, $request->all());
 
-    		return redirect('user')->withOk("L'utilisateur " . $request->input('name') . " a été modifié.");
+        return view('showUser',  compact('user'))->withOk("L'utilisateur " . $request->input('name') . " a été modifié.");
+    		// return redirect('user')->withOk("L'utilisateur " . $request->input('name') . " a été modifié.");
   	}
 
   	public function destroy(User $user, $id)
   	{
-        if ($user->admin = 1)
-        {
-            $this->authorize('destroy', new User);
+        $this->authorize('destroy', new User);
 
-            $this->userRepository->destroy($id);
+        $this->userRepository->destroy($id);
 
-        		return redirect()->back();
-        }
+        return redirect()->back();
   	}
 
 
