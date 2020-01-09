@@ -51924,12 +51924,10 @@ window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.
  * the page. Then, you may begin adding components to this application
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
-// const app = new Vue({
-//     el: '#app',
-// });
-//
-//
-// new Vue({
+
+var app = new Vue({
+  el: '#app'
+}); // new Vue({
 //         el: '#root',
 //         data: {},
 //         mounted() {
@@ -52062,8 +52060,8 @@ if (token) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\wamp64\www\sebastiensenechal\openclassroom\open-cyclo\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\wamp64\www\sebastiensenechal\openclassroom\open-cyclo\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\UwAmp\www\openclassroom\php_poo\p5-opencyclo\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\UwAmp\www\openclassroom\php_poo\p5-opencyclo\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

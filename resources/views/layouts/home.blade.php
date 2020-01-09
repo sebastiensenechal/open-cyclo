@@ -20,7 +20,7 @@
     @yield('styles')
 </head>
 <body id="container-home">
-    <div id="app home">
+    <div id="app">
         <header>
             @yield('nav')
         </header>

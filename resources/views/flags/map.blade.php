@@ -52,7 +52,7 @@
     			      <div class="sp-body">
     				        <h2>Contribuer</h2>
     				        <a href="#" class="sp-close">×</a>
-                    <p><a href="{{ route('flags.create') }}?latitude=' + latitude + '&longitude=' + longitude + '">Ajouter un signalement</a><p>
+                    <p><a href="{{ route('flags.create') }}?Map.latitude=' + latitude + '&Map.longitude=' + longitude + '">Ajouter un signalement</a><p>
     			      </div>
 
     			      <a href="#" class="sp-back"></a>
@@ -81,6 +81,7 @@
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.1/dist/leaflet.css"
     integrity="sha512-Rksm5RenBEKSKFjgI3a41vrjkw4EVPlJ3+OiI65vTjIdo9brlAacEuKOiQ5OFh7cOI1bkDwLqdLw3Zg0cRJAAQ=="
     crossorigin=""/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet.locatecontrol/dist/L.Control.Locate.min.css" />
 @endsection
 @push('scripts')
 <!-- Make sure you put this AFTER Leaflet's CSS -->
@@ -88,8 +89,10 @@
         integrity="sha512-/Nsx9X4HebavoBvEBuyp3I7od5tA0UzAxs+j83KgC8PU0kgB4XiK4Lfe4y4cgBtaRJQEIFCW+oC506aPT2L1zw=="
         crossorigin=""></script>
 
-<!-- {{ Html::script('../public/js/Load.js') }}
-{{ Html::script('../public/js/Load.js') }} -->
+      <script src="https://cdn.jsdelivr.net/npm/leaflet.locatecontrol/dist/L.Control.Locate.min.js" charset="utf-8"></script>
+
+{{ Html::script('../public/js/Maps.js') }}
+{{ Html::script('../public/js/Load.js') }}
 
 <script>
 
@@ -97,91 +100,91 @@
     //      Map initialisation
     // *****************************
     //var map = L.map('mapid').setView([{{ config('leaflet.map_center_latitude') }}, {{ config('leaflet.map_center_longitude') }}], {{ config('leaflet.zoom_level') }});
-    var map = L.map('mapid').locate({setView: true, maxZoom: 16});
-    var baseUrl = "{{ url('/') }}";
-    L.tileLayer('https://tile.thunderforest.com/cycle/{z}/{x}/{y}.png?apikey=2ee1c74c95c54dd7b150e8f4604e7865', {
-        attribution: 'Maps © <a href="http://www.thunderforest.com/" target="_blank">Thunderforest</a>, Data © <a href="http://www.openstreetmap.org/copyright" target="_blank">OpenStreetMap contributors.</a>'
-    }).addTo(map);
+    // var map = L.map('mapid').locate({setView: true, maxZoom: 16});
+    // var baseUrl = "{{ url('/') }}";
+    // L.tileLayer('https://tile.thunderforest.com/cycle/{z}/{x}/{y}.png?apikey=2ee1c74c95c54dd7b150e8f4604e7865', {
+    //     attribution: 'Maps © <a href="http://www.thunderforest.com/" target="_blank">Thunderforest</a>, Data © <a href="http://www.openstreetmap.org/copyright" target="_blank">OpenStreetMap contributors.</a>'
+    // }).addTo(map);
 
 
     // ***********************
     //      User location
     // ***********************
-    function onLocationFound(e) {
-        var radius = e.accuracy;
-        let latitude = e.latlng.lat.toString().substring(0, 15);
-        let longitude = e.latlng.lng.toString().substring(0, 15);
-        L.marker(e.latlng).addTo(map)
-            .bindPopup('<br><a href="{{ route('flags.create') }}?latitude=' + latitude + '&longitude=' + longitude + '">Ajouter un signalement</a>');
+    // function onLocationFound(e) {
+    //     var radius = e.accuracy;
+    //     let latitude = e.latlng.lat.toString().substring(0, 15);
+    //     let longitude = e.latlng.lng.toString().substring(0, 15);
+    //     L.marker(e.latlng).addTo(map)
+    //         .bindPopup('<br><a href="{{ route('flags.create') }}?latitude=' + latitude + '&longitude=' + longitude + '">Ajouter un signalement</a>');
+    //
+    //     // L.circle(e.latlng, radius).addTo(map);
+    // }
+    // map.on('locationfound', onLocationFound);
+    //
+    // function onLocationError(e) {
+    //     alert(e.message);
+    // }
+    // map.on('locationerror', onLocationError);
 
-        // L.circle(e.latlng, radius).addTo(map);
-    }
-    map.on('locationfound', onLocationFound);
 
-    function onLocationError(e) {
-        alert(e.message);
-    }
-    map.on('locationerror', onLocationError);
-
-
-    // *************************
-    //      Find Me button
-    // *************************
-    function geoFindMe() {
-      const status = document.querySelector('#status');
-
-      function success() {
-        status.textContent = '';
-        document.getElementById("status").style.display = "none";
-
-        map.locate({setView: true, maxZoom: 16});
-        L.marker(e.latlng).addTo(map)
-            .bindPopup('<a href="{{ route('flags.create') }}?latitude=' + latitude + '&longitude=' + longitude + '">Ajouter un signalement</a>');
-      }
-
-      function error() {
-        status.textContent = 'Impossible de vous localiser';
-      }
-
-      var geo_options = {
-        enableHighAccuracy: true,
-        maximumAge        : 30000,
-        timeout           : 27000
-      }
-
-      if (!navigator.geolocation) {
-        status.textContent = 'Geolocation n\'est pas supporté sur votre navigateur';
-      } else {
-        document.getElementById("status").style.display = "block";
-
-        status.textContent = 'Recherche en cours...';
-
-        // navigator.geolocation.getCurrentPosition(success, error);
-        navigator.geolocation.watchPosition(success, error, geo_options);
-      }
-    }
-
-    document.querySelector('#find-me').addEventListener('click', geoFindMe);
+    // // *************************
+    // //      Find Me button
+    // // *************************
+    // function geoFindMe() {
+    //   const status = document.querySelector('#status');
+    //
+    //   function success() {
+    //     status.textContent = '';
+    //     document.getElementById("status").style.display = "none";
+    //
+    //     map.locate({setView: true, maxZoom: 16});
+    //     L.marker(e.latlng).addTo(map)
+    //         .bindPopup('<a href="{{ route('flags.create') }}?latitude=' + latitude + '&longitude=' + longitude + '">Ajouter un signalement</a>');
+    //   }
+    //
+    //   function error() {
+    //     status.textContent = 'Impossible de vous localiser';
+    //   }
+    //
+    //   var geo_options = {
+    //     enableHighAccuracy: true,
+    //     maximumAge        : 30000,
+    //     timeout           : 27000
+    //   }
+    //
+    //   if (!navigator.geolocation) {
+    //     status.textContent = 'Geolocation n\'est pas supporté sur votre navigateur';
+    //   } else {
+    //     document.getElementById("status").style.display = "block";
+    //
+    //     status.textContent = 'Recherche en cours...';
+    //
+    //     // navigator.geolocation.getCurrentPosition(success, error);
+    //     navigator.geolocation.watchPosition(success, error, geo_options);
+    //   }
+    // }
+    //
+    // document.querySelector('#find-me').addEventListener('click', geoFindMe());
 
 
     // *************************
     //      API Flags call
     // *************************
-    axios.get('{{ route('api.flags.index') }}')
-    .then(function (response) {
-        console.log(response.data);
-        L.geoJSON(response.data, {
-            pointToLayer: function(geoJsonPoint, latlng) {
-                return L.marker(latlng);
-            }
-        })
-        .bindPopup(function (layer) {
-            return layer.feature.properties.map_popup_content;
-        }).addTo(map);
-    })
-    .catch(function (error) {
-        console.log(error);
-    });
+    // axios.get('api/flags') // {{ route('api.flags.index') }}
+    // .then(function (response) {
+    //     console.log(response.data);
+    //     L.geoJSON(response.data, {
+    //         pointToLayer: function(geoJsonPoint, latlng) {
+    //             return L.marker(latlng);
+    //         }
+    //     })
+    //     .bindPopup(function (layer) {
+    //         return layer.feature.properties.map_popup_content;
+    //     }).addTo(map);
+    // })
+    // .catch(function (error) {
+    //     console.log(error);
+    // });
 
 
     // *****************************
