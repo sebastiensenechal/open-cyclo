@@ -5,39 +5,43 @@
     <nav id="nav">
         <!-- Right Side Of Navbar -->
         <ul class="navbar-nav ml-auto">
-            <li><a class="active" href="{{ route('map') }}" title="Carte"><i class="material-icons">map</i> <span>Carte</span></a></li>
-            <li><a href="{{ url('posts') }}" title="Rester informé"><i class="material-icons">info</i> <span> Infos cyclo</a></li>
-            <li><a href="aide" title="Demander de l'aider"><i class="material-icons">help_outline</i> <span>Aide</span></a></li>
-            <li><a href="{{ url('contact') }}"><i class="material-icons">mail_outline</i> <span>Contact</span></a></li>
-            <!-- Authentication Links -->
-            @guest
-            <!-- <li class="deroulant">
-              <span>Menu</span>
-                <ul class="sous"> -->
-                    <!-- <li class="nav-item"><a class="nav-link" href="{{ route('flag_map.index') }}">{{ __('menu.our_flags') }}</a></li> -->
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ route('login') }}">{{ __('Connexion') }}</a>
-                    </li>
-                    @if (Route::has('register'))
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('register') }}">{{ __('Abonnement') }}</a>
-                        </li>
-                    @endif
-                @else
-                    <li class="nav-item dropdown">
-                        <a class="dropdown-item" href="{{ route('logout') }}"
-                           onclick="event.preventDefault();
-                                         document.getElementById('logout-form').submit();">
-                            {{ __('Déconnection') }}
-                        </a>
+          <li class="deroulant"><span class="label_menu">Menu</span>
+            <ul class="sous">
+              <li><a class="active" href="{{ route('map') }}" title="Carte"><i class="material-icons">map</i> <span>Carte</span></a></li>
+              <li><a href="{{ url('posts') }}" title="Rester informé"><i class="material-icons">info</i> <span> Infos cyclo</a></li>
+              <li><a href="aide" title="Demander de l'aider"><i class="material-icons">help_outline</i> <span>Aide</span></a></li>
+              <li><a href="{{ url('contact') }}"><i class="material-icons">mail_outline</i> <span>Contact</span></a></li>
+              <!-- Authentication Links -->
+              @guest
+              <!-- <li class="deroulant">
+                <span>Menu</span>
+                  <ul class="sous"> -->
+                      <!-- <li class="nav-item"><a class="nav-link" href="{{ route('flag_map.index') }}">{{ __('menu.our_flags') }}</a></li> -->
+                      <li class="nav-item">
+                          <a class="nav-link" href="{{ route('login') }}">{{ __('Connexion') }}</a>
+                      </li>
+                      @if (Route::has('register'))
+                          <li class="nav-item">
+                              <a class="nav-link" href="{{ route('register') }}">{{ __('Abonnement') }}</a>
+                          </li>
+                      @endif
+                  @else
+                      <li class="nav-item dropdown">
+                          <a class="dropdown-item" href="{{ route('logout') }}"
+                             onclick="event.preventDefault();
+                                           document.getElementById('logout-form').submit();">
+                              {{ __('Déconnection') }}
+                          </a>
 
-                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                            @csrf
-                        </form>
-                    </li>
-                <!-- </ul>
-            </li> -->
-            @endguest
+                          <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                              @csrf
+                          </form>
+                      </li>
+                  <!-- </ul>
+              </li> -->
+              @endguest
+            </ul>
+          </li>
         </ul>
     </nav>
 @endsection
@@ -200,8 +204,8 @@ Maps.geoJson();
         if (theMarker != undefined) {
             map.removeLayer(theMarker);
         };
-        var popupContent = "Your location : " + latitude + ", " + longitude + ".";
-        popupContent += '<br><a href="{{ route('flags.create') }}?latitude=' + latitude + '&longitude=' + longitude + '">Ajouter un signalement</a>';
+        var popupContent = '<a href="{{ route('flags.create') }}?latitude=' + latitude + '&longitude=' + longitude + '">Ajouter un signalement</a>';
+        // "Your location : " + latitude + ", " + longitude + "."
         theMarker = L.marker([latitude, longitude]).addTo(map);
         theMarker.bindPopup(popupContent)
         .openPopup();

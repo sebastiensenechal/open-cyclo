@@ -66,9 +66,9 @@ class Flag extends Model
     public function getMapPopupContentAttribute()
     {
         $mapPopupContent = '';
-        $mapPopupContent .= '<div class="my-2"><strong>'.__('flag.name').':</strong><br>'.$this->name_link.'</div>';
-        $mapPopupContent .= '<div class="my-2"><strong>'.__('flag.coordinate').':</strong><br>'.$this->coordinate.'</div>';
-        
+        $mapPopupContent .= '<div><strong>'.$this->name_link.'</strong></div>';
+        $mapPopupContent .= '<div><br><em>'.__('Coordonnées').':<br>'.$this->coordinate.'</em></div>';
+
         return $mapPopupContent;
     }
 }

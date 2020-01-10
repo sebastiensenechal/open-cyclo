@@ -259,31 +259,34 @@ ul.pagination li a {
   padding: 1em;
 }
 
-
-#nav ul li.deroulant {
-    float: left;
-    width: 25%;
-    text-align: center;
+/* Main navigation */
+#container-home #nav {
+    padding-top: 2em;
+}
+#container-home #nav ul li {
     position: relative;
 }
+#container-home #nav ul::after{
+    content: "";
+    display: table;
+    clear: both;
+}
+#container-home #nav span.label_menu {
+    display: block;
+    text-decoration: none;
+    border-bottom: 2px solid transparent;
+    padding: 10px 0px;
+}
+/* #container-home #nav a:hover {
+    border-bottom: 2px solid #01bfb2;
+} */
 #nav .sous{
-    display: none;
-    box-shadow: 0px 1px 2px #CCC;
-    background-color: white;
-    position: absolute;
-    width: 100%;
-    z-index: 1000;
+  display: none;
+  position: relative;
+  width: 100vw;
+  z-index: 9999;
 }
 #nav > ul li:hover .sous{
-    display: block;
-    position: fixed;
-}
-#nav ul.sous li {
-  display: flex;
-  flex-direction: column;
-  width:100%;
-}
-nav > ul li:hover .sous{
     display: block;
 }
 .sous li{
@@ -292,17 +295,18 @@ nav > ul li:hover .sous{
     text-align: left;
 }
 .sous a{
-    padding: 10px;
+    /* padding: 10px; */
     border-bottom: none;
 }
 .sous a:hover{
     border-bottom: none;
     background-color: RGBa(200,200,200,0.1);
 }
-.deroulant > a::after{
+.deroulant > span.label_menu::after{
     content:" ▼";
     font-size: 12px;
 }
+
 
 
 /* Navigation toolbar */
@@ -530,8 +534,31 @@ form .btn-danger:hover {
     text-decoration: none;
 }
 
+/* BindPopup */
+.leaflet-popup-content-wrapper {
+    min-width: 20vw;
+    background:#333333;
+    color:#fce4ec;
+    padding: 0;
+}
+.leaflet-popup-content {
+    background:#333333;
+    color:#fce4ec;
+    padding:1em;
+    width: auto;
+    font-size: 1.3em;
+}
+.leaflet-container a {
+    color:  #01BFB2;
+}
 
 
+
+/* ********************
+
+ RESPONSIVE
+
+ ******************** */
 @media (orientation: landscape) and (min-width: 960px) {
   /* Tablet */
   body #header {
@@ -551,6 +578,16 @@ form .btn-danger:hover {
   nav#nav li span {
     display:inline-block;
   }
+  /* Main navigation */
+  #nav .sous {
+      display: flex;
+  }
+  #nav > ul li:hover .sous {
+      display: flex;
+  }
+  #container-home #nav span.label_menu {
+      display: none;
+  }
 }
 
 
@@ -568,6 +605,16 @@ form .btn-danger:hover {
   nav#nav li span {
     display:none;
   }
+  /* Main navigation */
+  #nav .sous {
+      display: flex;
+  }
+  #nav > ul li:hover .sous {
+      display: flex;
+  }
+  #container-home #nav span.label_menu {
+      display: none;
+  }
 }
 
 
@@ -580,6 +627,16 @@ form .btn-danger:hover {
   }
   nav#nav li span {
     display:inline-block;
+  }
+  /* Main navigation */
+  #nav .sous {
+      display: flex;
+  }
+  #nav > ul li:hover .sous {
+      display: flex;
+  }
+  #container-home #nav span.label_menu {
+      display: none;
   }
 }
 
