@@ -15,7 +15,12 @@
 
     <!-- Styles -->
     <!-- <link href="{{ asset('css/app.css') }}" rel="stylesheet"> -->
+    <!-- General style -->
     {{ Html::style('../public/css/style.css') }}
+    <!-- Fontawesome -->
+    <link href="{{ asset('sass/app.scss') }}" rel="stylesheet">
+    {{ Html::style('../public/css/fontawesome/css/all.css') }}
+    <!-- Material icons -->
     {{ Html::style('https://fonts.googleapis.com/icon?family=Material+Icons') }}
     @yield('styles')
 </head>

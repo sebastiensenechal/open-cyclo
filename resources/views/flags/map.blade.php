@@ -83,23 +83,24 @@
     crossorigin=""/>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet.locatecontrol/dist/L.Control.Locate.min.css" />
 @endsection
+
 @push('scripts')
 <!-- Make sure you put this AFTER Leaflet's CSS -->
     <script src="https://unpkg.com/leaflet@1.3.1/dist/leaflet.js"
         integrity="sha512-/Nsx9X4HebavoBvEBuyp3I7od5tA0UzAxs+j83KgC8PU0kgB4XiK4Lfe4y4cgBtaRJQEIFCW+oC506aPT2L1zw=="
         crossorigin=""></script>
-
-      <script src="https://cdn.jsdelivr.net/npm/leaflet.locatecontrol/dist/L.Control.Locate.min.js" charset="utf-8"></script>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet.locatecontrol/dist/L.Control.Locate.min.js" charset="utf-8"></script>
 
 {{ Html::script('../public/js/Maps.js') }}
-{{ Html::script('../public/js/Load.js') }}
+<!-- {{ Html::script('../public/js/Load.js') }} -->
 
 <script>
-
+Maps.initMap();
+Maps.geoJson();
     // *****************************
     //      Map initialisation
     // *****************************
-    //var map = L.map('mapid').setView([{{ config('leaflet.map_center_latitude') }}, {{ config('leaflet.map_center_longitude') }}], {{ config('leaflet.zoom_level') }});
+    // var map = L.map('mapid').setView([{{ config('leaflet.map_center_latitude') }}, {{ config('leaflet.map_center_longitude') }}], {{ config('leaflet.zoom_level') }});
     // var map = L.map('mapid').locate({setView: true, maxZoom: 16});
     // var baseUrl = "{{ url('/') }}";
     // L.tileLayer('https://tile.thunderforest.com/cycle/{z}/{x}/{y}.png?apikey=2ee1c74c95c54dd7b150e8f4604e7865', {
@@ -185,6 +186,7 @@
     // .catch(function (error) {
     //     console.log(error);
     // });
+
 
 
     // *****************************
