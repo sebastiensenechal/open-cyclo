@@ -25,6 +25,31 @@
     @yield('styles')
 </head>
 <body id="container-home">
+    <nav id="nav-connexion">
+      <ul>
+        @guest
+            <li>
+                <a href="{{ route('login') }}">{{ __('Connexion') }}</a>
+            </li>
+            @if (Route::has('register'))
+                <li>
+                    <a href="{{ route('register') }}">{{ __('Abonnement') }}</a>
+                </li>
+            @endif
+        @else
+            <li><a href="{{ route('home') }}">Tableau de bord</a></li>
+            <li>
+                <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                    {{ __('Déconnection') }}
+                </a>
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                    @csrf
+                </form>
+            </li>
+        @endguest
+      </ul>
+    </nav>
+
     <div id="app">
         <header>
             @yield('nav')

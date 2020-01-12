@@ -28,7 +28,7 @@ body#container-home {
 }
 body {
   padding: 0;
-  margin: 5vh auto;
+  margin: 5vh 3vw 5vh 3vw;
   width: 90vw;
   height:auto;
   color: #444;
@@ -63,7 +63,7 @@ body #header {
   color:#f1f1f1;
   display: flex;
   flex-direction: column;
-  height: 70vh;
+  height: auto;
 }
 #header #left, #header #right {
   width: 100%;
@@ -75,8 +75,10 @@ body #header {
   align-content: center;
   align-items: center;
   background: #6534FF;
-  font-size: 4vmin;
-  line-height: 8vmin;
+  font-size: 6vmin;
+  line-height: 10vmin;
+  height: auto;
+  padding: 4vh 0;
 }
 #header #left {
   background: url('../../public/img/topo-jaune.svg'),
@@ -85,11 +87,11 @@ body #header {
   background-position: left, center;
   background-repeat: no-repeat, no-repeat;
   background-size: cover, cover;
+  min-height: 60vh;
 }
 
 #container-home main {
   display: flex;
-  /* flex-direction: row-reverse; */
   min-height: 100vh;
   padding: 0;
 }
@@ -140,6 +142,10 @@ h2, h3 {
 #right a:visited {
   color:#FCE4EC;
 }
+/* .arrow i {
+  position: absolute;
+  left: 45vw;
+} */
 
 
 
@@ -169,10 +175,12 @@ main header#header-content {
 }
 #left > div {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 80%;
+  height: auto;
   text-align: center;
+  margin-top: 2em;
 }
 #content {
   margin: 2em auto;
@@ -209,9 +217,9 @@ nav#nav ul {
   align-items: center;
   align-content: center;
 }
-nav#nav li {
+/* nav#nav li {
   width: 100%;
-}
+} */
 nav#nav li a {
   display: block;
   color: white;
@@ -263,15 +271,15 @@ ul.pagination li a {
 #container-home #nav {
     padding-top: 2em;
 }
-#container-home #nav ul li {
+#container-home #nav ul li, #page-container #nav ul li {
     position: relative;
 }
-#container-home #nav ul::after{
+#container-home #nav ul::after, #page-container #nav ul::after {
     content: "";
     display: table;
     clear: both;
 }
-#container-home #nav span.label_menu {
+#container-home #nav span.label_menu, #page-container #nav span.label_menu {
     display: block;
     text-decoration: none;
     border-bottom: 2px solid transparent;
@@ -280,13 +288,16 @@ ul.pagination li a {
 /* #container-home #nav a:hover {
     border-bottom: 2px solid #01bfb2;
 } */
-#nav .sous{
+#nav .sous {
   display: none;
   position: relative;
   width: 100vw;
   z-index: 9999;
 }
-#nav > ul li:hover .sous{
+#page-container #nav .sous {
+  width: 90vw;
+}
+#nav > ul li:hover .sous {
     display: block;
 }
 .sous li{
@@ -302,11 +313,38 @@ ul.pagination li a {
     border-bottom: none;
     background-color: RGBa(200,200,200,0.1);
 }
-.deroulant > span.label_menu::after{
+.deroulant > span.label_menu::after {
     content:" ▼";
     font-size: 12px;
 }
 
+
+#nav-connexion {
+  background: #d6d6d6;
+  width: 90vw;
+  color:  #fff;
+  z-index: 9999999;
+}
+#nav-connexion ul {
+  list-style: none;
+  display: flex;
+  padding-left: 1em;
+}
+#nav-connexion ul li {
+  padding-right: 1em;
+}
+#container-home #nav-connexion {
+  background: transparent;
+  width: 100vw;
+  color: #fff;
+  position: absolute;
+}
+#container-home #nav-connexion a:visited {
+    color: #ccc;
+}
+#container-home #nav-connexion a {
+    color: #fff;
+}
 
 
 /* Navigation toolbar */
@@ -326,7 +364,7 @@ nav#toolbar ul {
   justify-content: space-between;
 }
 nav#toolbar li {
-  width: 25%;
+  width: 35%;
 }
 nav#toolbar li a, nav#toolbar li#find-me {
   color:white;
@@ -542,8 +580,8 @@ form .btn-danger:hover {
     padding: 0;
 }
 .leaflet-popup-content {
-    background:#333333;
-    color:#fce4ec;
+    /* background:#333333;
+    color:#fce4ec; */
     padding:1em;
     width: auto;
     font-size: 1.3em;
@@ -561,16 +599,28 @@ form .btn-danger:hover {
  ******************** */
 @media (orientation: landscape) and (min-width: 960px) {
   /* Tablet */
+  body {
+    margin: 5vh auto;
+  }
   body #header {
     flex-direction: row;
   }
-  #header #left, #header #right {
-    width: 50%;
+  #page-container #nav .sous {
+    width: 60vw;
+  }
+  #header #left {
+    width: 60vw;
+  }
+  #header #right {
+    width: 40vw;
+    padding: 1em;
+    font-size: 3vmin;
+    line-height: 6vmin;
   }
   nav#nav ul {
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: flex-start;
   }
   nav#nav li {
     width: 25%;
@@ -585,7 +635,7 @@ form .btn-danger:hover {
   #nav > ul li:hover .sous {
       display: flex;
   }
-  #container-home #nav span.label_menu {
+  #container-home #nav span.label_menu, #page-container #nav span.label_menu {
       display: none;
   }
 }
@@ -594,10 +644,21 @@ form .btn-danger:hover {
 
 @media (min-width: 480px) and (max-width: 959px) {
   /* Tablet */
+  body {
+    margin: 5vh auto;
+  }
+  h1#title-site {
+    font-size: 6vmin;
+    line-height: 9vmin;
+  }
+  #header #right {
+    font-size: 4vmin;
+    line-height: 8vmin;
+  }
   nav#nav ul {
     flex-wrap: wrap;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: flex-start;
   }
   nav#nav li {
     width: 25%;
@@ -612,7 +673,7 @@ form .btn-danger:hover {
   #nav > ul li:hover .sous {
       display: flex;
   }
-  #container-home #nav span.label_menu {
+  #container-home #nav span.label_menu, #page-container #nav span.label_menu {
       display: none;
   }
 }
@@ -621,9 +682,9 @@ form .btn-danger:hover {
 @media (min-width: 960px) and (max-width: 1279px) {
   /* Tablet and small screen */
   nav#nav ul {
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: flex-start;
   }
   nav#nav li span {
     display:inline-block;
@@ -635,7 +696,7 @@ form .btn-danger:hover {
   #nav > ul li:hover .sous {
       display: flex;
   }
-  #container-home #nav span.label_menu {
+  #container-home #nav span.label_menu, #page-container #nav span.label_menu {
       display: none;
   }
 }

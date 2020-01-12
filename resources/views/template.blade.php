@@ -16,45 +16,53 @@
 
 
 <body>
+    <nav id="nav-connexion">
+      <ul>
+        @guest
+            <li>
+                <a href="{{ route('login') }}">{{ __('Connexion') }}</a>
+            </li>
+            @if (Route::has('register'))
+                <li>
+                    <a href="{{ route('register') }}">{{ __('Abonnement') }}</a>
+                </li>
+            @endif
+        @else
+            <li><a href="{{ route('home') }}">Tableau de bord</a></li>
+            <li>
+                <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                    {{ __('Déconnection') }}
+                </a>
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                    @csrf
+                </form>
+            </li>
+        @endguest
+      </ul>
+    </nav>
 
     <div id="page-container">
 
       <header id="header">
         <div id="left">
-          <nav id="nav">
-            <ul>
-              <li><a class="active" href="{{ route('map') }}">Carte</a></li>
-              <li><a href="{{ url('posts') }}">Infos cyclo</a></li>
-              <li><a href="aide">Aide</a></li>
-              <li><a href="{{ url('contact') }}">Contact</a></li>
-              @guest
-                  <li>
-                      <a href="{{ route('login') }}">{{ __('Login') }}</a>
-                  </li>
-                  @if (Route::has('register'))
-                      <li>
-                          <a href="{{ route('register') }}">{{ __('Register') }}</a>
-                      </li>
-                  @endif
-              @else
-                  <li><a href="{{ route('home') }}">Dashbord</a></li>
-                  <li>
-                      <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                          {{ __('Logout') }}
-                      </a>
-                      <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                          @csrf
-                      </form>
-                  </li>
-              @endguest
-            </ul>
-          </nav>
+            <nav id="nav">
+                <ul>
+                    <li class="deroulant"><span class="label_menu">Menu</span>
+                        <ul class="sous">
+                            <li><a class="active" href="{{ route('map') }}">Carte</a></li>
+                            <li><a href="{{ url('posts') }}">Infos cyclo</a></li>
+                            <li><a href="aide">Aide</a></li>
+                            <li><a href="{{ url('contact') }}">Contact</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
 
-          <div>
-            <h1 id="title-site">@yield('titre')</h1>
-          </div>
+            <div>
+              <h1 id="title-site">@yield('titre')</h1>
+              <div class="arrow"><i class="material-icons md-cyan md-36">arrow_downward</i></div>
+            </div>
 
-          <i class="material-icons md-cyan md-36">arrow_downward</i>
         </div>
 
         <div id='right'>

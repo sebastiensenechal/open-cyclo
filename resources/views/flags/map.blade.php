@@ -3,45 +3,15 @@
 @section('nav')
 <h1 id="title-home">Opencyclo</h1>
     <nav id="nav">
-        <!-- Right Side Of Navbar -->
         <ul class="navbar-nav ml-auto">
-          <li class="deroulant"><span class="label_menu">Menu</span>
-            <ul class="sous">
-              <li><a class="active" href="{{ route('map') }}" title="Carte"><i class="material-icons">map</i> <span>Carte</span></a></li>
-              <li><a href="{{ url('posts') }}" title="Rester informé"><i class="material-icons">info</i> <span> Infos cyclo</a></li>
-              <li><a href="aide" title="Demander de l'aider"><i class="material-icons">help_outline</i> <span>Aide</span></a></li>
-              <li><a href="{{ url('contact') }}"><i class="material-icons">mail_outline</i> <span>Contact</span></a></li>
-              <!-- Authentication Links -->
-              @guest
-              <!-- <li class="deroulant">
-                <span>Menu</span>
-                  <ul class="sous"> -->
-                      <!-- <li class="nav-item"><a class="nav-link" href="{{ route('flag_map.index') }}">{{ __('menu.our_flags') }}</a></li> -->
-                      <li class="nav-item">
-                          <a class="nav-link" href="{{ route('login') }}">{{ __('Connexion') }}</a>
-                      </li>
-                      @if (Route::has('register'))
-                          <li class="nav-item">
-                              <a class="nav-link" href="{{ route('register') }}">{{ __('Abonnement') }}</a>
-                          </li>
-                      @endif
-                  @else
-                      <li class="nav-item dropdown">
-                          <a class="dropdown-item" href="{{ route('logout') }}"
-                             onclick="event.preventDefault();
-                                           document.getElementById('logout-form').submit();">
-                              {{ __('Déconnection') }}
-                          </a>
-
-                          <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                              @csrf
-                          </form>
-                      </li>
-                  <!-- </ul>
-              </li> -->
-              @endguest
-            </ul>
-          </li>
+            <li class="deroulant"><span class="label_menu">Menu</span>
+                <ul class="sous">
+                    <li><a class="active" href="{{ route('map') }}" title="Carte"><i class="material-icons">map</i> <span>Carte</span></a></li>
+                    <li><a href="{{ url('posts') }}" title="Rester informé"><i class="material-icons">info</i> <span> Infos cyclo</a></li>
+                    <li><a href="aide" title="Demander de l'aider"><i class="material-icons">help_outline</i> <span>Aide</span></a></li>
+                    <li><a href="{{ url('contact') }}" title="Nous contacter"><i class="material-icons">mail_outline</i> <span>Contact</span></a></li>
+                </ul>
+            </li>
         </ul>
     </nav>
 @endsection
@@ -73,10 +43,11 @@
 @section('footer')
     <nav id="toolbar">
       <ul>
-        <li id="find-me"><i class="material-icons">location_searching</i></li>
-        <li><a href="#popin1" class="open-popin"><i class="material-icons">comment</i></a></li>
-        <li><a href="aide"><i class="material-icons">help_outline</i></a></li>
-        <li><a href="contribute"><i class="material-icons">person</i></a></li>
+        <!-- <li id="find-me"><i class="material-icons">location_searching</i></li> -->
+        <!-- <li><a href="#popin1" class="open-popin"><i class="material-icons">comment</i></a></li> -->
+        <li><a href="{{ url('contact') }}" title="Nous contacter"><i class="material-icons">mail_outline</i></a></li>
+        <li><a href="aide" title="Trouver de l'aide"><i class="material-icons">help_outline</i></a></li>
+        <li><a href="contribute" title="Profil"><i class="material-icons">person</i></a></li>
       </ul>
     </nav>
 @endsection
