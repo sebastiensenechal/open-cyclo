@@ -29,7 +29,7 @@ class Flag extends Model
      */
     public function getNameLinkAttribute()
     {
-        $title = __('app.show_detail_title', [
+        $title = __('En savoir plus', [
             'name' => $this->name, 'type' => __('flag.flag'),
         ]);
         $link = '<a href="'.route('flags.show', $this).'"';
@@ -66,8 +66,9 @@ class Flag extends Model
     public function getMapPopupContentAttribute()
     {
         $mapPopupContent = '';
-        $mapPopupContent .= '<div><strong>'.$this->name_link.'</strong></div>';
-        $mapPopupContent .= '<div><br><em>'.__('Coordonnées').':<br>'.$this->coordinate.'</em></div>';
+        $mapPopupContent .= '<p><strong>'.$this->name_link.'</strong></p>';
+        $mapPopupContent .= '<p>Il est possible que cette voie soit dégradée et/ou difficilement utilisable.<br>Roulez avec prudence.</p>';
+        // $mapPopupContent .= '<p><br><em>'.__('Coordonnées').':<br>'.$this->coordinate.'</em></p>';
 
         return $mapPopupContent;
     }

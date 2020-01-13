@@ -18,6 +18,13 @@ var Maps = {
           maxZoom : 20
       }).addTo(map);
 
+			infoIcon = L.icon({
+					iconUrl: 'img/info-24px.png',
+					iconSize: [40, 40], // size of the icon
+					popupAnchor:  [0, -20], // point from which the popup should open relative to the iconAnchor
+					shadowSize:   [50, 64]
+			});
+
       control = L.control.locate({
         // strings: {
         //     title: '<a href="{{ route(\'flags.create\') }}?latitude=' + latitude + '&longitude=' + longitude + '">Ajouter un signalement</a>'
@@ -42,7 +49,8 @@ var Maps = {
           console.log(response.data);
           L.geoJSON(response.data, {
               pointToLayer: function(geoJsonPoint, latlng) {
-                  return L.marker(latlng);
+                  // return L.marker(latlng);
+									return L.marker(latlng, {icon: infoIcon});
               }
           })
           .bindPopup(function (layer) {
