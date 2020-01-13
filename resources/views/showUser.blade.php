@@ -1,14 +1,6 @@
-@extends('template')
+@extends('layouts.app')
 
-@section('titre')
-		Fiche d'utilisateur
-@endsection
-
-@section('sous-titre')
-		<p>Lorem ipsum</p>
-@endsection
-
-@section('contenu')
+@section('content')
 
 <section id="content">
   <header id="header-content">

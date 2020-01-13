@@ -16,15 +16,12 @@ class FlagController extends Controller
      */
     public function index(User $user)
     {
-        if (Auth::user()->admin == 1) {
             $this->authorize('manage_flag');
             $flagQuery = Flag::query();
             $flagQuery->where('name', 'like', '%'.request('q').'%');
             $flags = $flagQuery->paginate(25);
 
             return view('flags.index', compact('flags'));
-        }
-        return redirect('/');
     }
     /**
      * Show the form for creating a new flag.

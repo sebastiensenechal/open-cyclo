@@ -614,9 +614,12 @@ form .btn-danger:hover {
   /* Tablet */
   body {
     margin: 5vh auto;
+    font-size: 1.3vmax;
+    line-height: 3vmax;
   }
   body #header {
     flex-direction: row;
+    min-height: 60vh;
   }
   h1#title-home {
     color: #FCE4EC;
@@ -632,15 +635,35 @@ form .btn-danger:hover {
     width: 100vw;
     color: #fff;
     position: absolute;
+    font-weight: inherit;
   }
-
+  #nav-connexion ul {
+    display: flex;
+    justify-content: flex-start;
+  }
+  #container-home #nav-connexion a:visited {
+      color: #e1e1e1;
+  }
+  #container-home #nav-connexion a {
+      color: #fff;
+  }
+  #nav-connexion a:visited {
+      color: #444;
+  }
+  #nav-connexion a {
+      color: #444;
+  }
 
   /* Menu deroulant */
   #page-container #nav .sous {
     width: 60vw;
   }
+  nav#nav li a i {
+    vertical-align: middle;
+  }
   #header #left {
     width: 60vw;
+    min-height: 60vh;
   }
   #header #right {
     width: 40vw;
@@ -684,7 +707,7 @@ form .btn-danger:hover {
     color: inherit;
   }
   .leaflet-popup-content-wrapper {
-      min-width: 20vw;
+      width: 30vw;
   }
 }
 
@@ -797,7 +820,10 @@ form .btn-danger:hover {
 
 @media (min-width: 1919px) and (max-width: 2559px) {
   /* Medium and large screen */
-
+  body {
+    font-size: 1vmax;
+    line-height: 2.2vmax;
+  }
 }
 
 

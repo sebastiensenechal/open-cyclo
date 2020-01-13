@@ -22,7 +22,7 @@ class PostController extends Controller
    	{
         // $posts = Post::paginate(5);
         $posts = Post::oldest('titre')->paginate(10);
-        return view('liste', compact('posts'));
+        return view('posts.liste', compact('posts'));
    	}
 
 
@@ -34,7 +34,7 @@ class PostController extends Controller
     public function create(User $user)
     {
         $this->authorize('create', new Post);
-        return view('create');
+        return view('posts.create');
     }
 
 
@@ -69,7 +69,7 @@ class PostController extends Controller
      */
     public function show(Post $post)
     {
-        return view('show', compact('post'));
+        return view('posts.show', compact('post'));
     }
 
 
@@ -85,7 +85,7 @@ class PostController extends Controller
     {
         $this->authorize('edit', new Post);
 
-        return view('edit', compact('post'));
+        return view('posts.edit', compact('post'));
     }
 
 

@@ -1,9 +1,5 @@
 @extends('layouts.app')
 
-@section('titre')
-		Modifier le profil
-@endsection
-
 @section('content')
 
 <section class="container">
