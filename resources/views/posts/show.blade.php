@@ -5,14 +5,16 @@
 @endsection
 
 @section('sous-titre')
-
+		
+@endsection
 
 @section('contenu')
-    <section id="post-content">
+    <section id="post-container">
 
         <header id="header-content">
             <h1>{{ $post->titre }}</h1>
-						<p>{{ $post->user->name }} le {!! $post->created_at->format('d-m-Y') !!}</p>
+						<p class="meta-data">{!! $post->created_at->format('d-m-Y') !!}</p>
+						<!-- <p class="meta-data">{{ $post->user->name }} le {!! $post->created_at->format('d-m-Y') !!}</p> -->
 
 						@if(Auth::check() and Auth::user()->admin)
 						<ul class="list-meta">
@@ -26,7 +28,7 @@
 
         </header>
 
-        <article class="content">
+        <article class="post-content">
             {!! $post->contenu !!}
         </article>
 

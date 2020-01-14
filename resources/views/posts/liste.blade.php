@@ -1,24 +1,27 @@
 @extends('layouts.template')
 
 @section('titre')
-		Infos cyclo
+		Infos cyclo et<br />
+		actualités
 @endsection
 
 @section('sous-titre')
-		<p>Restez informé avec nos newsletters, guides pratique et recommandations.<br />
-		@if(Auth::check() and Auth::user()->admin)
-			@can('create', new App\Flag)
-	    		<a class="button is-info" href="{{ route('posts.create') }}">Créer un article</a></p>
-			@endcan
-		@endif
+		<p>Vous saurez tout sur le cyclo.<br />
+			Guides pratiques, recommandations, anecdotes...<br />
+			C'est par ici !</p>
 @endsection
 
 
 @section('contenu')
 
-		<section>
+		<section id="posts-list">
 				<header id="header-content">
 					<h2>En savoir, toujours plus</h2>
+					@if(Auth::check() and Auth::user()->admin)
+						@can('create', new App\Flag)
+				    		<p><a href="{{ route('posts.create') }}">Créer un article</a></p>
+						@endcan
+					@endif
 
 					@if(session()->has('info'))
 					    <div class="notification is-success">
@@ -29,9 +32,10 @@
 
 
 	      @foreach($posts as $post)
-						<article>
+						<article class="post">
 			      	<h3>{{ $post->titre }}</h3>
-							{{ $post->excerpt }}
+							<p class="meta-data">{!! $post->created_at->format('d-m-Y') !!}</p>
+							<p>{{ $post->excerpt }}</p>
 								<ul class="list-meta">
 									<li><a href="{{ route('posts.show', $post->id) }}">Voir</a></li>
 									@if(Auth::check() and Auth::user()->admin)

@@ -61,6 +61,22 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header">
+                  <h2>Articles</h2>
+                </div>
+
+                <div class="card-body">
+                  <ul>
+                    <li><a href="posts">Voir tous les articles</a></li>
+                    <li><a href="{{ route('posts.create') }}" title="Formulaire d'ajout d'article">Ajouter</a></li>
+                  </ul>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header">
                   <h2>Utilisateurs</h2>
                 </div>
 

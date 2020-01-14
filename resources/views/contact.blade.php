@@ -5,7 +5,7 @@
 @endsection
 
 @section('sous-titre')
-		<p>Sous-titre</p>
+		<p>&nbsp;&laquo;La seule voie qui offre quelque espoir d'un avenir meilleur pour toute l'humanité est celle de la coopération et du partenariat.&nbsp;&raquo; - Kofi Annan</p>
 @endsection
 
 @section('contenu')

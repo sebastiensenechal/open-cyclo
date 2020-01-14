@@ -33,7 +33,7 @@ body {
   height:auto;
   color: #444;
   font-size: 2.5vmax;
-  line-height: 5.5vmax;
+  line-height: 4vmax;
   scroll-behavior: smooth; /* Un peu de douceur dans ce monde de brutes */
   overflow-x: hidden;
   font-family: 'Nunito', Verdana, sans-serif;
@@ -117,6 +117,9 @@ body main {
  a:hover {
    color: rgb(1, 191, 178);
  }
+ a:visited:hover {
+   color: rgb(1, 191, 178);
+ }
  a:visited {
    color: rgb(100, 100, 100);
  }
@@ -172,7 +175,7 @@ main header#header-content {
   text-align: left;
   color: rgb(68, 68, 68);
 }
-#post-content #header-content h1 {
+#post-container #header-content h1 {
   padding: 0;
   color: rgb(68, 68, 68);
 }
@@ -196,6 +199,25 @@ section {
 .form-center {
   margin: auto;
   width: 70vw;
+}
+article.post {
+  margin-bottom: 4em;
+  display: block;
+  margin-right: 0;
+  width: auto;
+  vertical-align: top;
+  line-height: 3vmax;
+  overflow-wrap: break-word;
+  /* hyphens: auto; */
+}
+article.post > h3 {
+  border-top: 4px solid #6534FF;
+  padding-top: .8em;
+  /* line-height: 2.4vmax; */
+}
+.meta-data {
+  color: #6534FF;
+  font-weight: 600;
 }
 
 
@@ -250,6 +272,7 @@ ul.list-meta {
   list-style: none;
   padding-left: 0;
   display: flex;
+  flex-wrap: wrap;
 }
 ul.list-meta li {
   margin-right: 1em;
@@ -258,9 +281,16 @@ ul.list-meta li {
 ul.pagination {
   list-style: none;
   display: flex;
+  justify-content: center;
 }
 ul.pagination li {
-  margin: 0 .5em;
+    margin: 0;
+    padding: 1em 2em;
+    background: #444;
+    color:#fff;
+}
+ul.pagination li:hover {
+    background: #333;
 }
 ul.pagination li.active {
   background-color: #01bfb2;
@@ -268,6 +298,9 @@ ul.pagination li.active {
 }
 ul.pagination li a {
   padding: 1em;
+}
+ul.pagination li a:visited {
+    color:#fff;
 }
 
 /* Main navigation */
@@ -615,7 +648,7 @@ form .btn-danger:hover {
   body {
     margin: 5vh auto;
     font-size: 1.3vmax;
-    line-height: 3vmax;
+    line-height: 2.7vmax;
   }
   body #header {
     flex-direction: row;
@@ -695,29 +728,34 @@ form .btn-danger:hover {
 
   /* Navigation footer - mentions légales */
   #page-container > footer {
-    border-top: 1px solid #ccc;
     padding: 1em 2em 1em 1em;
-    background: #ffffff;
-    color: #444444;
   }
-  #page-container > footer a {
-    color: inherit;
+  #page-container nav#legal {
+    width: 70vw;
+    margin: auto;
   }
-  #page-container > footer a:visited {
-    color: inherit;
+  #page-container nav#legal ul {
+    padding-left: 0;
   }
   .leaflet-popup-content-wrapper {
       width: 30vw;
+  }
+
+  /* Posts style */
+  article.post {
+    width: 25%;
+    display: inline-block;
+    margin-right: 4em;
   }
 }
 
 
 
-@media (min-width: 480px) and (max-width: 959px) {
+@media (orientation: landscape) and (min-width: 480px) and (max-width: 959px) {
   /* Tablet */
   body {
     font-size: 1.8vmax;
-    line-height: 4.5vmax;
+    line-height: 3.5vmax;
     margin: 5vh auto;
   }
   h1#title-site {
@@ -781,6 +819,13 @@ form .btn-danger:hover {
   #page-container nav#legal ul {
     padding-left: 0;
   }
+
+  /* Posts style */
+  article.post {
+    width: 45%;
+    display: inline-block;
+    margin-right: 1em;
+  }
 }
 
 
@@ -815,6 +860,13 @@ form .btn-danger:hover {
   .leaflet-popup-content-wrapper {
       min-width: 20vw;
   }
+
+  /* Posts style */
+  article.post {
+    width: 25%;
+    display: inline-block;
+    margin-right: 2em;
+  }
 }
 
 
@@ -824,11 +876,25 @@ form .btn-danger:hover {
     font-size: 1vmax;
     line-height: 2.2vmax;
   }
+
+  /* Posts style */
+  article.post {
+    width: 21%;
+    display: inline-block;
+    margin-right: 2em;
+    line-height: 1.7vmax;
+  }
 }
 
 
 @media (min-width: 2560px) {
   /* HD 4K device */
+  article.post {
+    line-height: 2.4vmax;
+  }
+  article.post > h3 {
+    border-top: 10px solid #6534FF;
+  }
 }
 
 

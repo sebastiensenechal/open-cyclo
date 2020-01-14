@@ -21,7 +21,7 @@ class PostController extends Controller
      public function index()
    	{
         // $posts = Post::paginate(5);
-        $posts = Post::oldest('titre')->paginate(10);
+        $posts = Post::latest('id')->paginate(6); // Eloquent query "oldest()"
         return view('posts.liste', compact('posts'));
    	}
 
