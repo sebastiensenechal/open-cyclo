@@ -179,6 +179,9 @@ main header#header-content {
   padding: 0;
   color: rgb(68, 68, 68);
 }
+#page-container #post-container {
+  padding-bottom: 3em;
+}
 #left > div {
   display: flex;
   flex-direction: column;
@@ -286,7 +289,7 @@ ul.pagination {
 ul.pagination li {
     margin: 0;
     padding: 1em 2em;
-    background: #444;
+    background: #6534FF;
     color:#fff;
 }
 ul.pagination li:hover {
@@ -455,6 +458,29 @@ nav#toolbar .active {
   list-style: none;
   padding-left: 1em;
 }
+
+/* Fil d'ariane */
+#breadcrumb ol {
+  display: flex;
+  list-style: none;
+  padding-left: 0;
+}
+#breadcrumb li::before {
+  content: ">";
+  margin-right: .8em;
+}
+#breadcrumb li {
+  margin-right: .8em;
+}
+#breadcrumb li:first-child::before {
+  content: "";
+  margin:0;
+}
+#breadcrumb .breadcrumb-item a, #breadcrumb .breadcrumb-item {
+  color: #a4a4a4;
+  font-size: .9em;
+}
+
 
 
 /* COMPOSENTS */

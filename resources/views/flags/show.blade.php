@@ -3,10 +3,12 @@
 @section('title', __('Détails'))
 
 @section('content')
-<div class="row justify-content-center">
+<section class="row">
     <div class="col-md-6">
-        <div class="card">
-            <div class="card-header">{{ __('Détails') }}</div>
+        <article class="card">
+            <header class="card-header">
+                <h2>Détails</h2>
+            </header>
             <div class="card-body">
                 <table class="table table-sm">
                     <tbody>
@@ -23,19 +25,19 @@
                 @endif
                     <a href="{{ route('flag_map.index') }}" class="btn btn-link">{{ __('Retour à la carte') }}</a>
             </div>
-        </div>
+        </article>
     </div>
     <div class="col-md-6">
-        <div class="card">
+        <aside class="card">
             <div class="card-header">{{ trans('Position') }}</div>
             @if ($flag->coordinate)
             <div class="card-body" id="mapid"></div>
             @else
             <div class="card-body">{{ __('flag.no_coordinate') }}</div>
             @endif
-        </div>
+        </aside>
     </div>
-</div>
+</section>
 @endsection
 
 @section('styles')

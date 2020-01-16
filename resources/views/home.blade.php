@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container">
-    <div class="row justify-content-center">
+    <section class="row justify-content-center">
 
         @if (session('status'))
             <div class="card-body">
@@ -22,12 +22,12 @@
           <div class="alert alert-success alert-dismissible">{!! session('ok') !!}</div>
         @endif
 
-        <div class="col-md-12">
+        <article class="py-2 col-sm-12 col-md-8 col-lg-6">
             <div class="card">
               <div class="card-header">
                 <h2>Profil admin (<span>{!! link_to_route('user.edit', 'Modifier', [Auth::user()->id]) !!}</span>)</h2>
               </div>
-              <div class="panel-body">
+              <div class="card-body p-4">
         				<p>Pseudo : {{ Auth::user()->name }}</p>
         				<p>Email : {{ Auth::user()->email }}</p>
                 <p>Rôle :
@@ -39,15 +39,15 @@
                 </p>
         			</div>
             </div>
-        </div>
+        </article>
 
-        <div class="col-md-12">
+        <article class="py-2 col-sm-12 col-md-8 col-lg-6">
             <div class="card">
                 <div class="card-header">
                   <h2>Carte</h2>
                 </div>
 
-                <div class="card-body">
+                <div class="card-body p-4">
                   <ul>
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('flags.index') }}">Administrer les signalements</a>
@@ -55,39 +55,39 @@
                   </ul>
                 </div>
             </div>
-        </div>
+        </article>
 
 
-        <div class="col-md-12">
+        <article class="py-2 col-sm-12 col-md-8 col-lg-6">
             <div class="card">
                 <div class="card-header">
                   <h2>Articles</h2>
                 </div>
 
-                <div class="card-body">
+                <div class="card-body p-4">
                   <ul>
                     <li><a href="posts">Voir tous les articles</a></li>
                     <li><a href="{{ route('posts.create') }}" title="Formulaire d'ajout d'article">Ajouter</a></li>
                   </ul>
                 </div>
             </div>
-        </div>
+        </article>
 
 
-        <div class="col-md-12">
+        <article class="py-2 col-sm-12 col-md-8 col-lg-6">
             <div class="card">
                 <div class="card-header">
                   <h2>Utilisateurs</h2>
                 </div>
 
-                <div class="card-body">
+                <div class="card-body p-4">
                   <ul>
                     <li><a href="user">Administrer les utilisateurs</a></li>
                   </ul>
                 </div>
             </div>
-        </div>
+        </article>
 
-    </div>
+    </section>
 </div>
 @endsection

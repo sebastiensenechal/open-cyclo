@@ -5,13 +5,21 @@
 @endsection
 
 @section('sous-titre')
-		
+
 @endsection
 
 @section('contenu')
     <section id="post-container">
 
         <header id="header-content">
+						<nav id="breadcrumb" aria-label="breadcrumb" role="navigation">
+								<ol class="breadcrumb">
+										<li class="breadcrumb-item"><a href="{{ route('map') }}">Accueil</a></li>
+										<li class="breadcrumb-item"><a href="{{ route('posts.index') }}">Infos cyclo</a></li>
+										<li class="breadcrumb-item" aria-current="page">{{ $post->titre }}</li>
+								</ol>
+						</nav>
+
             <h1>{{ $post->titre }}</h1>
 						<p class="meta-data">{!! $post->created_at->format('d-m-Y') !!}</p>
 						<!-- <p class="meta-data">{{ $post->user->name }} le {!! $post->created_at->format('d-m-Y') !!}</p> -->

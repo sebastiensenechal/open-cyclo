@@ -16,6 +16,13 @@
 
 		<section id="posts-list">
 				<header id="header-content">
+					<nav id="breadcrumb" aria-label="breadcrumb" role="navigation">
+							<ol class="breadcrumb">
+									<li class="breadcrumb-item"><a href="{{ route('map') }}">Accueil</a></li>
+									<li class="breadcrumb-item" aria-current="page">Infos cyclo</li>
+							</ol>
+					</nav>
+
 					<h2>En savoir, toujours plus</h2>
 					@if(Auth::check() and Auth::user()->admin)
 						@can('create', new App\Flag)
@@ -33,11 +40,10 @@
 
 	      @foreach($posts as $post)
 						<article class="post">
-			      	<h3>{{ $post->titre }}</h3>
+			      	<h3><a href="{{ route('posts.show', $post->id) }}">{{ $post->titre }}</a></h3>
 							<p class="meta-data">{!! $post->created_at->format('d-m-Y') !!}</p>
 							<p>{{ $post->excerpt }}</p>
 								<ul class="list-meta">
-									<li><a href="{{ route('posts.show', $post->id) }}">Voir</a></li>
 									@if(Auth::check() and Auth::user()->admin)
 										<li><a href="{{ route('posts.edit', $post->id) }}">Modifier</a></li>
 										<li>

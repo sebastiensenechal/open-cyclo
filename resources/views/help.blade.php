@@ -11,8 +11,20 @@
 
 @section('contenu')
 
-	<section>
-    <p>Lorem ipsum</p>
-	</section>
+		<section>
+			<header id="header-content">
+				<nav id="breadcrumb" aria-label="breadcrumb" role="navigation">
+						<ol class="breadcrumb">
+								<li class="breadcrumb-item"><a href="{{ route('map') }}">Accueil</a></li>
+								<li class="breadcrumb-item" aria-current="page">Aide</li>
+						</ol>
+				</nav>
+
+				<h2><abbr title="Foire aux questions">FAQ</abbr></h2>
+				<p>Vous assistez en toutes circonstances. Si vous vous posez des questions, il y a des chances pour que vous trouviez une réponse ici même.</p>
+			</header>
+
+			
+		</section>
 
 @endsection
