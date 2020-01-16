@@ -16,14 +16,4 @@ tinymce.init({
       theme: 'mobile',
       plugins: [ 'lists', 'link', 'paste' ]
     },
-
-    // // OTHER SETTINGS
-    // images_upload_url: 'postAcceptor.php',
-    // // images_upload_base_path: '/some/basepath',
-    // images_upload_credentials: true,
-    // paste_data_images: true
 });
-
-// tinymce.activeEditor.uploadImages(function(success) {
-//    document.forms[0].submit();
-// });

@@ -49,6 +49,7 @@
     #mapid { height: 400px; }
 </style>
 @endsection
+
 @push('scripts')
 <!-- Make sure you put this AFTER Leaflet's CSS -->
 <script src="https://unpkg.com/leaflet@1.3.1/dist/leaflet.js"
@@ -56,7 +57,7 @@
     crossorigin=""></script>
 
 <script>
-    var map = L.map('mapid').setView([{{ $flag->latitude }}, {{ $flag->longitude }}], {{ config('leaflet.detail_zoom_level') }});
+    var map = L.map('mapid').setView([{{ $flag->latitude }}, {{ $flag->longitude }}], 16);
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
     }).addTo(map);

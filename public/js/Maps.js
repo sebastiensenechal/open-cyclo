@@ -46,7 +46,6 @@ var Maps = {
   geoJson : function() {
       axios.get('api/flags') // {{ route('api.flags.index') }}
       .then(function (response) {
-          console.log(response.data);
           L.geoJSON(response.data, {
               pointToLayer: function(geoJsonPoint, latlng) {
                   // return L.marker(latlng);

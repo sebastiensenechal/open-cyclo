@@ -48,9 +48,13 @@
                 </div>
 
                 <div class="card-body p-4">
+                  <p>Gestion des signalements des abonné(e)s. Modification, suppression...</p>
                   <ul>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('flags.index') }}">Administrer les signalements</a>
+                        <a href="{{ route('flags.index') }}">Administrer les signalements</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{ route('flags.create') }}">{{ __('Ajouter un signalement') }}</a>
                     </li>
                   </ul>
                 </div>
