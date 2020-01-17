@@ -27,7 +27,7 @@ class Contribute
             return redirect()->route('login');
         }
         if ($user->admin == 1) {
-            return redirect()->route('home');
+            return redirect()->route('home')->with('info',"Vous êtes connecté comme administrateur.");
         }
         if ($user->admin == 0) {
             return $next($request);
