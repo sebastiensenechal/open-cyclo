@@ -66,7 +66,7 @@
         crossorigin=""></script>
     <script src="https://cdn.jsdelivr.net/npm/leaflet.locatecontrol/dist/L.Control.Locate.min.js" charset="utf-8"></script>
 
-{{ Html::script('../public/js/Maps.js') }}
+{{ Html::script('js/Maps.js') }}
 <!-- {{ Html::script('../public/js/Load.js') }} -->
 
 <script>

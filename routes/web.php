@@ -36,8 +36,8 @@ Route::get('/', 'FlagMapController@index')->name('map');
 // -----------------------------------------
 Auth::routes();
 Auth::routes(['verify' => true]); // Activer la vérification des adresses mails. Implement dans User.php
-Route::get('home', 'HomeController@index')->name('home')->middleware('admin'); // Admin
-Route::get('contribute', 'ContributeController@index')->name('contribute')->middleware('contribute'); // Abonnés
+Route::get('home', 'HomeController@index')->name('home')->middleware('verified', 'admin'); // Admin
+Route::get('contribute', 'ContributeController@index')->name('contribute')->middleware('verified', 'contribute'); // Abonnés
 
 
 

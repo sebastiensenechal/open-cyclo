@@ -6,7 +6,7 @@
     <title>Open Cyclo | @yield('titre')</title>
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    {{ Html::style('../public/css/style.css') }}
+    {{ Html::style('css/style.css') }}
     {{ Html::style('https://fonts.googleapis.com/icon?family=Material+Icons') }}
     <!--[if lt IE 9]>
 			{{ Html::style('https://oss.maxcdn.com/libs/html5shiv/3.7.2/html5shiv.js') }}
@@ -90,6 +90,6 @@
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
     <script src="{{ asset('node_modules/tinymce/tinymce.js') }}"></script>
-    {{ Html::script('../public/js/script.js') }}
+    {{ Html::script('js/script.js') }}
 </body>
 </html>
