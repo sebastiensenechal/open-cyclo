@@ -6,10 +6,10 @@
         <ul class="navbar-nav ml-auto">
             <li class="deroulant"><span class="label_menu">Menu</span>
                 <ul class="sous">
-                    <li><a class="active" href="{{ route('map') }}" title="Carte"><i class="material-icons">map</i> <span>Carte</span></a></li>
-                    <li><a href="{{ url('posts') }}" title="Rester informé"><i class="material-icons">info</i> <span> Infos cyclo</a></li>
-                    <li><a href="aide" title="Demander de l'aider"><i class="material-icons">help_outline</i> <span>Aide</span></a></li>
-                    <li><a href="{{ url('contact') }}" title="Nous contacter"><i class="material-icons">mail_outline</i> <span>Contact</span></a></li>
+                    <li><a class="active" href="{{ route('map') }}" title="Carte"><span class="material-icons">map</span> Carte</a></li>
+                    <li><a href="{{ url('posts') }}" title="Rester informé"><span class="material-icons">info</span> Infos cyclo</a></li>
+                    <li><a href="aide" title="Demander de l'aider"><span class="material-icons">help_outline</span> Aide</a></li>
+                    <li><a href="{{ url('contact') }}" title="Nous contacter"><span class="material-icons">mail_outline</span> Contact</a></li>
                 </ul>
             </li>
         </ul>
@@ -21,11 +21,13 @@
     <section id="intro">
       <h2>Le guide tous terrains des cyclistes et des curieux.</h2>
       <ul>
-        <li>Utilisez cette carte pour vous géolocalisez,</li>
-        <li>Repérez les pistes cyclables que vous souhaitez,</li>
-        <li>Informez-vous sur l'état des pistes et contribuez.</li>
+        <li>Localisez votre position,</li>
+        <li>Repérez les pistes cyclables,</li>
+        <li>Informez-vous sur l'état des pistes,</li>
+        <li>Contribuez.</li>
       </ul>
-      <p>Le service est entièrement <strong>gratuit</strong>, pour contribuez <a href="{{ route('register') }}">inscrivez-vous</a>.</p>
+      <p>Le service est entièrement <strong>gratuit</strong>.<br />
+      Pour contribuez <a href="{{ route('register') }}">inscrivez-vous</a>.</p>
 
     </section>
 
@@ -55,9 +57,9 @@
       <ul>
         <!-- <li id="find-me"><i class="material-icons">location_searching</i></li> -->
         <!-- <li><a href="#popin1" class="open-popin"><i class="material-icons">comment</i></a></li> -->
-        <li><a href="{{ url('contact') }}" title="Nous contacter"><i class="material-icons">mail_outline</i></a></li>
-        <li><a href="aide" title="Trouver de l'aide"><i class="material-icons">help_outline</i></a></li>
-        <li><a href="contribute" title="Profil"><i class="material-icons">person</i></a></li>
+        <li><a href="{{ url('contact') }}" title="Nous contacter"><span class="material-icons">mail_outline</span></a></li>
+        <li><a href="aide" title="Trouver de l'aide"><span class="material-icons">help_outline</span></a></li>
+        <li><a href="contribute" title="Profil"><span class="material-icons">person</span></a></li>
       </ul>
     </nav>
 @endsection

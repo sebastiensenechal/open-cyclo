@@ -60,7 +60,7 @@
 
             <div>
               <h1 id="title-site">@yield('titre')</h1>
-              <div class="arrow"><i class="material-icons md-cyan md-36">arrow_downward</i></div>
+              <div class="arrow"><span class="material-icons md-cyan md-36">arrow_downward</span></div>
             </div>
 
         </div>

@@ -156,7 +156,7 @@ h2, h3 {
  font-size: 70%;
  color: #fff;
 }
-#container-home #intro a:visited {
+#container-home #intro a, #container-home #intro a:visited {
   color:#fff;
 }
 
@@ -269,7 +269,7 @@ nav#nav li a {
 nav#nav li a:hover:not(.active) {
   background-color: #111;
 }
-nav#nav li a i {
+nav#nav li a i, nav#nav li a span {
   font-size: 28px;
   position: relative;
   vertical-align: bottom;
@@ -736,7 +736,7 @@ form .btn-danger:hover {
   #page-container #nav .sous {
     width: 60vw;
   }
-  nav#nav li a i {
+  nav#nav li a i, nav#nav li a span {
     vertical-align: middle;
   }
   #header #left {
@@ -783,7 +783,7 @@ form .btn-danger:hover {
     padding-left: 0;
   }
   .leaflet-popup-content-wrapper {
-      width: 30vw;
+      width: 20vw;
   }
 
   /* Posts style */

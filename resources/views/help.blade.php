@@ -21,10 +21,11 @@
 				</nav>
 
 				<h2><abbr title="Foire aux questions">FAQ</abbr></h2>
-				<p>Vous assistez en toutes circonstances. Si vous vous posez des questions, il y a des chances pour que vous trouviez une réponse ici même.</p>
+				<p>Vous assister en toutes circonstances. Si vous vous posez des questions, il y a des chances pour que vous trouviez une réponse ici même.</p>
+				<p>Si ce n'est pas le cas, contactez-nous via notre formulaire et nous répondrons dans les plus brefs délais.</p>
 			</header>
 
-			
+
 		</section>
 
 @endsection
