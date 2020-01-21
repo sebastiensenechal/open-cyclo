@@ -12,10 +12,10 @@ var Maps = {
 
 
 	initMap : function() {
-      map = L.map('mapid').setView([this.map_center_latitude, this.map_center_longitude], this.zoom_level);
+      map = L.map('mapid', { dragging: true, touchZoom: true, scrollWheelZoom: false }).setView([this.map_center_latitude, this.map_center_longitude], this.zoom_level);
       tilelayer = L.tileLayer('https://tile.thunderforest.com/cycle/{z}/{x}/{y}.png?apikey=2ee1c74c95c54dd7b150e8f4604e7865', {
           attribution : 'Maps © <a href="http://www.thunderforest.com/" target="_blank">Thunderforest</a>, Data © <a href="http://www.openstreetmap.org/copyright" target="_blank">OpenStreetMap contributors.</a>',
-          maxZoom : 20
+          maxZoom : 16
       }).addTo(map);
 
 			infoIcon = L.icon({

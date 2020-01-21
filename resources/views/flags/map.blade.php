@@ -17,9 +17,19 @@
 @endsection
 
 @section('content')
-    <div id ="status"></div>
+    <!-- <div id ="status"></div> -->
+    <section id="intro">
+      <h2>Le guide tous terrains des cyclistes et des curieux.</h2>
+      <ul>
+        <li>Utilisez cette carte pour vous géolocalisez,</li>
+        <li>Repérez les pistes cyclables que vous souhaitez,</li>
+        <li>Informez-vous sur l'état des pistes et contribuez.</li>
+      </ul>
+      <p>Le service est entièrement <strong>gratuit</strong>, pour contribuez <a href="{{ route('register') }}">inscrivez-vous</a>.</p>
 
-    <div class="smart-popin" id="popin1">
+    </section>
+
+    <!-- <div class="smart-popin" id="popin1">
     	  <div class="sp-table">
     		    <div class="sp-cell">
 
@@ -33,7 +43,7 @@
 
     		    </div>
     	  </div>
-    </div>
+    </div> -->
 
     <div id="mapid">
         <!-- Cartographie -->

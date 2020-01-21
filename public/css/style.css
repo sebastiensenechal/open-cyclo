@@ -32,7 +32,7 @@ body {
   width: 93vw;
   height:auto;
   color: #444;
-  font-size: 2.5vmax;
+  font-size: 2vmax;
   line-height: 4vmax;
   scroll-behavior: smooth; /* Un peu de douceur dans ce monde de brutes */
   overflow-x: hidden;
@@ -92,6 +92,7 @@ body #header {
 
 #container-home main {
   display: flex;
+  flex-direction: column-reverse;
   min-height: 100vh;
   padding: 0;
 }
@@ -139,7 +140,7 @@ h1#title-site {
   line-height: 12vmin;
 }
 h1#title-home {
-  color: #d79cff;
+  color: #00ffdb;
 }
 h2, h3 {
   font-family: 'Montserrat', sans-serif;
@@ -148,11 +149,16 @@ h2, h3 {
 #right a:visited {
   color:#FCE4EC;
 }
-/* .arrow i {
-  position: absolute;
-  left: 45vw;
-} */
-
+#container-home main #intro > h2 {
+  color: #00ffdb;
+}
+#container-home main #intro > h2 > span {
+ font-size: 70%;
+ color: #fff;
+}
+#container-home #intro a:visited {
+  color:#fff;
+}
 
 
 /* ********************
@@ -163,8 +169,13 @@ h2, h3 {
 section#map-infos {
   width: 30%;
 }
+#container-home main #intro {
+  width: 85vw;
+  background: #333;
+  padding: 1em 2em 4em 2em;
+}
 div#map, div#mapid {
-  width: 100%;
+  width: 100vw;
   height: 93.5vh;
   z-index: 0;
 }
@@ -409,7 +420,7 @@ nav#toolbar li {
   width: 35%;
 }
 nav#toolbar li a, nav#toolbar li#find-me {
-  color:white;
+  color: #00ffdb;
   text-align: center;
   padding: 2em 1em;
   text-decoration: none;
@@ -681,9 +692,17 @@ form .btn-danger:hover {
     min-height: 60vh;
   }
   h1#title-home {
-    color: #FCE4EC;
+    color: #00ffdb;
   }
-
+  #container-home main {
+    flex-direction: row;
+  }
+  #container-home main #intro {
+    width: 20vw;
+  }
+  div#map, div#mapid {
+    width: 75vw;
+  }
 
   /* Top bar for connect and register */
   #nav-connexion {
@@ -857,6 +876,15 @@ form .btn-danger:hover {
 
 @media (min-width: 960px) and (max-width: 1279px) {
   /* Tablet and small screen */
+  #container-home main {
+    flex-direction: row;
+  }
+  #container-home main #intro {
+    width: 20vw;
+  }
+  div#map, div#mapid {
+    width: 75vw;
+  }
   /* Top bar for connect and register */
   #container-home #nav-connexion {
     background: transparent;
@@ -900,7 +928,17 @@ form .btn-danger:hover {
   /* Medium and large screen */
   body {
     font-size: 1vmax;
-    line-height: 2.2vmax;
+    line-height: 1.8vmax;
+  }
+
+  #container-home main {
+    flex-direction: row;
+  }
+  #container-home main #intro {
+    width: 20vw;
+  }
+  div#map, div#mapid {
+    width: 75vw;
   }
 
   /* Posts style */
@@ -915,6 +953,15 @@ form .btn-danger:hover {
 
 @media (min-width: 2560px) {
   /* HD 4K device */
+  #container-home main {
+    flex-direction: row;
+  }
+  #container-home main #intro {
+    width: 20vw;
+  }
+  div#map, div#mapid {
+    width: 75vw;
+  }
   article.post {
     line-height: 2.4vmax;
   }
