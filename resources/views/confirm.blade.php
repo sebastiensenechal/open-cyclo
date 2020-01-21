@@ -12,7 +12,7 @@
 
 	<section class="content">
 			<header id="header-content">
-					<nav id="breadcrumb" aria-label="breadcrumb" role="navigation">
+					<nav id="breadcrumb" aria-label="breadcrumb">
 							<ol class="breadcrumb">
 									<li class="breadcrumb-item"><a href="{{ route('map') }}">Accueil</a></li>
 									<li class="breadcrumb-item" aria-current="page">Confirmation de reception</li>

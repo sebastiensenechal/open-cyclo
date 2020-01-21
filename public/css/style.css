@@ -186,12 +186,14 @@ main header#header-content {
   text-align: left;
   color: rgb(68, 68, 68);
 }
-#post-container #header-content h1 {
+#post-container #header-content h1, #post-container #header-content h2 {
   padding: 0;
   color: rgb(68, 68, 68);
+  font-weight: 300;
 }
 #page-container #post-container {
   padding-bottom: 3em;
+  width: 60vw;
 }
 #left > div {
   display: flex;

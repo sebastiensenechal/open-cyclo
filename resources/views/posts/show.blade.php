@@ -12,7 +12,7 @@
     <section id="post-container">
 
         <header id="header-content">
-						<nav id="breadcrumb" aria-label="breadcrumb" role="navigation">
+						<nav id="breadcrumb" aria-label="breadcrumb">
 								<ol class="breadcrumb">
 										<li class="breadcrumb-item"><a href="{{ route('map') }}">Accueil</a></li>
 										<li class="breadcrumb-item"><a href="{{ route('posts.index') }}">Infos cyclo</a></li>
@@ -20,7 +20,7 @@
 								</ol>
 						</nav>
 
-            <h1>{{ $post->titre }}</h1>
+            <h2>{{ $post->titre }}</h2>
 						<p class="meta-data">{!! $post->created_at->format('d-m-Y') !!}</p>
 						<!-- <p class="meta-data">{{ $post->user->name }} le {!! $post->created_at->format('d-m-Y') !!}</p> -->
 

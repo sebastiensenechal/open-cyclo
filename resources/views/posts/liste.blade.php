@@ -16,7 +16,7 @@
 
 		<section id="posts-list">
 				<header id="header-content">
-					<nav id="breadcrumb" aria-label="breadcrumb" role="navigation">
+					<nav id="breadcrumb" aria-label="breadcrumb">
 							<ol class="breadcrumb">
 									<li class="breadcrumb-item"><a href="{{ route('map') }}">Accueil</a></li>
 									<li class="breadcrumb-item" aria-current="page">Infos cyclo</li>
@@ -40,7 +40,7 @@
 
 	      @foreach($posts as $post)
 						<article class="post">
-			      	<h3><a href="{{ route('posts.show', $post->id) }}">{{ $post->titre }}</a></h3>
+			      	<h3><a href="{{ route('posts.show', $post->id) }}#post-container">{{ $post->titre }}</a></h3>
 							<p class="meta-data">{!! $post->created_at->format('d-m-Y') !!}</p>
 							<p>{{ $post->excerpt }}</p>
 								<ul class="list-meta">
