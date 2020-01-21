@@ -47,16 +47,13 @@
     	  </div>
     </div> -->
 
-    <div id="mapid">
-        <!-- Cartographie -->
-    </div>
+    <div id="mapid"></div>
+    <!-- <example-component></example-component> -->
 @endsection
 
 @section('footer')
     <nav id="toolbar">
       <ul>
-        <!-- <li id="find-me"><i class="material-icons">location_searching</i></li> -->
-        <!-- <li><a href="#popin1" class="open-popin"><i class="material-icons">comment</i></a></li> -->
         <li><a href="{{ url('contact') }}" title="Nous contacter"><span class="material-icons">mail_outline</span></a></li>
         <li><a href="aide" title="Trouver de l'aide"><span class="material-icons">help_outline</span></a></li>
         <li><a href="contribute" title="Profil"><span class="material-icons">person</span></a></li>
@@ -84,115 +81,24 @@
 <script>
 Maps.initMap();
 Maps.geoJson();
-    // *****************************
-    //      Map initialisation
-    // *****************************
-    // var map = L.map('mapid').setView([{{ config('leaflet.map_center_latitude') }}, {{ config('leaflet.map_center_longitude') }}], {{ config('leaflet.zoom_level') }});
-    // var map = L.map('mapid').locate({setView: true, maxZoom: 16});
-    // var baseUrl = "{{ url('/') }}";
-    // L.tileLayer('https://tile.thunderforest.com/cycle/{z}/{x}/{y}.png?apikey=2ee1c74c95c54dd7b150e8f4604e7865', {
-    //     attribution: 'Maps © <a href="http://www.thunderforest.com/" target="_blank">Thunderforest</a>, Data © <a href="http://www.openstreetmap.org/copyright" target="_blank">OpenStreetMap contributors.</a>'
-    // }).addTo(map);
 
-
-    // ***********************
-    //      User location
-    // ***********************
-    // function onLocationFound(e) {
-    //     var radius = e.accuracy;
-    //     let latitude = e.latlng.lat.toString().substring(0, 15);
-    //     let longitude = e.latlng.lng.toString().substring(0, 15);
-    //     L.marker(e.latlng).addTo(map)
-    //         .bindPopup('<br><a href="{{ route('flags.create') }}?latitude=' + latitude + '&longitude=' + longitude + '">Ajouter un signalement</a>');
-    //
-    //     // L.circle(e.latlng, radius).addTo(map);
-    // }
-    // map.on('locationfound', onLocationFound);
-    //
-    // function onLocationError(e) {
-    //     alert(e.message);
-    // }
-    // map.on('locationerror', onLocationError);
-
-
-    // // *************************
-    // //      Find Me button
-    // // *************************
-    // function geoFindMe() {
-    //   const status = document.querySelector('#status');
-    //
-    //   function success() {
-    //     status.textContent = '';
-    //     document.getElementById("status").style.display = "none";
-    //
-    //     map.locate({setView: true, maxZoom: 16});
-    //     L.marker(e.latlng).addTo(map)
-    //         .bindPopup('<a href="{{ route('flags.create') }}?latitude=' + latitude + '&longitude=' + longitude + '">Ajouter un signalement</a>');
-    //   }
-    //
-    //   function error() {
-    //     status.textContent = 'Impossible de vous localiser';
-    //   }
-    //
-    //   var geo_options = {
-    //     enableHighAccuracy: true,
-    //     maximumAge        : 30000,
-    //     timeout           : 27000
-    //   }
-    //
-    //   if (!navigator.geolocation) {
-    //     status.textContent = 'Geolocation n\'est pas supporté sur votre navigateur';
-    //   } else {
-    //     document.getElementById("status").style.display = "block";
-    //
-    //     status.textContent = 'Recherche en cours...';
-    //
-    //     // navigator.geolocation.getCurrentPosition(success, error);
-    //     navigator.geolocation.watchPosition(success, error, geo_options);
-    //   }
-    // }
-    //
-    // document.querySelector('#find-me').addEventListener('click', geoFindMe());
-
-
-    // *************************
-    //      API Flags call
-    // *************************
-    // axios.get('api/flags') // {{ route('api.flags.index') }}
-    // .then(function (response) {
-    //     console.log(response.data);
-    //     L.geoJSON(response.data, {
-    //         pointToLayer: function(geoJsonPoint, latlng) {
-    //             return L.marker(latlng);
-    //         }
-    //     })
-    //     .bindPopup(function (layer) {
-    //         return layer.feature.properties.map_popup_content;
-    //     }).addTo(map);
-    // })
-    // .catch(function (error) {
-    //     console.log(error);
-    // });
-
-
-
-    // *****************************
-    //      Add marker to click
-    // *****************************
-    @can('create', new App\Flag)
-    var theMarker;
-    map.on('click', function(e) {
-        let latitude = e.latlng.lat.toString().substring(0, 15);
-        let longitude = e.latlng.lng.toString().substring(0, 15);
-        if (theMarker != undefined) {
-            map.removeLayer(theMarker);
-        };
-        var popupContent = '<a href="{{ route('flags.create') }}?latitude=' + latitude + '&longitude=' + longitude + '">Ajouter un signalement</a>';
-        // "Your location : " + latitude + ", " + longitude + "."
-        theMarker = L.marker([latitude, longitude]).addTo(map);
-        theMarker.bindPopup(popupContent)
-        .openPopup();
-    });
-    @endcan
+// *****************************
+//      Add marker to click
+// *****************************
+@can('create', new App\Flag)
+var theMarker;
+map.on('click', function(e) {
+    let latitude = e.latlng.lat.toString().substring(0, 15);
+    let longitude = e.latlng.lng.toString().substring(0, 15);
+    if (theMarker != undefined) {
+        map.removeLayer(theMarker);
+    };
+    var popupContent = '<a href="{{ route('flags.create') }}?latitude=' + latitude + '&longitude=' + longitude + '">Ajouter un signalement</a>';
+    // "Your location : " + latitude + ", " + longitude + "."
+    theMarker = L.marker([latitude, longitude]).addTo(map);
+    theMarker.bindPopup(popupContent)
+    .openPopup();
+});
+@endcan
 </script>
 @endpush
