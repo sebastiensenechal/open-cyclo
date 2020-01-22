@@ -15,6 +15,7 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/style_backoffice.css') }}" rel="stylesheet">
     {{ Html::style('https://fonts.googleapis.com/icon?family=Material+Icons') }}
     @yield('styles')
 </head>

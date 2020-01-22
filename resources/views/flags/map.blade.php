@@ -74,8 +74,8 @@
         integrity="sha512-/Nsx9X4HebavoBvEBuyp3I7od5tA0UzAxs+j83KgC8PU0kgB4XiK4Lfe4y4cgBtaRJQEIFCW+oC506aPT2L1zw=="
         crossorigin=""></script>
     <script src="https://cdn.jsdelivr.net/npm/leaflet.locatecontrol/dist/L.Control.Locate.min.js"></script>
+
 {{ Html::script('js/Maps.js') }}
-<!-- {{ Html::script('../public/js/Load.js') }} -->
 
     <script>
         Maps.initMap();
