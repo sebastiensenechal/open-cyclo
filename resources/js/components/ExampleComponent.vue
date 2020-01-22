@@ -5,6 +5,7 @@
 </template>
 
 <script>
+
     export default{
         data() {
             return {
@@ -21,7 +22,7 @@
             .then(function (response) {
                 L.geoJSON(response.data, {
                     pointToLayer: function(geoJsonPoint, latlng) {
-                        return L.marker(latlng, {icon: this.infoIcon});
+                        return L.marker(latlng, {icon: infoIcon});
                     }
                 })
                 .bindPopup(function (layer) {
@@ -42,7 +43,7 @@
                     maxZoom : 16
                 }).addTo(this.map);
 
-                this.infoIcon = L.icon({
+                var infoIcon = L.icon({
                     iconUrl: 'img/info-24px.png',
                     iconSize: [40, 40], // size of the icon
                     popupAnchor:  [0, -20], // point from which the popup should open relative to the iconAnchor
@@ -63,6 +64,20 @@
                 }).addTo(this.map);
 
 
+            },
+
+            initGeojson(e) {
+            var theMarker;
+                let latitude = e.latlng.lat.toString().substring(0, 15);
+                 let longitude = e.latlng.lng.toString().substring(0, 15);
+                 if (theMarker != undefined) {
+                     map.removeLayer(theMarker);
+                 };
+                 var popupContent = '<a href="flags.create?latitude=' + latitude + '&longitude=' + longitude + '">Ajouter un signalement</a>';
+                 // "Your location : " + latitude + ", " + longitude + "."
+                 theMarker = L.marker([latitude, longitude]).addTo(map);
+                 theMarker.bindPopup(popupContent)
+                 .openPopup();
             }
         }
     }

@@ -1,22 +1,27 @@
 // Objet Maps
 var map;
 var control;
-var mapLayer;
-// var theMarker;
+var tilelayer;
+var latitude = this.latitude;
+var longitude = this.longitude;
 
 var Maps = {
-	// Ville de Nantes
 	map_center_latitude: 48.862725,
 	map_center_longitude: 2.287592,
   zoom_level : 10,
-
+	latitude: null,
+	longitude: null,
+	theMarker: null,
+	// url : '<br><a href="flags/create?latitude=' + latitude + '&longitude=' + longitude + '">Ajouter un signalement</a>',
 
 	initMap : function() {
-      map = L.map('mapid', { dragging: true, touchZoom: true, scrollWheelZoom: false }).setView([this.map_center_latitude, this.map_center_longitude], this.zoom_level);
+
+      map = L.map('mapid', { dragging: true, touchZoom: true, scrollWheelZoom: false, touchZoom: 'center', }).setView([this.map_center_latitude, this.map_center_longitude], this.zoom_level);
       tilelayer = L.tileLayer('https://tile.thunderforest.com/cycle/{z}/{x}/{y}.png?apikey=2ee1c74c95c54dd7b150e8f4604e7865', {
           attribution : 'Maps © <a href="http://www.thunderforest.com/" target="_blank">Thunderforest</a>, Data © <a href="http://www.openstreetmap.org/copyright" target="_blank">OpenStreetMap contributors.</a>',
           maxZoom : 16
       }).addTo(map);
+
 
 			infoIcon = L.icon({
 					iconUrl: 'img/info-24px.png',
@@ -25,22 +30,24 @@ var Maps = {
 					shadowSize:   [50, 64]
 			});
 
-      control = L.control.locate({
-        // strings: {
-        //     title: '<a href="{{ route(\'flags.create\') }}?latitude=' + latitude + '&longitude=' + longitude + '">Ajouter un signalement</a>'
-        // },
-        setView: 'always',
-        strings: {
-            title: "Trouver ma position",
-             popup: "<br><a href=\"flags/create?latitude=' + latitude + '&longitude=' + longitude + '\">Ajouter un signalement</a>",
-            // popup: '<br><a href="flags/create?latitude=' + latitude + '&longitude=' + longitude + '">Ajouter un signalement</a>',
-        },
-        locateOptions: {
-          enableHighAccuracy: true
-        },
-        drawCircle: true,
-        showPopup: false,
-      }).addTo(map);
+			this.locate();
+	},
+
+	locate : function() {
+			control = L.control.locate({
+				setView: 'always',
+				strings: {
+						title: "Trouver ma position",
+				},
+				locateOptions: {
+					enableHighAccuracy: true
+				},
+				drawCircle: true,
+				showPopup: false,
+				watch: true,
+				maxZoom: 10,
+				setRadius: 10,
+			}).addTo(map);
 	},
 
   geoJson : function() {
@@ -60,5 +67,20 @@ var Maps = {
           console.log(error);
       });
   },
+
+	addMarker : function() {
+		map.on('click', function(e) {
+			this.latitude = e.latlng.lat.toString().substring(0, 15);
+			this.longitude = e.latlng.lng.toString().substring(0, 15);
+			if (this.theMarker != undefined) {
+					map.removeLayer(this.theMarker);
+			};
+			var popupContent = '<p>Un signalement à enregistrer ?<br><p><a href="flags/create?latitude=' + this.latitude + '&longitude=' + this.longitude + '">Ajouter</a></p>';
+			// "Your location : " + latitude + ", " + longitude + "."
+			this.theMarker = L.marker([this.latitude, this.longitude]).addTo(map);
+			this.theMarker.bindPopup(popupContent)
+			.openPopup();
+		});
+	}
 
 }

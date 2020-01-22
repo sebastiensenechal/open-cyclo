@@ -49,6 +49,7 @@
 
     <div id="mapid"></div>
     <!-- <example-component></example-component> -->
+    <!-- <map></map> -->
 @endsection
 
 @section('footer')
@@ -69,36 +70,18 @@
 @endsection
 
 @push('scripts')
-<!-- Make sure you put this AFTER Leaflet's CSS -->
     <script src="https://unpkg.com/leaflet@1.3.1/dist/leaflet.js"
         integrity="sha512-/Nsx9X4HebavoBvEBuyp3I7od5tA0UzAxs+j83KgC8PU0kgB4XiK4Lfe4y4cgBtaRJQEIFCW+oC506aPT2L1zw=="
         crossorigin=""></script>
     <script src="https://cdn.jsdelivr.net/npm/leaflet.locatecontrol/dist/L.Control.Locate.min.js"></script>
-
 {{ Html::script('js/Maps.js') }}
 <!-- {{ Html::script('../public/js/Load.js') }} -->
 
-<script>
-Maps.initMap();
-Maps.geoJson();
-
-// *****************************
-//      Add marker to click
-// *****************************
-@can('create', new App\Flag)
-var theMarker;
-map.on('click', function(e) {
-    let latitude = e.latlng.lat.toString().substring(0, 15);
-    let longitude = e.latlng.lng.toString().substring(0, 15);
-    if (theMarker != undefined) {
-        map.removeLayer(theMarker);
-    };
-    var popupContent = '<a href="{{ route('flags.create') }}?latitude=' + latitude + '&longitude=' + longitude + '">Ajouter un signalement</a>';
-    // "Your location : " + latitude + ", " + longitude + "."
-    theMarker = L.marker([latitude, longitude]).addTo(map);
-    theMarker.bindPopup(popupContent)
-    .openPopup();
-});
-@endcan
-</script>
+    <script>
+        Maps.initMap();
+        Maps.geoJson(); // Display markers on map
+        @can('create', new App\Flag) // Authorization for addMarker
+            Maps.addMarker();
+        @endcan
+    </script>
 @endpush
