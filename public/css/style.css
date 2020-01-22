@@ -74,11 +74,20 @@ body #header {
   justify-content: center;
   align-content: center;
   align-items: center;
-  background: #6534FF;
+  /* background: #6534FF; */
   font-size: 3vmax;
   line-height: 8vmin;
   height: auto;
   padding: 4vh 0;
+
+  background: linear-gradient(222deg, #6534ff, #d30fff);
+  background-size: 400% 400%;
+  animation: AnimationName 22s ease infinite;
+  @keyframes AnimationName {
+      0%{background-position:86% 0%}
+      50%{background-position:15% 100%}
+      100%{background-position:86% 0%}
+  }
 }
 #header #left {
   background: url('../../public/img/topo-jaune.svg'),
@@ -237,6 +246,7 @@ article.post > h3 {
 }
 
 
+
 /* ********************
 
  NAVIGATION
@@ -280,8 +290,15 @@ nav#nav li span {
   display:inline-block;
 }
 nav#nav .active {
-  background-color: #01bfb2;
-  color: #ffffff;
+  /* background: linear-gradient(to right, rgba(252,106,85,1) 0%,rgba(237,92,128,1) 47%,rgba(208,64,165,1) 100%); */
+  background: linear-gradient(222deg, #fc6a56, #ee35be, #ff9400);
+  background-size: 600% 600%;
+  animation: AnimationName 3s ease infinite;
+  @keyframes AnimationName {
+      0%{background-position:86% 0%}
+      50%{background-position:15% 100%}
+      100%{background-position:86% 0%}
+  }
 }
 
 ul.list-meta {
@@ -686,8 +703,8 @@ form .btn-danger:hover {
   /* Tablet */
   body {
     margin: 5vh auto;
-    font-size: 1.3vmax;
-    line-height: 2.7vmax;
+    font-size: 1vmax;
+    line-height: 2vmax;
   }
   body #header {
     flex-direction: row;
@@ -704,6 +721,9 @@ form .btn-danger:hover {
   }
   div#map, div#mapid {
     width: 75vw;
+  }
+  article.post {
+    line-height: 2vmax;
   }
 
   /* Top bar for connect and register */
@@ -829,7 +849,7 @@ form .btn-danger:hover {
   }
 
   #container-home nav#nav li a {
-    padding: 0em 1em 1em 1em;
+    padding: 1em 1em 1em 1em;
   }
   nav#nav ul {
     flex-wrap: wrap;
