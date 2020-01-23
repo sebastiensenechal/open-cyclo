@@ -5,6 +5,10 @@
 
     RewriteEngine On
 
+    # Force SSL
+    # RewriteCond %{HTTPS} !=on
+    # RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
     # Handle Authorization Header
     RewriteCond %{HTTP:Authorization} .
     RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
@@ -20,3 +24,9 @@
     RewriteRule ^ index.php [L]
 
 </IfModule>
+
+# Using this header, any browser that accesses the site over HTTPS will not
+# be able to access the plain HTTP site for one year (31536000 seconds).
+# One you begin using this, you should not stop using SSL on your site or
+# else your returning visitors will not be able to access your site at all.
+Header always set Strict-Transport-Security "max-age=31536000" env=HTTPS
