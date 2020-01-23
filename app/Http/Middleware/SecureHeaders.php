@@ -29,7 +29,7 @@ class SecureHeaders
         $response->headers->set('Referrer-Policy', 'no-referrer-when-downgrade');
         // $response->headers->set('X-Content-Type-Options', 'nosniff');
         $response->headers->set('X-XSS-Protection', '1; mode=block');
-        $response->headers->set('X-Frame-Options', 'DENY');
+        $response->headers->set('X-Frame-Options', 'sameorigin');
         $response->headers->set('Strict-Transport-Security', 'max-age=31536000; includeSubDomains');
         // $response->headers->set('Content-Security-Policy', "style-src https://fonts.googleapis.com/ https://fonts.gstatic.com https://unpkg.com/leaflet@1.3.1/ https://cdn.jsdelivr.net/npm/leaflet.locatecontrol/ script-src 'self' https://apis.google.com https://unpkg.com/leaflet@1.3.1/ https://cdn.jsdelivr.net/npm/leaflet.locatecontrol/ https://oss.maxcdn.com/
 
