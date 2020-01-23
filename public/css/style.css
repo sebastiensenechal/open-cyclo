@@ -692,6 +692,12 @@ form .btn-danger:hover {
     color:  #01BFB2;
 }
 
+.notification .is-sucess {
+    width: 100%;
+    background: #9C21FF;
+    color: #fff;
+    padding: .5em 1em;
+}
 
 
 /* ********************
@@ -957,7 +963,22 @@ form .btn-danger:hover {
     flex-direction: row;
   }
   #container-home main #intro {
-    width: 20vw;
+    width: 21vw;
+    background: url('../img/abstract.jpg'), linear-gradient(to right,
+    rgba(30, 75, 115, 1),
+    rgba(255, 255, 255, 0));
+        background-position-x: 0%, 0%, 0%;
+        background-position-y: 0%, 0%, 0%;
+        background-repeat: repeat, repeat, repeat;
+        background-size: auto, auto, auto;
+    background-position-x: 0%, 0%, 0%;
+    background-position-y: 0%, 0%, 0%;
+    background-repeat: repeat, repeat, repeat;
+    background-size: auto, auto, auto;
+    background-position: center;
+    background-repeat: no-repeat, no-repeat;
+    background-size: cover, cover;
+    margin: 0;
   }
   div#map, div#mapid {
     width: 75vw;

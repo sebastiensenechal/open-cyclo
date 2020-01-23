@@ -49,7 +49,7 @@
                 <ul>
                     <li class="deroulant"><span class="label_menu">Menu</span>
                         <ul class="sous">
-                            <li><a class="active" href="{{ route('map') }}">Carte</a></li>
+                            <li><a class="active" href="{{ route('map') }}">Open Cyclo</a></li>
                             <li><a href="{{ url('posts') }}">Infos cyclo</a></li>
                             <li><a href="{{ url('aide') }}">Aide</a></li>
                             <li><a href="{{ url('contact') }}">Contact</a></li>
