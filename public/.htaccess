@@ -30,3 +30,5 @@
 # One you begin using this, you should not stop using SSL on your site or
 # else your returning visitors will not be able to access your site at all.
 # Header always set Strict-Transport-Security "max-age=31536000" env=HTTPS
+
+php_value max_execution_time 300
