@@ -2,9 +2,19 @@
 
 @section('content')
 
-<section class="container">
-  <header id="header-content">
-    <h2>Modifier le profil</h2>
+<section class="base-page">
+
+  <header>
+      <nav id="breadcrumb" aria-label="breadcrumb">
+          <ol class="breadcrumb">
+              <li class="breadcrumb-item"><a href="{{ route('map') }}">Accueil</a></li>
+              <li class="breadcrumb-item"><a href="{{ route('home') }}">Tableau de bord</a></li>
+              <li class="breadcrumb-item"><a href="{{ url('user') }}">Liste des membres</a></li>
+              <li class="breadcrumb-item" aria-current="page">Modifier le profil</li>
+          </ol>
+      </nav>
+
+      <h2>Modifier le profil</h2>
   </header>
 
 			{!! Form::model($user, ['route' => ['user.update', $user->id], 'method' => 'put', 'class' => 'form-horizontal panel']) !!}
@@ -25,15 +35,10 @@
 				</div>
 			</div>
 			@endif
-				{!! Form::submit('Envoyer', ['class' => 'btn btn-primary']) !!}
+				{!! Form::submit('Envoyer', ['class' => 'btn']) !!}
 			{!! Form::close() !!}
 
-
-			{!! Form::open(['method' => 'DELETE', 'route' => ['user.destroy', $user->id]]) !!}
-				{!! Form::submit('Supprimer', ['class' => 'btn btn-primary', 'onclick' => 'return confirm(\'Vraiment supprimer cet utilisateur ?\')']) !!}
-			{!! Form::close() !!}
-
-		<p><a href="javascript:history.back()" class="btn btn-primary">Retour</a></p>
+		<p><a href="javascript:history.back()">Annuler</a></p>
 
 </section>
 

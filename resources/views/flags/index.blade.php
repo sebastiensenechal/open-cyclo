@@ -3,28 +3,34 @@
 @section('title', __('Liste des signalements'))
 
 @section('content')
-<div class="mb-3">
-    <div class="float-right">
-        @can('create', new App\Flag)
-            <a href="{{ route('flags.create') }}" class="btn btn-success">{{ __('Ajouter') }}</a>
-        @endcan
-    </div>
-    <h1 class="page-title">Liste des signalements <small>({{ $flags->total() }})</small></h1>
-</div>
 
-<div class="row">
-    <div class="col-md-12">
-        <div class="card">
-            <div class="card-header">
+<section class="base-page">
+
+  <header>
+      <nav id="breadcrumb" aria-label="breadcrumb">
+          <ol class="breadcrumb">
+              <li class="breadcrumb-item"><a href="{{ route('map') }}">Accueil</a></li>
+              <li class="breadcrumb-item"><a href="{{ route('home') }}">Tableau de bord</a></li>
+              <li class="breadcrumb-item"><a href="{{ url('flags') }}">Liste des signalements</a></li>
+              <li class="breadcrumb-item" aria-current="page">Détails du signalement</li>
+          </ol>
+      </nav>
+
+      <h1 class="page-title">Liste des signalements <small>({{ $flags->total() }})</small></h1>
+      @can('create', new App\Flag)
+          <p><a href="{{ route('flags.create') }}">{{ __('Ajouter') }}</a></p>
+      @endcan
+  </header>
+
                 <form method="GET" action="" accept-charset="UTF-8" class="form-inline">
                     <div class="form-group">
                         <label for="q" class="control-label">{{ __('Recherche') }}</label>
                         <input placeholder="Signalement" name="q" type="text" id="q" class="form-control mx-sm-2" value="{{ request('q') }}">
                     </div>
-                    <input type="submit" value="Valider" class="btn btn-secondary">
-                    <a href="{{ route('flags.index') }}" class="btn btn-link">{{ __('Effacer') }}</a>
+                    <input type="submit" value="Valider" class="btn">
+                    <a href="{{ route('flags.index') }}" class="btn">{{ __('Effacer') }}</a>
                 </form>
-            </div>
+
             <table class="table table-sm table-responsive-sm">
                 <thead>
                     <tr>
@@ -50,7 +56,8 @@
                 </tbody>
             </table>
             <div class="card-body">{{ $flags->appends(Request::except('page'))->render() }}</div>
-        </div>
-    </div>
-</div>
+
+
+</section>
+
 @endsection

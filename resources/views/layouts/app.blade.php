@@ -20,7 +20,7 @@
     @yield('styles')
 </head>
 <body>
-    <div class="container-fluid" id="app">
+    <div class="container-fluid" id="app page-container">
         <header>
             <nav class="navbar navbar-expand-md navbar-dark bg-dark shadow-sm">
                 <div class="container">
@@ -74,7 +74,7 @@
             </nav>
         </header>
 
-        <main class="py-4">
+        <main>
             @yield('content')
         </main>
 

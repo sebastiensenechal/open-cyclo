@@ -2,12 +2,22 @@
 
 @section('content')
 
-<section id="content">
-  <header id="header-content">
-    <h2>Création d'un utilisateur</h2>
-  </header>
+<section class="base-page">
 
-			{!! Form::open(['route' => 'user.store', 'class' => 'form-horizontal panel']) !!}
+    <header>
+        <nav id="breadcrumb" aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="{{ route('map') }}">Accueil</a></li>
+                <li class="breadcrumb-item"><a href="{{ route('home') }}">Tableau de bord</a></li>
+                <li class="breadcrumb-item"><a href="{{ url('user') }}">Liste des membres</a></li>
+                <li class="breadcrumb-item" aria-current="page">Ajout d'un utilisateur</li>
+            </ol>
+        </nav>
+
+        <h2>Création d'un utilisateur</h2>
+    </header>
+
+			{!! Form::open(['route' => 'user.store']) !!}
 			<div class="form-group {!! $errors->has('name') ? 'has-error' : '' !!}">
 				{!! Form::text('name', null, ['class' => 'form-control', 'placeholder' => 'Nom', 'required']) !!}
 				{!! $errors->first('name', '<small class="help-block">:message</small>') !!}
@@ -30,12 +40,8 @@
 					</label>
 				</div>
 			</div>
-			{!! Form::submit('Envoyer', ['class' => 'btn btn-primary pull-right']) !!}
+			{!! Form::submit('Envoyer', ['class' => 'btn']) !!}
 			{!! Form::close() !!}
-
-		<a href="javascript:history.back()" class="btn btn-primary">
-			<span class="glyphicon glyphicon-circle-arrow-left"></span> Retour
-		</a>
 
 </secton>
 

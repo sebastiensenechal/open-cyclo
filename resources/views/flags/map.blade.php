@@ -17,7 +17,6 @@
 @endsection
 
 @section('content')
-    <!-- <div id ="status"></div> -->
     <section id="intro">
       <h2>Le guide tous terrains des cyclistes et des curieux.</h2>
       <ul>
@@ -31,25 +30,7 @@
 
     </section>
 
-    <!-- <div class="smart-popin" id="popin1">
-    	  <div class="sp-table">
-    		    <div class="sp-cell">
-
-    			      <div class="sp-body">
-    				        <h2>Contribuer</h2>
-    				        <a href="#" class="sp-close">×</a>
-                    <p><a href="{{ route('flags.create') }}?Map.latitude=' + latitude + '&Map.longitude=' + longitude + '">Ajouter un signalement</a><p>
-    			      </div>
-
-    			      <a href="#" class="sp-back"></a>
-
-    		    </div>
-    	  </div>
-    </div> -->
-
     <div id="mapid"></div>
-    <!-- <example-component></example-component> -->
-    <!-- <map></map> -->
 @endsection
 
 @section('footer')

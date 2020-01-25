@@ -3,13 +3,21 @@
 @section('title', __('Détails'))
 
 @section('content')
-<section class="row">
-    <div class="col-md-6">
-        <article class="card">
-            <header class="card-header">
-                <h2>Détails</h2>
+<section class="base-page duo">
+    <article>
+            <header>
+                <nav id="breadcrumb" aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="{{ route('map') }}">Accueil</a></li>
+                        <li class="breadcrumb-item"><a href="{{ route('home') }}">Tableau de bord</a></li>
+                        <li class="breadcrumb-item"><a href="{{ url('flags') }}">Liste des signalements</a></li>
+                        <li class="breadcrumb-item" aria-current="page">Détails du signalement</li>
+                    </ol>
+                </nav>
+
+                <h1>Détails</h1>
             </header>
-            <div class="card-body">
+
                 <table class="table table-sm">
                     <tbody>
                         <tr><td>{{ __('Type') }}</td><td>{{ $flag->name }}</td></tr>
@@ -17,26 +25,23 @@
                         <tr><td>{{ __('Longitude') }}</td><td>{{ $flag->longitude }}</td></tr>
                     </tbody>
                 </table>
-            </div>
-            <div class="card-footer">
+
+                <ul class="list-btn">
                 @if(Auth::check() and Auth::user()->admin)
-                    <a href="{{ route('flags.edit', $flag) }}" id="edit-flag-{{ $flag->id }}" class="btn btn-warning">{{ __('Modifier') }}</a>
-                    <a href="{{ route('flags.index') }}" class="btn btn-link">{{ __('Retour aux signalements') }}</a>
+                    <li><a href="{{ route('flags.edit', $flag) }}" id="edit-flag-{{ $flag->id }}" class="btn">{{ __('Modifier') }}</a></li>
+                    <li><a href="{{ route('flags.index') }}" class="btn">{{ __('Retour') }}</a></li>
                 @endif
-                    <a href="{{ route('flag_map.index') }}" class="btn btn-link">{{ __('Retour à la carte') }}</a>
-            </div>
-        </article>
-    </div>
-    <div class="col-md-6">
-        <aside class="card">
-            <div class="card-header">{{ trans('Position') }}</div>
+                    <li><a href="{{ route('flag_map.index') }}" class="btn">{{ __('Carte') }}</a></li>
+                </ul>
+    </article>
+
+        <aside>
             @if ($flag->coordinate)
-            <div class="card-body" id="mapid"></div>
+            <div id="mapid"></div>
             @else
-            <div class="card-body">{{ __('flag.no_coordinate') }}</div>
+            <div>{{ __('flag.no_coordinate') }}</div>
             @endif
         </aside>
-    </div>
 </section>
 @endsection
 

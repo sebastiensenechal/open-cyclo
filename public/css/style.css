@@ -692,11 +692,14 @@ form .btn-danger:hover {
     color:  #01BFB2;
 }
 
-.notification .is-sucess {
+.notification {
     width: 100%;
+    padding: .5em 1em;
+    border-left: 4px solid #F86A53;
+}
+.is-success {
     background: #9C21FF;
     color: #fff;
-    padding: .5em 1em;
 }
 
 

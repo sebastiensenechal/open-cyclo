@@ -2,47 +2,56 @@
 
 @section('content')
 
-	<section id="content">
-		<header id="header-content">
-			<h2>Membres</h2>
-    </header>
+		<section class="base-page">
 
-      <div>
-	      	@if(session()->has('ok'))
-		  			<div class="alert alert-success alert-dismissible">{!! session('ok') !!}</div>
-		  		@endif
-		  		<div>
-		  			<div>
-		  				<h3>Liste des utilisateurs</h3>
-		  			</div>
-		  			<table class="table">
-		  				<thead>
+				<header>
+						<nav id="breadcrumb" aria-label="breadcrumb">
+		            <ol class="breadcrumb">
+		                <li class="breadcrumb-item"><a href="{{ route('map') }}">Accueil</a></li>
+		                <li class="breadcrumb-item"><a href="{{ route('home') }}">Tableau de bord</a></li>
+		                <li class="breadcrumb-item" aria-current="page">Liste des membres</li>
+		            </ol>
+		        </nav>
+
+						<h2>Liste des membres</h2>
+						<p>{!! link_to_route('user.create', 'Ajouter un utilisateur', []) !!}
+						{!! $links !!}</p>
+		    </header>
+
+	    	@if(session()->has('ok'))
+	  			<div class="alert alert-success alert-dismissible">{!! session('ok') !!}</div>
+	  		@endif
+
+				@if(session()->has('info'))
+	          <div class="notification is-success">
+	              {{ session('info') }}
+	          </div>
+	      @endif
+
+				<table class="table">
+	  				<thead>
 		  					<tr>
-		  						<th>Nom</th>
-		  						<th></th>
-		  						<th></th>
-		  						<th></th>
+			  						<th>Nom</th>
+			  						<th></th>
+			  						<th></th>
+			  						<th></th>
 		  					</tr>
-		  				</thead>
-		  				<tbody>
+	  				</thead>
+	  				<tbody>
 		  					@foreach ($users as $user)
-		  						<tr>
-		  							<td class="text-primary"><strong>{!! $user->name !!}</strong></td>
-		  							<td>{!! link_to_route('user.show', 'Voir', [$user->id], ['class' => 'btn btn-success btn-block']) !!}</td>
-		  							<td>{!! link_to_route('user.edit', 'Modifier', [$user->id], ['class' => 'btn btn-warning btn-block']) !!}</td>
-		  							<td>
-		  								{!! Form::open(['method' => 'DELETE', 'route' => ['user.destroy', $user->id]]) !!}
-		  									{!! Form::submit('Supprimer', ['class' => 'btn btn-danger btn-block', 'onclick' => 'return confirm(\'Vraiment supprimer cet utilisateur ?\')']) !!}
-		  								{!! Form::close() !!}
-		  							</td>
-		  						</tr>
+			  						<tr>
+				  							<td class="text-primary"><strong>{!! $user->name !!}</strong></td>
+				  							<td>{!! link_to_route('user.show', 'Voir', [$user->id], ['class' => 'btn']) !!}</td>
+				  							<td>{!! link_to_route('user.edit', 'Modifier', [$user->id], ['class' => 'btn']) !!}</td>
+				  							<td>
+				  								{!! Form::open(['method' => 'DELETE', 'route' => ['user.destroy', $user->id]]) !!}
+				  									{!! Form::submit('Supprimer', ['onclick' => 'return confirm(\'Vraiment supprimer cet utilisateur ?\')']) !!}
+				  								{!! Form::close() !!}
+				  							</td>
+			  						</tr>
 		  					@endforeach
-		  	  			</tbody>
-		  			</table>
-		  		</div>
-  		{!! link_to_route('user.create', 'Ajouter un utilisateur', [], ['class' => 'btn btn-info pull-right']) !!}
-  		{!! $links !!}
-  	</div>
+	  	  		</tbody>
+	  		</table>
 
-  </section>
+	  </section>
 @endsection
