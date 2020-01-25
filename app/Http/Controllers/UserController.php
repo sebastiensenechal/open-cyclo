@@ -79,13 +79,16 @@ class UserController extends Controller
     		// return redirect('user')->withOk("L'utilisateur " . $request->input('name') . " a été modifié.");
   	}
 
-  	public function destroy(User $user, $id)
+  	public function destroy($id)
   	{
         $this->authorize('destroy', new User);
 
         $this->userRepository->destroy($id);
 
-        return redirect()->back();
+        return redirect('user')->withOk("L\'utilisateur a bien été supprimé.");
+
+        // $user->delete();
+        // return back()->with('info', 'Le film a bien été supprimé dans la base de données.');
   	}
 
 
