@@ -1,8 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
-
     <section>
+
         @if (session('status'))
             <div class="card-body">
                 <div class="alert alert-success" role="alert">

@@ -2,20 +2,24 @@
 
 @section('title', __('Détails'))
 
+
+@section('header')
+<nav id="breadcrumb" aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="{{ route('map') }}">Accueil</a></li>
+        <li class="breadcrumb-item"><a href="{{ route('home') }}">Tableau de bord</a></li>
+        <li class="breadcrumb-item"><a href="{{ url('flags') }}">Liste des signalements</a></li>
+        <li class="breadcrumb-item" aria-current="page">Détails</li>
+    </ol>
+</nav>
+@endsection
+
+
 @section('content')
 <section class="base-page duo">
     <article>
             <header>
-                <nav id="breadcrumb" aria-label="breadcrumb">
-                    <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="{{ route('map') }}">Accueil</a></li>
-                        <li class="breadcrumb-item"><a href="{{ route('home') }}">Tableau de bord</a></li>
-                        <li class="breadcrumb-item"><a href="{{ url('flags') }}">Liste des signalements</a></li>
-                        <li class="breadcrumb-item" aria-current="page">Détails du signalement</li>
-                    </ol>
-                </nav>
-
-                <h1>Détails</h1>
+                <h2>Détails</h2>
             </header>
 
                 <table class="table table-sm">

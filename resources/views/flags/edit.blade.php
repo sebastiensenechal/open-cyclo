@@ -2,9 +2,20 @@
 
 @section('title', __('Modifier'))
 
+
+@section('header')
+<nav id="breadcrumb" aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="{{ route('map') }}">Accueil</a></li>
+        <li class="breadcrumb-item"><a href="{{ route('home') }}">Tableau de bord</a></li>
+        <li class="breadcrumb-item"><a href="{{ url('flags') }}">Liste des signalements</a></li>
+        <li class="breadcrumb-item" aria-current="page">Modifier</li>
+    </ol>
+</nav>
+@endsection
+
+
 @section('content')
-<div class="row justify-content-center">
-    <div class="col-md-6">
         @if (request('action') == 'delete' && $flag)
         @can('delete', $flag)
             <div class="card">
@@ -60,16 +71,14 @@
                     <div id="mapid"></div>
                 </div>
                 <div class="card-footer">
-                    <input type="submit" value="{{ __('Mettre à jour') }}" class="btn btn-success">
+                    <input type="submit" value="{{ __('Mettre à jour') }}" class="btn">
                     <a href="{{ route('flags.show', $flag) }}" class="btn btn-link">{{ __('Annuler') }}</a>
                     @can('delete', $flag)
-                        <a href="{{ route('flags.edit', [$flag, 'action' => 'delete']) }}" id="del-flag-{{ $flag->id }}" class="btn btn-danger float-right">{{ __('Supprimer') }}</a>
+                        <a href="{{ route('flags.edit', [$flag, 'action' => 'delete']) }}" id="del-flag-{{ $flag->id }}" class="btn">{{ __('Supprimer') }}</a>
                     @endcan
                 </div>
             </form>
         </div>
-    </div>
-</div>
 @endif
 @endsection
 

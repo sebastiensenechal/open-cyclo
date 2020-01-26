@@ -1,19 +1,22 @@
 @extends('layouts.app')
 
-@section('content')
 
+@section('header')
+<nav id="breadcrumb" aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="{{ route('map') }}">Accueil</a></li>
+        <li class="breadcrumb-item"><a href="{{ route('home') }}">Tableau de bord</a></li>
+        <li class="breadcrumb-item"><a href="{{ url('user') }}">Liste des membres</a></li>
+        <li class="breadcrumb-item" aria-current="page">Ajouter</li>
+    </ol>
+</nav>
+@endsection
+
+
+@section('content')
 <section class="base-page">
 
     <header>
-        <nav id="breadcrumb" aria-label="breadcrumb">
-            <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="{{ route('map') }}">Accueil</a></li>
-                <li class="breadcrumb-item"><a href="{{ route('home') }}">Tableau de bord</a></li>
-                <li class="breadcrumb-item"><a href="{{ url('user') }}">Liste des membres</a></li>
-                <li class="breadcrumb-item" aria-current="page">Ajout d'un utilisateur</li>
-            </ol>
-        </nav>
-
         <h2>Création d'un utilisateur</h2>
     </header>
 

@@ -2,6 +2,17 @@
 
 @section('title', __('Ajouter un signalement'))
 
+@section('header')
+<nav id="breadcrumb" aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="{{ route('map') }}">Accueil</a></li>
+        <li class="breadcrumb-item"><a href="{{ route('home') }}">Tableau de bord</a></li>
+        <li class="breadcrumb-item"><a href="{{ url('flags') }}">Liste des signalements</a></li>
+        <li class="breadcrumb-item" aria-current="page">Ajouter</li>
+    </ol>
+</nav>
+@endsection
+
 @section('content')
 <div class="row justify-content-center">
     <div class="col-md-6">

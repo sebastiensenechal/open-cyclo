@@ -19,59 +19,48 @@
     {{ Html::style('https://fonts.googleapis.com/icon?family=Material+Icons') }}
     @yield('styles')
 </head>
-<body>
-    <div class="container-fluid" id="app page-container">
-        <header>
-            <nav class="navbar navbar-expand-md navbar-dark bg-dark shadow-sm">
-                <div class="container">
-                    <a class="navbar-brand" href="{{ url('/') }}">
+<body id="app">
+    <div id="page-container">
+        <header id="main-header">
+            <nav class="navbar">
+                    <h1><a href="{{ url('/') }}" title="Retour à l'accueil">
                         {{ config('app.name') }}
-                    </a>
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
+                    </a></h1>
 
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <!-- Left Side Of Navbar -->
-                        <ul class="navbar-nav mr-auto">
-                            <li><a href="{{ route('home') }}">Tableau de bord</a></li>
-                        </ul>
-
-                        <!-- Right Side Of Navbar -->
-                        <ul class="navbar-nav ml-auto">
-                            <!-- Authentication Links -->
-                            @guest
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                                </li>
-                                @if (Route::has('register'))
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                    <!-- Left Side Of Navbar -->
+                    <ul>
+                        <li class="deroulant"><span class="label_menu">Menu</span>
+                            <ul class="sous">
+                                <li><a href="{{ route('home') }}">Tableau de bord</a></li>
+                                <!-- Authentication Links -->
+                                @guest
+                                    <li>
+                                        <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
                                     </li>
-                                @endif
-                            @else
-                                <li class="nav-item dropdown">
-                                    <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                        {{ Auth::user()->name }} <span class="caret"></span>
-                                    </a>
+                                    @if (Route::has('register'))
+                                        <li>
+                                            <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                        </li>
+                                    @endif
+                                @else
+                                    <li>
+                                            <a href="{{ route('logout') }}"
+                                               onclick="event.preventDefault();
+                                                             document.getElementById('logout-form').submit();">
+                                                {{ __('Logout') }}
+                                            </a>
 
-                                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                        <a class="dropdown-item" href="{{ route('logout') }}"
-                                           onclick="event.preventDefault();
-                                                         document.getElementById('logout-form').submit();">
-                                            {{ __('Logout') }}
-                                        </a>
-
-                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                            @csrf
-                                        </form>
-                                    </div>
-                                </li>
-                            @endguest
-                        </ul>
-                    </div>
-                </div>
+                                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                                @csrf
+                                            </form>
+                                    </li>
+                                @endguest
+                            </ul>
+                        </li>
+                    </ul>
             </nav>
+
+            @yield('header')
         </header>
 
         <main>
@@ -79,7 +68,13 @@
         </main>
 
         <footer>
-            @yield('footer')
+          <nav id="legal">
+            <ul>
+              <li><a href="mention-lagel">Mentions légales</a></li>
+              <li><a href="rgpd">Données personnelles</a></li>
+              <li><a href="accessibilite">Accessibilité</a></li>
+            </ul>
+          </nav>
         </footer>
     </div>
 
