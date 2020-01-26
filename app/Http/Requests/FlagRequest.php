@@ -1,10 +1,10 @@
 <?php
 
 namespace App\Http\Requests;
-use Illuminate\Foundation\Http\FormRequest;
-use App\Http\Requests\Request;
 
-class PostRequest extends FormRequest
+use Illuminate\Foundation\Http\FormRequest;
+
+class FlagRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,9 +24,9 @@ class PostRequest extends FormRequest
     public function rules()
     {
         return [
-            'titre' => 'required|max:80',
-            'contenu' => 'required',
-            'excerpt' => 'required|max:255'
+            'name'      => 'required|max:60',
+            'latitude'  => 'nullable|required_with:longitude|max:15',
+            'longitude' => 'nullable|required_with:latitude|max:15'
         ];
     }
 }

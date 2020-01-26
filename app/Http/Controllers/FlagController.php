@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Flag;
 use App\User;
 use Auth;
+use App\Http\Requests\FlagRequest;
 use Illuminate\Http\Request;
 
 class FlagController extends Controller
@@ -36,19 +37,18 @@ class FlagController extends Controller
     /**
      * Store a newly created flag in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  App\Http\Requests\FlagRequest  $flagRequest
      * @return \Illuminate\Routing\Redirector
      */
-    public function store(Request $request)
+    public function store(FlagRequest $flagRequest)
     {
         $this->authorize('create', new Flag);
-        $newFlag = $request->validate([
-            'name'      => 'required|max:60',
-            'latitude'  => 'nullable|required_with:longitude|max:15',
-            'longitude' => 'nullable|required_with:latitude|max:15',
-        ]);
+
+        $newFlag = $flagRequest->all();
         $newFlag['creator_id'] = auth()->id();
+
         $flag = Flag::create($newFlag);
+
         return redirect()->route('flags.show', $flag);
     }
     /**
@@ -75,19 +75,17 @@ class FlagController extends Controller
     /**
      * Update the specified flag in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  App\Http\Requests\FlagRequest  $flagRequest
      * @param  \App\Flag  $flag
      * @return \Illuminate\Routing\Redirector
      */
-    public function update(Request $request, Flag $flag)
+    public function update(FlagRequest $flagRequest, Flag $flag)
     {
         $this->authorize('update', $flag);
-        $flagData = $request->validate([
-            'name'      => 'required|max:60',
-            'latitude'  => 'nullable|required_with:longitude|max:15',
-            'longitude' => 'nullable|required_with:latitude|max:15'
-        ]);
+
+        $flagData = $flagRequest->all();
         $flag->update($flagData);
+
         return redirect()->route('flags.show', $flag);
     }
     /**

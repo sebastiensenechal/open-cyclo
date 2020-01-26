@@ -3,12 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-// use App\Post;
 use App\{Post, User};
 use Auth;
 use App\Http\Requests\Post as PostRequest;
-// use App\Repositories\PostRepository;
-// use App\Http\Requests\PostRequest;
 
 class PostController extends Controller
 {
