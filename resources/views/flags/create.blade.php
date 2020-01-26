@@ -14,10 +14,8 @@
 @endsection
 
 @section('content')
-<div class="row justify-content-center">
-    <div class="col-md-6">
-        <div class="card">
-            <div class="card-header">{{ __('Signalement') }}</div>
+<section class="base-page">
+            <h2>{{ __('Signalement') }}</h2>
             <form method="POST" action="{{ route('flags.store') }}" accept-charset="UTF-8">
                 {{ csrf_field() }}
                 <div class="card-body">
@@ -55,9 +53,8 @@
                     <a href="{{ route('flags.index') }}" class="btn btn-link">{{ __('Annuler') }}</a>
                 </div>
             </form>
-        </div>
-    </div>
-</div>
+
+</section>
 @endsection
 
 @section('styles')
