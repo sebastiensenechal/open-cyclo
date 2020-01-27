@@ -49,7 +49,12 @@
                 <div class="card-body">
                     <div class="form-group">
                         <label for="name" class="control-label">{{ __('Type') }}</label>
-                        <input id="name" type="text" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" name="name" value="{{ old('name', $flag->name) }}" required>
+						<select id="name" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" name="name" required>
+                            <option selected value="Travaux">Travaux</option>
+                            <option value="Voie endommagée">Voie endommagée</option>
+                            <option value="Autre perturbation">Autre perturbation</option>
+                        </select>
+                        <!-- <input id="name" type="text" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" name="name" value="{{ old('name', $flag->name) }}" required> -->
                         {!! $errors->first('name', '<span class="invalid-feedback" role="alert">:message</span>') !!}
                     </div>
                     <div class="row">

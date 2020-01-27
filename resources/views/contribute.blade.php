@@ -1,5 +1,16 @@
 @extends('layouts.app')
 
+
+@section('header')
+<nav id="breadcrumb" aria-label="breadcrumb">
+	<ol class="breadcrumb">
+		<li class="breadcrumb-item"><a href="{{ route('map') }}">Accueil</a></li>
+		<li class="breadcrumb-item" aria-current="page">Tableau de bord</li>
+	</ol>
+</nav> 
+@endsection
+
+
 @section('content')
 <section class="base-page">
 
@@ -22,13 +33,6 @@
         @endif
 
             <header>
-                <nav id="breadcrumb" aria-label="breadcrumb">
-                    <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="{{ route('map') }}">Accueil</a></li>
-                        <li class="breadcrumb-item" aria-current="page">Tableau de bord</li>
-                    </ol>
-                </nav>
-
                 <h2>{{ Auth::user()->name }} (<span>{!! link_to_route('user.edit', 'Modifier', [Auth::user()->id]) !!}</span>)</h2>
             </header>
 

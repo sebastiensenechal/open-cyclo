@@ -35,11 +35,11 @@
                                 <!-- Authentication Links -->
                                 @guest
                                     <li>
-                                        <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                        <a class="nav-link" href="{{ route('login') }}">{{ __('Connexion') }}</a>
                                     </li>
                                     @if (Route::has('register'))
                                         <li>
-                                            <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                            <a class="nav-link" href="{{ route('register') }}">{{ __('Inscription') }}</a>
                                         </li>
                                     @endif
                                 @else
@@ -47,7 +47,7 @@
                                             <a href="{{ route('logout') }}"
                                                onclick="event.preventDefault();
                                                              document.getElementById('logout-form').submit();">
-                                                {{ __('Logout') }}
+                                                {{ __('Déconnection') }}
                                             </a>
 
                                             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
