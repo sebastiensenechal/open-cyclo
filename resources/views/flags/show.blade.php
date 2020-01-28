@@ -24,9 +24,9 @@
 
                 <table class="table table-sm">
                     <tbody>
-                        <tr><td>{{ __('Type') }}</td><td>{{ $flag->name }}</td></tr>
-                        <tr><td>{{ __('Latitude') }}</td><td>{{ $flag->latitude }}</td></tr>
-                        <tr><td>{{ __('Longitude') }}</td><td>{{ $flag->longitude }}</td></tr>
+                        <tr><td class="text-primary">{{ __('Type d\'incident') }}</td><td>{{ $flag->name }}</td></tr>
+                        <tr><td class="text-primary">{{ __('Latitude') }}</td><td>{{ $flag->latitude }}</td></tr>
+                        <tr><td class="text-primary">{{ __('Longitude') }}</td><td>{{ $flag->longitude }}</td></tr>
                     </tbody>
                 </table>
 

@@ -601,25 +601,6 @@ form .btn-danger:hover {
 	color: #fff;
 }
 
-
-/* BindPopup */
-.leaflet-popup-content-wrapper {
-	width: 80vw;
-	background:#333333;
-	color:#fce4ec;
-	padding: 0;
-}
-.leaflet-popup-content {
-	/* background:#333333;
-	color:#fce4ec; */
-	padding:1em;
-	width: auto;
-	font-size: 1.3em;
-}
-.leaflet-container a {
-	color:  #01BFB2;
-}
-
 .notification {
 	width: 100%;
 	padding: .5em 1em;
@@ -628,6 +609,29 @@ form .btn-danger:hover {
 .is-success {
 	background: #9C21FF;
 	color: #fff;
+}
+
+/* Leaflet */
+.custom .leaflet-popup-content-wrapper {
+	background: #444;
+	color: #fff;
+	border-radius: 0;
+	font-size: 2vmax;
+	width: auto;
+	max-width: 70vw;
+	padding: .8em;
+}
+.custom .leaflet-popup-tip {
+	background: #444;
+}
+.custom .leaflet-popup-content-wrapper a {
+	color:  #00ffdb;
+}
+.custom .leaflet-popup-content-wrapper a:hover {
+	text-decoration: none;
+}
+.custom .leaflet-popup-content-wrapper a:visited {
+	color:  #00ffdb;
 }
 
 
@@ -741,8 +745,24 @@ RESPONSIVE
 	#page-container nav#legal ul {
 		padding-left: 0;
 	}
-	.leaflet-popup-content-wrapper {
-		width: 20vw;
+	.custom .leaflet-popup-content-wrapper {
+		background: #444;
+		color: #fff;
+		border-radius: 0;
+		font-size: 1vmax;
+		width: auto;
+	}
+	.custom .leaflet-popup-tip {
+		background: #444;
+	}
+	.custom .leaflet-popup-content-wrapper a {
+		color:  #00ffdb;
+	}
+	.custom .leaflet-popup-content-wrapper a:hover {
+		text-decoration: none;
+	}
+	.custom .leaflet-popup-content-wrapper a:visited {
+		color:  #00ffdb;
 	}
 
 	/* Posts style */
@@ -809,8 +829,10 @@ RESPONSIVE
 	#container-home #nav span.label_menu, #page-container #nav span.label_menu {
 		display: none;
 	}
-	.leaflet-popup-content-wrapper {
-		min-width: 20vw;
+	.custom .leaflet-popup-content-wrapper {
+		font-size: 2vmax;
+		width: auto;
+		max-width: 50vw;
 	}
 
 	#page-container > footer {
@@ -870,8 +892,13 @@ RESPONSIVE
 	#container-home #nav span.label_menu, #page-container #nav span.label_menu {
 		display: none;
 	}
-	.leaflet-popup-content-wrapper {
-		min-width: 20vw;
+	.custom .leaflet-popup-content-wrapper {
+		background: #444;
+		color: #fff;
+		border-radius: 0;
+		font-size: 1vmax;
+		width: auto;
+		max-width: 30vw;
 	}
 
 	/* Posts style */
@@ -895,56 +922,65 @@ RESPONSIVE
 	}
 	#container-home main #intro {
 		width: 21vw;
-		background: url('../img/abstract.jpg'), linear-gradient(to right,
-			rgba(30, 75, 115, 1),
-			rgba(255, 255, 255, 0));
-			background-position-x: 0%, 0%, 0%;
-			background-position-y: 0%, 0%, 0%;
-			background-repeat: repeat, repeat, repeat;
-			background-size: auto, auto, auto;
-			background-position-x: 0%, 0%, 0%;
-			background-position-y: 0%, 0%, 0%;
-			background-repeat: repeat, repeat, repeat;
-			background-size: auto, auto, auto;
-			background-position: center;
-			background-repeat: no-repeat, no-repeat;
-			background-size: cover, cover;
-			margin: 0;
-		}
-		div#map, div#mapid {
-			width: 75vw;
-		}
-
-		/* Posts style */
-		article.post {
-			width: 21%;
-			display: inline-block;
-			margin-right: 2em;
-			line-height: 1.7vmax;
-		}
+		background: url('../img/abstract.jpg'), linear-gradient(to right,rgba(30, 75, 115, 1),rgba(255, 255, 255, 0));
+		background-position-x: 0%, 0%, 0%;
+		background-position-y: 0%, 0%, 0%;
+		background-repeat: repeat, repeat, repeat;
+		background-size: auto, auto, auto;
+		background-position-x: 0%, 0%, 0%;
+		background-position-y: 0%, 0%, 0%;
+		background-repeat: repeat, repeat, repeat;
+		background-size: auto, auto, auto;
+		background-position: center;
+		background-repeat: no-repeat, no-repeat;
+		background-size: cover, cover;
+		margin: 0;
+	}
+	div#map, div#mapid {
+		width: 75vw;
 	}
 
-
-	@media (min-width: 2560px) {
-		/* HD 4K device */
-		#container-home main {
-			flex-direction: row;
-		}
-		#container-home main #intro {
-			width: 20vw;
-		}
-		div#map, div#mapid {
-			width: 75vw;
-		}
-		article.post {
-			line-height: 2.4vmax;
-		}
-		article.post > h3 {
-			border-top: 10px solid #6534FF;
-		}
+	.custom .leaflet-popup-content-wrapper {
+		font-size: .8vmax;
+		width: auto;
+		max-width: 20vw;
 	}
 
-
-	@media print {
-		/* Print */
+	/* Posts style */
+	article.post {
+		width: 21%;
+		display: inline-block;
+		margin-right: 2em;
+		line-height: 1.7vmax;
 	}
+}
+
+
+@media (min-width: 2560px) {
+	/* HD 4K device */
+	#container-home main {
+		flex-direction: row;
+	}
+	#container-home main #intro {
+		width: 20vw;
+	}
+	div#map, div#mapid {
+		width: 75vw;
+	}
+	.custom .leaflet-popup-content-wrapper {
+		font-size: .7vmax;
+		width: auto;
+		max-width: 30vw;
+	}
+	article.post {
+		line-height: 2.4vmax;
+	}
+	article.post > h3 {
+		border-top: 10px solid #6534FF;
+	}
+}
+
+
+@media print {
+	/* Print */
+}
