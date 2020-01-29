@@ -75,8 +75,8 @@ class UserController extends Controller
         $user = $this->userRepository->getById($id);
     		$this->userRepository->update($id, $request->all());
 
-        return view('showUser',  compact('user'))->withOk("L'utilisateur " . $request->input('name') . " a été modifié.");
-    		// return redirect('user')->withOk("L'utilisateur " . $request->input('name') . " a été modifié.");
+        // return view('showUser',  compact('user'))->withOk("L'utilisateur " . $request->input('name') . " a été modifié.");
+    	return redirect('user')->withOk("L'utilisateur " . $request->input('name') . " a été modifié.");
   	}
 
   	public function destroy($id)
@@ -85,10 +85,7 @@ class UserController extends Controller
 
         $this->userRepository->destroy($id);
 
-        return redirect('user')->withOk("L\'utilisateur a bien été supprimé.");
-
-        // $user->delete();
-        // return back()->with('info', 'Le film a bien été supprimé dans la base de données.');
+        return redirect('user')->withOk("L'utilisateur a bien été supprimé.");
   	}
 
 

@@ -665,6 +665,7 @@ RESPONSIVE
 	}
 	article.post {
 		line-height: 2vmax;
+		font-size: initial;
 	}
 
 	/* Top bar for connect and register */

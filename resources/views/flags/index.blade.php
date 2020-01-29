@@ -47,7 +47,7 @@
 		<tbody>
 			@foreach($flags as $key => $flag)
 			<tr>
-				<td>{{ $flags->firstItem() + $key }}</td>
+				<td># {{ $flags->firstItem() + $key }}</td>
 				<td>{!! $flag->name_link !!}</td>
 				<td>{{ $flag->latitude }}</td>
 				<td>{{ $flag->longitude }}</td>
@@ -58,8 +58,9 @@
 			@endforeach
 		</tbody>
 	</table>
-	<div class="card-body">{{ $flags->appends(Request::except('page'))->render() }}</div>
 
+	<!-- Pagination -->
+	{{ $flags->appends(Request::except('page'))->render() }}
 
 </section>
 

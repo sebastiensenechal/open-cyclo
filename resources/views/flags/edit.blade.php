@@ -77,7 +77,7 @@
 				<input type="submit" value="{{ __('Mettre à jour') }}" class="btn">
 				<a href="{{ route('flags.show', $flag) }}" class="btn">{{ __('Annuler') }}</a>
 				@can('delete', $flag)
-				<a href="{{ route('flags.edit', [$flag, 'action' => 'delete']) }}" id="del-flag-{{ $flag->id }}" class="btn-link">{{ __('Supprimer') }}</a>
+				<a href="{{ route('flags.edit', [$flag, 'action' => 'delete']) }}" id="del-flag-{{ $flag->id }}" class="btn-link btn-danger">{{ __('Supprimer') }}</a>
 				@endcan
 			</div>
 		</form>

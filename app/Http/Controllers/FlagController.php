@@ -20,7 +20,7 @@ class FlagController extends Controller
             $this->authorize('manage_flag');
             $flagQuery = Flag::query();
             $flagQuery->where('name', 'like', '%'.request('q').'%');
-            $flags = $flagQuery->paginate(25);
+            $flags = $flagQuery->paginate(10);
 
             return view('flags.index', compact('flags'));
     }

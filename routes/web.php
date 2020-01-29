@@ -40,22 +40,22 @@ Route::get('home', 'HomeController@index')->name('home')->middleware('admin'); /
 Route::get('contribute', 'ContributeController@index')->name('contribute')->middleware('contribute'); // Abonnés
 
 
-
 Route::resource('posts', 'PostController');
-Route::resource('user', 'UserController');
+
 Route::get('/our_flags', 'FlagMapController@index')->name('flag_map.index');
 Route::resource('flags', 'FlagController');
 
-
+Route::middleware('verified')->group(function () {
+	Route::resource('user', 'UserController');
+	Route::middleware('auth', 'admin')->group(function () {
+	    Route::get('photo', 'PhotoController@getForm');
+	    Route::post('photo', 'PhotoController@postForm');
+	});
+});
 
 // --------------------------
 //   Utilisateur connecté
 // --------------------------
-Route::middleware('auth', 'admin')->group(function () {
-    Route::get('photo', 'PhotoController@getForm');
-    Route::post('photo', 'PhotoController@postForm');
-});
-
 
 
 // --------------------------

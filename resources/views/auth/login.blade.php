@@ -7,37 +7,38 @@
 	<form method="POST" action="{{ route('login') }}">
 		@csrf
 
-		<label for="email">{{ __('Adresse email') }}</label>
+		<label for="email" class="hidden">{{ __('Adresse email') }}</label>
 
-		<input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+		<input id="email" type="email" placeholder="Votre adresse email" class="@error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
 
 		@error('email')
-		<span class="invalid-feedback" role="alert">
+		<div class="invalid-feedback" role="alert">
 			<strong>{{ $message }}</strong>
-		</span>
+		</div>
 		@enderror
 
 
-		<label for="password">{{ __('Mot de passe') }}</label>
+		<label for="password" class="hidden">{{ __('Mot de passe') }}</label>
 
-		<input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
+		<input id="password" type="password" placeholder="Votre mot de passe" class="@error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
 
 		@error('password')
-		<span class="invalid-feedback" role="alert">
+		<div class="invalid-feedback" role="alert">
 			<strong>{{ $message }}</strong>
-		</span>
+		</div>
 		@enderror
 
 
-		<div class="form-check">
-			<input type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
 
+		<div class="checkbox">
+			<input type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
 			<label for="remember">
 				{{ __('Se souvenir de moi') }}
 			</label>
 		</div>
 
-		<div class="form-buttons">
+
+		<div class="list-btn">
 			<button type="submit" class="btn">
 				{{ __('Connexion') }}
 			</button>
