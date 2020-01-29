@@ -37,7 +37,7 @@ Nous contacter
 		{{ Form::email('email', null, ['placeholder' => 'Votre email'], 'required') }}
 		{!! $errors->first('email', '<small class="help-block">:message</small>') !!}
 	</div>
-	<div id="content" class="{!! $errors->has('texte') ? 'has-error' : '' !!}">
+	<div class="{!! $errors->has('texte') ? 'has-error' : '' !!}">
 		{!! Form::label('mess', 'Message', array('class' => 'hidden')); !!}
 		{!! Form::textarea ('mess', null, ['placeholder' => 'Votre message', 'required']) !!}
 		{!! $errors->first('mess', '<small class="help-block">:message</small>') !!}

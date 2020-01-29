@@ -12,12 +12,15 @@
 
 	<!-- Fonts -->
 	<link rel="dns-prefetch" href="//fonts.gstatic.com">
-	<link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
-
-	<!-- Styles -->
-	<!-- <link href="{{ asset('css/app.css') }}" rel="stylesheet"> -->
-	<link href="{{ asset('css/style_backoffice.css') }}" rel="stylesheet">
+	{{ Html::style('https://fonts.googleapis.com/css?family=Nunito:400,600,700&display=swap') }}
+	{{ Html::style('https://fonts.googleapis.com/css?family=Montserrat:400,500,700&display=swap') }}
 	{{ Html::style('https://fonts.googleapis.com/icon?family=Material+Icons') }}
+
+	<!-- Bootstrap style -->
+	<!-- <link href="{{ asset('css/app.css') }}" rel="stylesheet"> -->
+
+	<!-- General style -->
+	{{ Html::style('css/style_backoffice.css') }}
 	@yield('styles')
 </head>
 <body id="app">

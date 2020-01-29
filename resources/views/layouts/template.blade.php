@@ -7,8 +7,16 @@
 	<title>Open Cyclo | @yield('titre')</title>
 	<!-- CSRF Token -->
 	<meta name="csrf-token" content="{{ csrf_token() }}">
-	{{ Html::style('css/style.css') }}
+
+	<!-- Fonts -->
+	<link rel="dns-prefetch" href="//fonts.gstatic.com">
 	{{ Html::style('https://fonts.googleapis.com/icon?family=Material+Icons') }}
+	{{ Html::style('https://fonts.googleapis.com/css?family=Nunito:400,600,700&display=swap') }}
+	{{ Html::style('https://fonts.googleapis.com/css?family=Montserrat:400,500,700&display=swap') }}
+
+	<!-- General style -->
+	{{ Html::style('css/style.css') }}
+
 	<!--[if lt IE 9]>
 	{{ Html::style('https://oss.maxcdn.com/libs/html5shiv/3.7.2/html5shiv.js') }}
 	{{ Html::style('https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js') }}

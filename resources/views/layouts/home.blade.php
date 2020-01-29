@@ -12,17 +12,16 @@
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+	{{ Html::style('https://fonts.googleapis.com/css?family=Nunito:400,600,700&display=swap') }}
+	{{ Html::style('https://fonts.googleapis.com/css?family=Montserrat:400,500,700&display=swap') }}
+    {{ Html::style('css/fontawesome/css/all.css') }}
+    {{ Html::style('https://fonts.googleapis.com/icon?family=Material+Icons') }}
 
-    <!-- Styles -->
+    <!-- Bootstrap style -->
     <!-- <link href="{{ asset('css/app.css') }}" rel="stylesheet"> -->
+
     <!-- General style -->
     {{ Html::style('css/style.css') }}
-    <!-- Fontawesome -->
-    <link href="{{ asset('sass/app.scss') }}" rel="stylesheet">
-    {{ Html::style('css/fontawesome/css/all.css') }}
-    <!-- Material icons -->
-    {{ Html::style('https://fonts.googleapis.com/icon?family=Material+Icons') }}
     @yield('styles')
 </head>
 <body id="container-home">
