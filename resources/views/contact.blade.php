@@ -26,7 +26,7 @@ Nous contacter
 		<a href="email#header-content">Inscrivez-vous à notre newsletters</a></p>
 	</header>
 
-	{!! Form::open(['url' => 'contact']) !!}
+	{{ Form::open(['url' => 'contact']) }}
 	<div class="{!! $errors->has('nom') ? 'has-error' : '' !!}">
 		{{ Form::label('name', 'Nom', array('class' => 'hidden')) }}
 		{{ Form::text('name', null, ['placeholder' => 'Votre nom', 'required']) }}
@@ -39,7 +39,7 @@ Nous contacter
 	</div>
 	<div class="{!! $errors->has('texte') ? 'has-error' : '' !!}">
 		{!! Form::label('mess', 'Message', array('class' => 'hidden')); !!}
-		{!! Form::textarea ('mess', null, ['placeholder' => 'Votre message', 'required']) !!}
+		{{ Form::textarea ('mess', null, ['placeholder' => 'Votre message', 'required']) }}
 		{!! $errors->first('mess', '<small class="help-block">:message</small>') !!}
 	</div>
 	{!! Form::submit('Envoyer !') !!}

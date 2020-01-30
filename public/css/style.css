@@ -27,8 +27,8 @@ body {
 	width: 93vw;
 	height:auto;
 	color: #444;
-	font-size: 2vmax;
-	line-height: 4vmax;
+	font-size: 2.5vmax;
+	line-height: 5vmax;
 	scroll-behavior: smooth; /* Un peu de douceur dans ce monde de brutes */
 	overflow-x: hidden;
 	font-family: 'Nunito', Verdana, sans-serif;
@@ -186,7 +186,7 @@ main header#header-content {
 }
 #page-container #post-container {
 	padding-bottom: 3em;
-	width: 60vw;
+	width: 70vw;
 }
 #left > div {
 	display: flex;
@@ -467,6 +467,7 @@ nav#toolbar .active {
 /* Fil d'ariane */
 #breadcrumb ol {
 	display: flex;
+	flex-wrap: wrap;
 	list-style: none;
 	padding-left: 0;
 }
@@ -599,8 +600,8 @@ RESPONSIVE
 	/* Tablet */
 	body {
 		margin: 5vh auto;
-		font-size: 1vmax;
-		line-height: 2vmax;
+		font-size: 1.2vmax;
+		line-height: 2.4vmax;
 	}
 	body #header {
 		flex-direction: row;
@@ -609,11 +610,31 @@ RESPONSIVE
 	h1#title-home {
 		color: #00ffdb;
 	}
+	h1#title-site {
+    font-size: 8vmin;
+    line-height: 10vmin;
+	}
+	#page-container #post-container {
+		width: 60vw;
+	}
 	#container-home main {
 		flex-direction: row;
 	}
 	#container-home main #intro {
 		width: 20vw;
+		background: url('../img/abstract.jpg'), linear-gradient(to right,rgba(30, 75, 115, 1),rgba(255, 255, 255, 0));
+		background-position-x: 0%, 0%, 0%;
+		background-position-y: 0%, 0%, 0%;
+		background-repeat: repeat, repeat, repeat;
+		background-size: auto, auto, auto;
+		background-position-x: 0%, 0%, 0%;
+		background-position-y: 0%, 0%, 0%;
+		background-repeat: repeat, repeat, repeat;
+		background-size: auto, auto, auto;
+		background-position: center;
+		background-repeat: no-repeat, no-repeat;
+		background-size: cover, cover;
+		margin-top: 0;
 	}
 	div#map, div#mapid {
 		width: 75vw;
@@ -622,7 +643,6 @@ RESPONSIVE
 		line-height: 2vmax;
 		font-size: initial;
 	}
-
 	/* Top bar for connect and register */
 	#nav-connexion {
 		background: #d6d6d6;
@@ -666,7 +686,7 @@ RESPONSIVE
 		width: 40vw;
 		padding: 1em;
 		font-size: 3vmin;
-		line-height: 6vmin;
+		line-height: 5vmin;
 	}
 	nav#nav ul {
 		flex-wrap: wrap;
@@ -689,7 +709,6 @@ RESPONSIVE
 	#container-home #nav span.label_menu, #page-container #nav span.label_menu {
 		display: none;
 	}
-
 	/* Navigation footer - mentions légales */
 	#page-container > footer {
 		padding: 1em 2em 1em 1em;
@@ -914,6 +933,12 @@ RESPONSIVE
 
 @media (min-width: 2560px) {
 	/* HD 4K device */
+	nav#nav li a i, nav#nav li a span {
+    font-size: 1vmax;
+	}
+	.material-icons {
+	   font-size: 1vmax;
+	}
 	#container-home main {
 		flex-direction: row;
 	}

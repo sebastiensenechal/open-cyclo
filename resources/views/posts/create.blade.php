@@ -18,24 +18,29 @@ Ajouter un article
 		<h2>Création d'un article</h2>
 	</header>
 
-	
-	{!! Form::open(['route' => 'posts.store', 'class' => 'form-horizontal panel']) !!}
+
+	{{ Form::open(['route' => 'posts.store', 'id' => 'content']) }}
 	@csrf
-	<div class="{!! $errors->has('titre') ? 'has-error' : '' !!}">
-		{!! Form::text('titre', null, ['class' => 'form-control', 'placeholder' => 'Titre', 'required']) !!}
+
+		{{ Form::text('titre', null, ['placeholder' => 'Titre', 'required']) }}
 		{!! $errors->first('titre', '<small class="help-block">:message</small>') !!}
-	</div>
-	<div class="{!! $errors->has('excerpt') ? 'has-error' : '' !!}">
-		{!! Form::text('excerpt', null, ['class' => 'form-control', 'placeholder' => 'Extrait', 'required']) !!}
+
+
+		{{ Form::text('excerpt', null, ['placeholder' => 'Extrait', 'required']) }}
 		{!! $errors->first('excerpt', '<small class="help-block">:message</small>') !!}
-	</div>
-	<div class="{!! $errors->has('contenu') ? 'has-error' : '' !!}">
+
+
 		{!! Form::label('contenu', 'Article', array('class' => 'hidden')); !!}
-		{!! Form::textarea ('contenu', null, ['class' => 'form-control', 'id' => 'content', 'required']) !!}
+		{!! Form::textarea ('contenu', 'Votre article...', ['required']) !!}
 		{!! $errors->first('contenu', '<small class="help-block">:message</small>') !!}
-	</div>
-	{!! Form::submit('Envoyer', ['class' => 'btn']) !!}
-	{!! Form::close() !!}
+
+	{{ Form::submit('Envoyer') }}
+	{{ Form::close() }}
 
 </section>
 @endsection
+
+
+@push('scripts')
+{{ Html::script('js/script.js') }}
+@endpush
