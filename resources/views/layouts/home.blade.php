@@ -66,8 +66,6 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
-    <!-- <script src="//unpkg.com/leaflet/dist/leaflet.js"></script>
-    <script src="//unpkg.com/vue2-leaflet"></script> -->
     @stack('scripts')
     <script src="{{ asset('node_modules/tinymce/tinymce.js') }}"></script>
 </body>
