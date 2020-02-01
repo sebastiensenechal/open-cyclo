@@ -92,5 +92,5 @@ Route::get('contact', 'ContactController@getForm');
 Route::post('contact', 'ContactController@postForm');
 
 // Inscription lettre d'information
-Route::get('email', 'EmailController@getForm');
-Route::post('email', ['uses' => 'EmailController@postForm', 'as' => 'storeEmail']);
+Route::get('email', 'NewsletterController@getForm');
+Route::post('email', ['uses' => 'NewsletterController@postForm', 'as' => 'storeEmail']);

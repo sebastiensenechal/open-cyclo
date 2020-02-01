@@ -6,7 +6,7 @@ Confirmation d'inscription
 
 @section('contenu')
 
-<section class="form-center">
+<section class="content">
 	<header id="header-content">
 		<nav id="breadcrumb" aria-label="breadcrumb">
 			<ol class="breadcrumb">

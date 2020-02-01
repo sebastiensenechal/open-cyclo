@@ -30,20 +30,20 @@ Nous contacter
 	<div class="{!! $errors->has('nom') ? 'has-error' : '' !!}">
 		{{ Form::label('name', 'Nom', array('class' => 'hidden')) }}
 		{{ Form::text('name', null, ['placeholder' => 'Votre nom', 'required']) }}
-		{!! $errors->first('name', '<small class="help-block">:message</small>') !!}
+		{{ $errors->first('name', '<small class="help-block">:message</small>') }}
 	</div>
 	<div class="{!! $errors->has('email') ? 'has-error' : '' !!}">
 		{{ Form::label('email', 'Email', array('class' => 'hidden')) }}
 		{{ Form::email('email', null, ['placeholder' => 'Votre email'], 'required') }}
-		{!! $errors->first('email', '<small class="help-block">:message</small>') !!}
+		{{ $errors->first('email', '<small class="help-block">:message</small>') }}
 	</div>
 	<div class="{!! $errors->has('texte') ? 'has-error' : '' !!}">
-		{!! Form::label('mess', 'Message', array('class' => 'hidden')); !!}
+		{{ Form::label('mess', 'Message', array('class' => 'hidden')) }}
 		{{ Form::textarea ('mess', null, ['placeholder' => 'Votre message', 'required']) }}
-		{!! $errors->first('mess', '<small class="help-block">:message</small>') !!}
+		{{ $errors->first('mess', '<small class="help-block">:message</small>') }}
 	</div>
-	{!! Form::submit('Envoyer !') !!}
-	{!! Form::close() !!}
+	{{ Form::submit('Envoyer !') }}
+	{{ Form::close() }}
 </section>
 
 @endsection
