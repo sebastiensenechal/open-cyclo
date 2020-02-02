@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\{Post, User};
 use Auth;
-use App\Http\Requests\Post as PostRequest;
+use App\Http\Requests\PostRequest;
 
 class PostController extends Controller
 {
@@ -17,7 +17,6 @@ class PostController extends Controller
      */
      public function index()
    	{
-        // $posts = Post::paginate(5);
         $posts = Post::latest('id')->paginate(6); // Eloquent query "oldest()"
         return view('posts.liste', compact('posts'));
    	}

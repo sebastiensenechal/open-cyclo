@@ -169,7 +169,7 @@ section#map-infos {
 }
 div#map, div#mapid {
 	width: 100vw;
-	height: 93.5vh;
+	height: 95vh;
 	z-index: 0;
 }
 main header#header-content {
@@ -605,7 +605,7 @@ RESPONSIVE
 	}
 	body #header {
 		flex-direction: row;
-		min-height: 60vh;
+		min-height: 40vh;
 	}
 	h1#title-home {
 		color: #00ffdb;
@@ -680,7 +680,7 @@ RESPONSIVE
 	}
 	#header #left {
 		width: 60vw;
-		min-height: 60vh;
+		min-height: 40vh;
 	}
 	#header #right {
 		width: 40vw;
@@ -757,15 +757,14 @@ RESPONSIVE
 		line-height: 3.5vmax;
 		margin: 5vh auto;
 	}
-	h1#title-site {
-		font-size: 6vmin;
-		line-height: 9vmin;
-	}
 	#header #right {
 		font-size: 3.5vmin;
 		line-height: 6vmin;
 	}
-
+	h1#title-site {
+		font-size: 6vmin;
+		line-height: 9vmin;
+	}
 	#container-home #nav-connexion {
 		background: #9700ff;
 		width: 100vw;
@@ -933,8 +932,17 @@ RESPONSIVE
 
 @media (min-width: 2560px) {
 	/* HD 4K device */
+	body {
+		font-size: 1.5vmax;
+	}
+	body #header {
+		min-height: 40vh;
+	}
+	#header #left {
+		min-height: 40vh;
+	}
 	nav#nav li a i, nav#nav li a span {
-    font-size: 1vmax;
+    	font-size: 1vmax;
 	}
 	.material-icons {
 	   font-size: 1vmax;
@@ -955,9 +963,14 @@ RESPONSIVE
 	}
 	article.post {
 		line-height: 2.4vmax;
+		font-size: 1.5vmax;
+		margin-right: 3em;
 	}
 	article.post > h3 {
 		border-top: 10px solid #6534FF;
+	}
+	input, textarea {
+		font-size: inherit;
 	}
 }
 

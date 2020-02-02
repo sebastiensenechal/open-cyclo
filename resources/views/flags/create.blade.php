@@ -49,7 +49,11 @@
 
 				<div class="list-btn">
 					<input type="submit" value="{{ __('Ajouter') }}" class="btn btn-success">
+					@if(Auth::check() and Auth::user()->admin)
 					<a href="{{ route('flags.index') }}" class="btn btn-link">{{ __('Annuler') }}</a>
+					@else
+					<a href="{{ route('map') }}" class="btn btn-link">{{ __('Annuler') }}</a>
+					@endif
 				</div>
 			</form>
 		</article>

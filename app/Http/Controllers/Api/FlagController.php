@@ -17,25 +17,25 @@ class FlagController extends Controller
     */
     public function index(Request $request)
     {
-      $flags = Flag::all();
+        $flags = Flag::all();
 
-      $geoJSONdata = $flags->map(function ($flag) {
-          return [
-              'type'       => 'Feature',
-              'properties' => new FlagResource($flag),
-              'geometry'   => [
-                  'type'        => 'Point',
-                  'coordinates' => [
-                      $flag->longitude,
-                      $flag->latitude,
-                  ],
-              ],
-          ];
-      });
-      
-      return response()->json([
-          'type'     => 'FeatureCollection',
-          'features' => $geoJSONdata,
-      ]);
+        $geoJSONdata = $flags->map(function ($flag) {
+            return [
+                'type'       => 'Feature',
+                'properties' => new FlagResource($flag),
+                'geometry'   => [
+                    'type'        => 'Point',
+                    'coordinates' => [
+                        $flag->longitude,
+                        $flag->latitude,
+                    ],
+                ],
+            ];
+        });
+
+        return response()->json([
+            'type'     => 'FeatureCollection',
+            'features' => $geoJSONdata,
+        ]);
     }
 }

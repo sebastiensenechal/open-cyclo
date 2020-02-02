@@ -16,12 +16,12 @@ class SecureHeaders
     ];
 
     /**
-     * Handle an incoming request.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \Closure  $next
-     * @return mixed
-     */
+    * Handle an incoming request.
+    *
+    * @param  \Illuminate\Http\Request  $request
+    * @param  \Closure  $next
+    * @return mixed
+    */
     public function handle($request, Closure $next)
     {
         $this->removeUnwantedHeaders($this->unwantedHeaderList);
@@ -33,13 +33,13 @@ class SecureHeaders
         $response->headers->set('Strict-Transport-Security', 'max-age=31536000; includeSubDomains');
         // $response->headers->set('Content-Security-Policy', "style-src https://fonts.googleapis.com/ https://fonts.gstatic.com https://unpkg.com/leaflet@1.3.1/ https://cdn.jsdelivr.net/npm/leaflet.locatecontrol/ script-src 'self' https://apis.google.com https://unpkg.com/leaflet@1.3.1/ https://cdn.jsdelivr.net/npm/leaflet.locatecontrol/ https://oss.maxcdn.com/
 
-// "); // Clearly, you will be more elaborate here.
+        // "); // Clearly, you will be more elaborate here.
         return $response;
     }
 
     private function removeUnwantedHeaders($headerList)
     {
         foreach ($headerList as $header)
-            header_remove($header);
+        header_remove($header);
     }
 }

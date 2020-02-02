@@ -22,10 +22,10 @@ class LoginController extends Controller
     use AuthenticatesUsers;
 
     /**
-     * Where to redirect users after login.
-     *
-     * @var string
-     */
+    * Where to redirect users after login.
+    *
+    * @var string
+    */
     // protected $redirectTo = '/home';
 
     protected $redirectTo;
@@ -34,26 +34,26 @@ class LoginController extends Controller
     {
         switch(Auth::user()->role){
             case 1:
-                $this->redirectTo = '/home';
-                    return $this->redirectTo;
-                    break;
+            $this->redirectTo = '/home';
+            return $this->redirectTo;
+            break;
             case 0:
-                $this->redirectTo = '/contribute';
-                    return $this->redirectTo;
-                    break;
+            $this->redirectTo = '/contribute';
+            return $this->redirectTo;
+            break;
             default:
-                $this->redirectTo = '/login';
-                    return $this->redirectTo;
+            $this->redirectTo = '/login';
+            return $this->redirectTo;
         }
 
         // return $next($request);
     }
 
     /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
+    * Create a new controller instance.
+    *
+    * @return void
+    */
     public function __construct()
     {
         // $this->middleware('guest')->except('logout');
