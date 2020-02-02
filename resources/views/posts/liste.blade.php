@@ -23,10 +23,12 @@
 			</nav>
 
 			<h2>En savoir, toujours plus</h2>
+			<p>Recevez également des informations de première main, en vous abonnant à <a href="newsletter#header-content">notre newsletters</a>.</p>
+
 			@if(Auth::check() and Auth::user()->admin)
-			@can('create', new App\Flag)
-			<p><a href="{{ route('posts.create') }}">Créer un article</a></p>
-			@endcan
+				@can('create', new App\Flag)
+				<p><a href="{{ route('posts.create') }}">Créer un article</a></p>
+				@endcan
 			@endif
 
 			@if(session()->has('info'))

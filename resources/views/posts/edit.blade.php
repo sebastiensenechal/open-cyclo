@@ -1,7 +1,7 @@
 @extends('layouts.template')
 
 @section('titre')
-Modifier un article
+	Modifier un article
 @endsection
 
 @section('contenu')
@@ -38,7 +38,7 @@ Modifier un article
 
 
 		<label class="label">Article</label>
-		<textarea class="textarea" id="content" name="contenu" rows="25" placeholder="Article" required>{{ old('contenu', $post->contenu) }}</textarea>
+		<textarea class="textarea" id="tiny" name="contenu" rows="25" placeholder="Article" required>{{ old('contenu', $post->contenu) }}</textarea>
 		@error('contenu')
 		<p class="help is-danger">{{ $message }}</p>
 		@enderror
@@ -49,3 +49,7 @@ Modifier un article
 
 </section>
 @endsection
+
+@push('scripts')
+	{{ Html::script('js/script.js') }}
+@endpush

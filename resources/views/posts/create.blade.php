@@ -1,7 +1,7 @@
 @extends('layouts.template')
 
 @section('titre')
-Ajouter un article
+	Ajouter un article
 @endsection
 
 @section('contenu')
@@ -19,7 +19,7 @@ Ajouter un article
 	</header>
 
 
-	{{ Form::open(['route' => 'posts.store', 'id' => 'content']) }}
+	{{ Form::open(['route' => 'posts.store']) }}
 	@csrf
 
 		{{ Form::text('titre', null, ['placeholder' => 'Titre', 'required']) }}
@@ -31,7 +31,7 @@ Ajouter un article
 
 
 		{!! Form::label('contenu', 'Article', array('class' => 'hidden')); !!}
-		{!! Form::textarea ('contenu', 'Votre article...', ['required']) !!}
+		{!! Form::textarea ('contenu', 'Votre article...', ['id' => 'tiny', 'required']) !!}
 		{!! $errors->first('contenu', '<small class="help-block">:message</small>') !!}
 
 	{{ Form::submit('Envoyer') }}
@@ -42,5 +42,5 @@ Ajouter un article
 
 
 @push('scripts')
-{{ Html::script('js/script.js') }}
+	{{ Html::script('js/script.js') }}
 @endpush

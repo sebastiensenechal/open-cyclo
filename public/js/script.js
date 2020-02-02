@@ -1,7 +1,7 @@
 // TinyMCE
 tinymce.init({
     // mode : "textareas",
-    selector: '#content textarea',
+    selector: '#tiny',
     menubar: true,
     plugins: [
       "lists link image",
