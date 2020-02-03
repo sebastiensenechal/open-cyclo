@@ -12,21 +12,9 @@
 */
 
 
-/*
-|--------------------------------------------------------------------------
-| COMMANDES TERMINAL
-|--------------------------------------------------------------------------
-|
-| Créer un controller depuis le terminal : php artisan make:controller ArticleController
-| Afficher la liste des routes : php artisan route:list
-|
-*/
-
-
 // --------------------------
 //          Racine
 // --------------------------
-// Route::get('/', ['uses' => 'MapController@index', 'as' => 'map']);
 Route::get('/', 'FlagMapController@index')->name('map');
 
 
@@ -53,10 +41,6 @@ Route::middleware('verified')->group(function () {
 	});
 });
 
-// --------------------------
-//   Utilisateur connecté
-// --------------------------
-
 
 // --------------------------
 //   Administrateur
@@ -79,7 +63,7 @@ Route::delete('posts.destroy', 'PostController@destroy')->middleware('admin');
 
 
 // --------------------------
-//           Divers
+//        Tous publics
 // --------------------------
 
 // Page d'aide, FAQ
@@ -94,3 +78,7 @@ Route::post('contact', 'ContactController@postForm');
 // Inscription lettre d'information
 Route::get('newsletter', 'NewsletterController@getForm');
 Route::post('newsletter', ['uses' => 'NewsletterController@postForm', 'as' => 'storeEmail']);
+
+Route::view('mention-legal', 'mention-legal');
+Route::view('rgpd', 'rgpd');
+Route::view('accessibilite', 'accessibilite');

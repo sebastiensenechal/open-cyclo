@@ -87,7 +87,7 @@
 			@yield('footer')
 			<nav id="legal">
 				<ul>
-					<li><a href="mention-lagel">Mentions légales</a></li>
+					<li><a href="mention-legal">Mentions légales</a></li>
 					<li><a href="rgpd">Données personnelles</a></li>
 					<li><a href="accessibilite">Accessibilité</a></li>
 				</ul>
