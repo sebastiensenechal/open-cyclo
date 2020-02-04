@@ -18,16 +18,19 @@
 
 @section('content')
 	<section id="intro">
-		<h2>Le guide tous terrains des cyclistes et des curieux.</h2>
-		<ul>
-			<li>Localisez votre position,</li>
-			<li>Repérez les pistes cyclables,</li>
-			<li>Informez-vous sur l'état des pistes,</li>
-			<li>Contribuez.</li>
-		</ul>
-		<p>Le service est entièrement <strong>gratuit</strong>.<br />
+		<article>
+			<header>
+				<h2>Le guide tous terrains des cyclistes et des curieux.</h2>
+			</header>
+			<ul>
+				<li>Localisez votre position,</li>
+				<li>Repérez les pistes cyclables,</li>
+				<li>Informez-vous sur l'état des pistes,</li>
+				<li>Contribuez.</li>
+			</ul>
+			<p>Le service est entièrement <strong>gratuit</strong>.<br />
 			Pour contribuez <a href="{{ route('register') }}">inscrivez-vous</a>.</p>
-
+		</article>
 	</section>
 
 	<div id="mapid"></div>

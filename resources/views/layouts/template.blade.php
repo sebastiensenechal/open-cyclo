@@ -87,9 +87,9 @@
 			@yield('footer')
 			<nav id="legal">
 				<ul>
-					<li><a href="mention-legal">Mentions légales</a></li>
-					<li><a href="rgpd">Données personnelles</a></li>
-					<li><a href="accessibilite">Accessibilité</a></li>
+					<li><a href="{{ url('mention-legal') }}">Mentions légales</a></li>
+					<li><a href="{{ url('rgpd') }}">Données personnelles</a></li>
+					<li><a href="{{ url('accessibilite') }}">Accessibilité</a></li>
 				</ul>
 			</nav>
 		</footer>
