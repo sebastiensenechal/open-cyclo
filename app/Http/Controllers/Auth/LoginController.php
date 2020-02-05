@@ -26,7 +26,6 @@ class LoginController extends Controller
     *
     * @var string
     */
-    // protected $redirectTo = '/home';
 
     protected $redirectTo;
 
@@ -34,19 +33,18 @@ class LoginController extends Controller
     {
         switch(Auth::user()->role){
             case 1:
-            $this->redirectTo = '/home';
-            return $this->redirectTo;
-            break;
+	            $this->redirectTo = '/home';
+	            return $this->redirectTo;
+	            break;
             case 0:
-            $this->redirectTo = '/contribute';
-            return $this->redirectTo;
-            break;
+	            $this->redirectTo = '/contribute';
+	            return $this->redirectTo;
+	            break;
             default:
-            $this->redirectTo = '/login';
-            return $this->redirectTo;
+	            $this->redirectTo = '/login';
+	            return $this->redirectTo;
         }
 
-        // return $next($request);
     }
 
     /**

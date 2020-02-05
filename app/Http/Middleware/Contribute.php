@@ -18,11 +18,6 @@ class Contribute
     {
         $user = $request->user();
 
-        // if ($user && $user->admin === 0) {
-        //     return $next($request);
-        // }
-        // return redirect()->route('map');
-
         if (!$user) {
             return redirect()->route('login');
         }
