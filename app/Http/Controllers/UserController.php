@@ -72,7 +72,6 @@ class UserController extends Controller
         $user = $this->userRepository->getById($id);
         $this->userRepository->update($id, $request->all());
 
-        // return view('showUser',  compact('user'))->withOk("L'utilisateur " . $request->input('name') . " a été modifié.");
         return redirect('user')->withOk("L'utilisateur " . $request->input('name') . " a été modifié.");
     }
 
@@ -84,7 +83,6 @@ class UserController extends Controller
 
         return redirect('user')->withOk("L'utilisateur a bien été supprimé.");
     }
-
 
     // Gère la checkbox "Adminitrateur" du formulaire.
     private function setAdmin($request)

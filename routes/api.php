@@ -18,7 +18,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 
-// URL API JSON : http://localhost/sebastiensenechal/openclassroom/open-cyclo/public/api/flags
+// URL API JSON : /api/flags
 Route::group(['as' => 'api.', 'namespace' => 'Api'], function () {
     Route::get('flags', 'FlagController@index')->name('flags.index');
 });

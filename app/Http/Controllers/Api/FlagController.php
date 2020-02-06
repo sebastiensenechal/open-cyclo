@@ -10,7 +10,7 @@ use App\Http\Resources\Flag as FlagResource;
 class FlagController extends Controller
 {
     /**
-    * Get outlet listing on Leaflet JS geoJSON data structure.
+    * Get flag listing on Leaflet JS geoJSON data structure.
     *
     * @param  \Illuminate\Http\Request  $request
     * @return Illuminate\Http\JsonResponse

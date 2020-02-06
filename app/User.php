@@ -18,11 +18,6 @@ class User extends Authenticatable implements MustVerifyEmail
      */
     protected $fillable = ['name', 'email', 'password', 'admin'];
 
-    // public function setPasswordAttribute($password)
-    // {
-    //     $this->attributes['password'] = bcrypt($password);
-    // }
-
     /**
      * The attributes that should be hidden for arrays.
      *
@@ -43,10 +38,7 @@ class User extends Authenticatable implements MustVerifyEmail
 
 
     public function posts() {
-        // return $this->hasMany('App\Post');
-        // return $this->hasMany(Post::class);
         return $this->hasMany('App\Post');
     }
-
 
 }

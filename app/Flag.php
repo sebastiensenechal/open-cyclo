@@ -23,7 +23,7 @@ class Flag extends Model
 		'coordinate', 'map_popup_content',
 	];
 	/**
-	* Get outlet name_link attribute.
+	* Get Flag name_link attribute.
 	*
 	* @return string
 	*/
@@ -39,7 +39,7 @@ class Flag extends Model
 		return $link;
 	}
 	/**
-	* Outlet belongs to User model relation.
+	* Flag belongs to User model relation.
 	*
 	* @return \Illuminate\Database\Eloquent\Relations\BelongsTo
 	*/
@@ -48,7 +48,7 @@ class Flag extends Model
 		return $this->belongsTo(User::class);
 	}
 	/**
-	* Get outlet coordinate attribute.
+	* Get Flag coordinate attribute.
 	*
 	* @return string|null
 	*/
@@ -59,7 +59,7 @@ class Flag extends Model
 		}
 	}
 	/**
-	* Get outlet map_popup_content attribute.
+	* Get Flag map_popup_content attribute.
 	*
 	* @return string
 	*/
@@ -76,7 +76,6 @@ class Flag extends Model
 		if ($this->name == "Autre perturbation") {
 			$mapPopupContent .= "<p>Attention, on nous signale une perturbation sur votre parcours.<br>Soyez prudent.</p>";
 		}
-		// $mapPopupContent .= '<p><br><em>'.__('Coordonnées').':<br>'.$this->coordinate.'</em></p>';
 
 		return $mapPopupContent;
 	}

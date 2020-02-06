@@ -1,24 +1,22 @@
-// Objet Maps
 var map;
 var control;
 var tilelayer;
 var customOptions;
-var latitude = this.latitude;
-var longitude = this.longitude;
 
 var Maps = {
 	attribution: "Maps © <a href='http://www.thunderforest.com/' target='_blank'>Thunderforest</a>, Data © <a href='http://www.openstreetmap.org/copyright' target='_blank'>OpenStreetMap contributors.</a>",
 	urlTile : "https://tile.thunderforest.com/cycle/{z}/{x}/{y}.png?apikey=2ee1c74c95c54dd7b150e8f4604e7865",
 	map_center_latitude: 48.862725,
 	map_center_longitude: 2.287592,
-	zoom_level : 10,
+	zoom_level : 8,
 	latitude: null,
 	longitude: null,
 	theMarker: null,
 
 	initMap : function() {
+		map = L.map('mapid', { dragging: true, touchZoom: true, scrollWheelZoom: false, touchZoom: 'center', })
+		.setView([this.map_center_latitude, this.map_center_longitude], this.zoom_level);
 
-		map = L.map('mapid', { dragging: true, touchZoom: true, scrollWheelZoom: false, touchZoom: 'center', }).setView([this.map_center_latitude, this.map_center_longitude], this.zoom_level);
 		tilelayer = L.tileLayer(this.urlTile, {
 			attribution : this.attribution,
 			maxZoom : 16
@@ -61,7 +59,6 @@ var Maps = {
 		.then(function (response) {
 			L.geoJSON(response.data, {
 				pointToLayer: function(geoJsonPoint, latlng) {
-					// console.log(geoJsonPoint.properties.name);
 					return L.marker(latlng, {icon: infoIcon});
 				}
 			})
@@ -82,7 +79,7 @@ var Maps = {
 				map.removeLayer(this.theMarker);
 			};
 			var popupContent = '<p>Un signalement à enregistrer ?<br><p><a href="flags/create?latitude=' + this.latitude + '&longitude=' + this.longitude + '">Ajouter</a></p>';
-			// "Your location : " + latitude + ", " + longitude + "."
+
 			this.theMarker = L.marker([this.latitude, this.longitude]).addTo(map);
 			this.theMarker.bindPopup(popupContent, customOptions)
 			.openPopup();
