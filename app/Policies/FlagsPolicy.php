@@ -20,7 +20,6 @@ class FlagsPolicy
      */
     public function view(User $user, Flag $flag)
     {
-        // Update $user authorization to view $flag here.
         return true;
     }
     /**
@@ -32,7 +31,6 @@ class FlagsPolicy
      */
     public function create(User $user, Flag $flag)
     {
-        // Update $user authorization to create $flag here.
         return true;
     }
     /**
@@ -44,7 +42,6 @@ class FlagsPolicy
      */
     public function update(User $user, Flag $flag)
     {
-        // Update $user authorization to update $flag here.
         if (Auth::user()->admin == 1)
         {
             return true;
@@ -59,7 +56,6 @@ class FlagsPolicy
      */
     public function delete(User $user, Flag $flag)
     {
-        // Update $user authorization to delete $flag here.
         if (Auth::user()->admin == 1)
         {
             return true;

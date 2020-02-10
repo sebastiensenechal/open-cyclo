@@ -16,7 +16,7 @@
 	@endif
 
 	@if(session()->has('ok'))
-	<div class="alert alert-success alert-dismissible">{!! session('ok') !!}</div>
+	<div class="notification is-success">{!! session('ok') !!}</div>
 	@endif
 
 	<article>
