@@ -24,8 +24,8 @@ Route::get('/', 'FlagMapController@index')->name('map');
 // -----------------------------------------
 Auth::routes();
 Auth::routes(['verify' => true]); // Activer la vérification des adresses mails. Implement dans User.php
-Route::get('home', 'HomeController@index')->name('home')->middleware('admin'); // Admin
-Route::get('contribute', 'ContributeController@index')->name('contribute')->middleware('contribute'); // Abonnés
+Route::get('home', 'HomeController@index')->name('home')->middleware('admin', 'throttle:5,1'); // Admin + anti bruteforce
+Route::get('contribute', 'ContributeController@index')->name('contribute')->middleware('contribute', 'throttle:30,1'); // Abonnés + anti brute force
 
 
 Route::resource('posts', 'PostController');
@@ -45,7 +45,7 @@ Route::middleware('verified')->group(function () {
 // --------------------------
 //   Administrateur
 // --------------------------
-Route::middleware('admin')->group(function () {
+Route::middleware('admin', 'throttle:5,1')->group(function () { // Anti bruteforce, 5 accès par minute
     Route::get('user.index', 'UserController@index');
     Route::get('user.create', 'UserController@create');
     Route::post('user.store', 'UserController@store');
@@ -58,6 +58,7 @@ Route::middleware('admin')->group(function () {
     Route::put('posts.update', 'PostController@update');
     Route::get('posts.edit', 'PostController@edit');
 });
+
 Route::delete('posts.destroy', 'PostController@destroy')->middleware('admin');
 
 
