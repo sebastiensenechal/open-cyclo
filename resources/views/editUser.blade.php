@@ -2,47 +2,54 @@
 
 
 @section('header')
-<nav id="breadcrumb" aria-label="breadcrumb">
-	<ol class="breadcrumb">
-		<li class="breadcrumb-item"><a href="{{ route('map') }}">Accueil</a></li>
-		<li class="breadcrumb-item"><a href="{{ route('home') }}">Tableau de bord</a></li>
-		<li class="breadcrumb-item"><a href="{{ url('user') }}">Liste des membres</a></li>
-		<li class="breadcrumb-item" aria-current="page">Modifier</li>
-	</ol>
-</nav>
+	<nav id="breadcrumb" aria-label="breadcrumb">
+		<ol class="breadcrumb">
+			<li class="breadcrumb-item"><a href="{{ route('map') }}">Accueil</a></li>
+			<li class="breadcrumb-item"><a href="{{ route('home') }}">Tableau de bord</a></li>
+			@if (Auth::user()->admin === 1)
+				<li class="breadcrumb-item"><a href="{{ url('user') }}">Liste des membres</a></li>
+			@endif
+			<li class="breadcrumb-item" aria-current="page">Modifier</li>
+		</ol>
+	</nav>
 @endsection
 
 
 @section('content')
-<section class="base-page">
 
-	<header>
-		<h2>Modifier le profil</h2>
-	</header>
+	<section class="base-page">
 
-	{{ Form::model($user, ['route' => ['user.update', $user->id], 'method' => 'put']) }}
-	<div class="{!! $errors->has('name') ? 'has-error' : '' !!}">
-		{{ Form::text('name', null, ['placeholder' => 'Nom', 'required']) }}
-		{!! $errors->first('name', '<small>:message</small>') !!}
-	</div>
-	<div class="{!! $errors->has('email') ? 'has-error' : '' !!}">
-		{{ Form::email('email', null, ['placeholder' => 'Email', 'required']) }}
-		{!! $errors->first('email', '<small>:message</small>') !!}
-	</div>
-	@if (Auth::user()->admin === 1)
+		<header>
+			<h2>Modifier le profil</h2>
+		</header>
 
-	<div class="checkbox">
-		<label>
-			{{ Form::checkbox('admin', 1, null) }} Administrateur
-		</label>
-	</div>
+		{{ Form::model($user, ['route' => ['user.update', $user->id], 'method' => 'put']) }}
+		<div class="{!! $errors->has('name') ? 'has-error' : '' !!}">
+			{{ Form::text('name', null, ['placeholder' => 'Nom', 'required']) }}
+			{!! $errors->first('name', '<small>:message</small>') !!}
+		</div>
+		<div class="{!! $errors->has('email') ? 'has-error' : '' !!}">
+			{{ Form::email('email', null, ['placeholder' => 'Email', 'required']) }}
+			{!! $errors->first('email', '<small>:message</small>') !!}
+		</div>
 
-	@endif
-	{{ Form::submit('Envoyer', ['class' => 'btn']) }}
-	{{ Form::close() }}
+		@if (Auth::user()->admin === 1)
+			<div class="checkbox">
+				<label>
+					{{ Form::checkbox('admin', 1, null) }} Administrateur
+				</label>
+			</div>
+		@endif
 
-	<p><a href="javascript:history.back()">Annuler</a></p>
+		{{ Form::submit('Envoyer', ['class' => 'btn']) }}
+		{{ Form::close() }}
 
-</section>
+		<!-- <p><a href="javascript:history.back()">Annuler</a></p> -->
+
+		{{ Form::open(['method' => 'DELETE', 'route' => ['user.destroy', $user->id]]) }}
+		{{ Form::submit('Résilier', ['class' => 'btn', 'onclick' => 'return confirm(\'Voulez-vous vraiment résilier votre accès ?\')']) }}
+		{{ Form::close() }}
+
+	</section>
 
 @endsection
