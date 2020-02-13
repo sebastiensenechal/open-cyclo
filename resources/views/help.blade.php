@@ -27,7 +27,10 @@
 			</header>
 
 			<h3>Qu'est-ce que Open cyclo&nbsp;?</h3>
-			<p>Lorem ipsum</p>
+			<p>Open cyclo est un service en ligne dédié aux cyclistes, qu'ils ou elles soient occasionnels ou expérimentés. Ce service propose une cartographique donnant une image clair des pistes cyclables, avec géolocalisation et ajout/affichage de signalements.</p>
+			<p>Malgré l’augmentation des pistes cyclables, de nombreux cyclistes se trouvent en difficulté sur des pistes mal conçues ou dégradées.<br />
+			Un affichage clair des travaux et des perturbations peut grandement faciliter la circulation.</p>
+			<p>C'est enfin un outil de pédagogie et d'information.</p>
 
 			<h3>Comment fonctionne notre service&nbsp;?</h3>
 			<p>Pourquoi gratuit ? Notre service est open source, de plus vous ne trouverez aucune publicité. Open cyclo, c'est avant tout des passionnés et des gens un peu fou.</p>

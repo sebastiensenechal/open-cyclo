@@ -37,7 +37,6 @@
 				{!! $errors->first('latitude', '<span class="invalid-feedback" role="alert">:message</span>') !!}
 
 
-
 				<label for="longitude" class="control-label text-primary">{{ __('Longitude') }}</label>
 				<input id="longitude" type="text" class="form-control{{ $errors->has('longitude') ? ' is-invalid' : '' }}" name="longitude" value="{{ old('longitude', request('longitude')) }}" placeholder="Longitude..." required>
 				{!! $errors->first('longitude', '<span class="invalid-feedback" role="alert">:message</span>') !!}
@@ -54,7 +53,7 @@
 					@endif
 				</div>
 			</form>
-			
+
 		</article>
 
 	</section>
