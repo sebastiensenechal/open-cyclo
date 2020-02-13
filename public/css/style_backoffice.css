@@ -32,7 +32,7 @@ body {
 header#main-header {
 	width: 100%;
 	min-height: 40vh;
-	background: url('../../public/img/topo-jaune.svg'), url('https://sebastiensenechal.com/vendors/img/abstract.jpg'), linear-gradient(to right,rgba(30, 75, 115, 1),rgba(255, 255, 255, 0));
+	background: url('../topo-jaune.svg'), url('../img/abstract.jpg'), linear-gradient(to right,rgba(30, 75, 115, 1),rgba(0, 0, 0, .8));
 	background-position-x: 0%, 0%, 0%;
 	background-position-y: 0%, 0%, 0%;
 	background-repeat: repeat, repeat, repeat;

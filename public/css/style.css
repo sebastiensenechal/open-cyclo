@@ -166,8 +166,8 @@ body #header {
 	animation: 22s ease infinite;
 }
 #header #left {
-	background: url('../../public/img/topo-jaune.svg'),
-	url('https://sebastiensenechal.com/vendors/img/abstract.jpg'),
+	background: url('../img/topo-jaune.svg'),
+	url('../img/abstract.jpg'),
 	linear-gradient(to right, rgba(30, 75, 115, 1), rgba(255, 255, 255, 0));
 	background-position: left, center;
 	background-repeat: no-repeat, no-repeat;
