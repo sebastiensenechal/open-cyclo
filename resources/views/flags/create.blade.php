@@ -30,8 +30,6 @@
 					<option value="Autre perturbation">Autre perturbation</option>
 				</select>
 				{!! $errors->first('name', '<span class="invalid-feedback" role="alert">:message</span>') !!}
-				<!-- <input id="name" type="text" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" name="name" value="{{ old('name') }}" required>
-				{!! $errors->first('name', '<span class="invalid-feedback" role="alert">:message</span>') !!} -->
 
 
 				<label for="latitude" class="control-label text-primary">{{ __('Latitude') }}</label>
@@ -56,6 +54,7 @@
 					@endif
 				</div>
 			</form>
+			
 		</article>
 
 	</section>
