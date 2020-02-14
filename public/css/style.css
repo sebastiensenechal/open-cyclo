@@ -136,10 +136,16 @@ body#container-home {
 	flex-direction: column;
 	justify-content: space-between;
 }
-#container-home article header {
+#container-home #intro header {
 	text-align: left;
 	min-height: auto;
 	display: block;
+	width: 90%;
+	margin: 1em auto;
+	padding-top: 1em;
+	padding-left: 0;
+	padding-right: 0;
+	padding-bottom: 0;
 }
 body #header {
 	background:#333;
@@ -1011,6 +1017,9 @@ RESPONSIVE
 	    width: 80%;
 	    margin: 1em auto;
 	    padding: 1em 0;
+	}
+	#container-home #intro header {
+		width: 80%;
 	}
 	div#map, div#mapid {
 		width: 75vw;

@@ -18,10 +18,11 @@
 
 @section('content')
 	<section id="intro">
+		<header>
+			<h2>Le guide tous terrains</h2>
+		</header>
 		<article>
-			<header>
-				<h2>Le guide tous terrains des cyclistes et des curieux.</h2>
-			</header>
+			<h3>Vous êtes cycliste, juste curieux&nbsp;?</h3>
 			<ul>
 				<li>Localisez votre position,</li>
 				<li>Repérez les pistes cyclables,</li>

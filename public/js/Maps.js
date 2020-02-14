@@ -13,35 +13,42 @@ var Maps = {
 	longitude: null,
 	theMarker: null,
 
-	initMap : function() {
-		map = L.map('mapid', { dragging: true, touchZoom: true, scrollWheelZoom: false, })
-		.setView([this.mapCenterLatitude, this.mapCenterLongitude], this.zoomLevel);
+	initMap: function() {
+		map = L.map("mapid", {
+			dragging: true,
+			touchZoom: true,
+			scrollWheelZoom: false
+		}).setView(
+			[this.mapCenterLatitude, this.mapCenterLongitude],
+			this.zoomLevel
+		);
 
 		tilelayer = L.tileLayer(this.urlTile, {
-			attribution : this.attribution,
-			maxZoom : 16
+			attribution: this.attribution,
+			maxZoom: 16
 		}).addTo(map);
 
 		infoIcon = L.icon({
-			iconUrl: 'img/info-24px.png',
+			iconUrl: "img/info-24px.png",
 			iconSize: [40, 40],
-			popupAnchor:  [0, -20],
-			shadowSize:   [50, 64]
+			popupAnchor: [0, -20],
+			shadowSize: [50, 64]
 		});
 
 		customOptions = {
-			'maxWidth': '500',
-			'className' : 'custom'
+			maxWidth: "500",
+			className: "custom"
 		};
 
 		this.locate();
 	},
 
-	locate : function() {
-		control = L.control.locate({
-			setView: 'always',
+	locate: function() {
+		control = L.control
+		.locate({
+			setView: "always",
 			strings: {
-				title: "Trouver ma position",
+				title: "Trouver ma position"
 			},
 			locateOptions: {
 				enableHighAccuracy: true
@@ -50,40 +57,46 @@ var Maps = {
 			showPopup: false,
 			watch: true,
 			maxZoom: 10,
-			setRadius: 10,
-		}).addTo(map);
+			setRadius: 10
+		})
+		.addTo(map);
 	},
 
-	geoJson : function() {
-		axios.get('api/flags') // {{ route('api.flags.index') }}
-		.then(function (response) {
+	geoJson: function() {
+		axios
+		.get("api/flags") // {{ route('api.flags.index') }}
+		.then(function(response) {
 			L.geoJSON(response.data, {
 				pointToLayer: function(geoJsonPoint, latlng) {
-					return L.marker(latlng, {icon: infoIcon});
+					return L.marker(latlng, { icon: infoIcon });
 				}
 			})
-			.bindPopup(function (layer) {
+			.bindPopup(function(layer) {
 				return layer.feature.properties.map_popup_content;
-			}, customOptions).addTo(map);
+			}, customOptions)
+			.addTo(map);
 		})
-		.catch(function (error) {
+		.catch(function(error) {
 			console.log(error);
 		});
 	},
 
-	addMarker : function() {
-		map.on('click', function(e) {
+	addMarker: function() {
+		map.on("click", function(e) {
 			this.latitude = e.latlng.lat.toString().substring(0, 15);
 			this.longitude = e.latlng.lng.toString().substring(0, 15);
 			if (this.theMarker != undefined) {
 				map.removeLayer(this.theMarker);
-			};
-			var popupContent = '<p>Un signalement à enregistrer ?<br><p><a href="flags/create?latitude=' + this.latitude + '&longitude=' + this.longitude + '">Ajouter</a></p>';
+			}
+			var popupContent =
+			'<p>Un signalement à enregistrer ?<br><p><a href="flags/create?latitude=' +
+			this.latitude +
+			"&longitude=" +
+			this.longitude +
+			'">Ajouter</a></p>';
 
 			this.theMarker = L.marker([this.latitude, this.longitude]).addTo(map);
-			this.theMarker.bindPopup(popupContent, customOptions)
-			.openPopup();
+			this.theMarker.bindPopup(popupContent, customOptions).openPopup();
 		});
 	}
-
-}
+};
