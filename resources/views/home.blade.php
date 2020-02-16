@@ -41,10 +41,10 @@
 		</header>
 
 		<ul class="list-btn">
-			<li class="nav-item">
+			<li>
 				<a href="{{ route('flags.index') }}" class="btn">Tous les signalements</a>
 			</li>
-			<li class="nav-item">
+			<li>
 				<a href="{{ route('flags.create') }}" class="btn">{{ __('Ajouter') }}</a>
 			</li>
 		</ul>
@@ -72,6 +72,7 @@
 
 		<ul class="list-btn">
 			<li><a href="user" class="btn">Tous les utilisateurs</a></li>
+			<li><a href="{{ route('user.create') }}" class="btn">{{ __('Ajouter') }}</a></li>
 		</ul>
 	</article>
 

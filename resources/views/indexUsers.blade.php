@@ -17,6 +17,11 @@
 
 	<header>
 		<h2>Liste des membres</h2>
+		@if(Auth::check() and Auth::user()->admin)
+			@can('create', new App\User)
+			<p><a href="{{ route('user.create') }}">Ajouter un utilisateur</a></p>
+			@endcan
+		@endif
 	</header>
 
 	@if(session()->has('ok'))
@@ -57,6 +62,8 @@
 			@endforeach
 		</tbody>
 	</table>
+
+	{{ $users->links() }}
 
 </section>
 @endsection
