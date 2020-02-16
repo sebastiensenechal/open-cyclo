@@ -41,14 +41,20 @@
 			</div>
 		@endif
 
-		{{ Form::submit('Envoyer', ['class' => 'btn']) }}
-		{{ Form::close() }}
+		<div class="list-btn">
+			{{ Form::submit('Envoyer', ['class' => 'btn']) }}
+			{{ Form::close() }}
 
-		<!-- <p><a href="javascript:history.back()">Annuler</a></p> -->
+			@if (Route::has('password.request'))
+			<a class="btn" href="{{ route('password.request') }}">
+				{{ __('Changer mot de passe') }}
+			</a>
+			@endif
 
-		{{ Form::open(['method' => 'DELETE', 'route' => ['user.destroy', $user->id]]) }}
-		{{ Form::submit('Résilier', ['class' => 'btn', 'onclick' => 'return confirm(\'Voulez-vous vraiment résilier votre accès ?\')']) }}
-		{{ Form::close() }}
+			{{ Form::open(['method' => 'DELETE', 'route' => ['user.destroy', $user->id]]) }}
+			{{ Form::submit('Résilier', ['class' => 'btn', 'onclick' => 'return confirm(\'Voulez-vous vraiment résilier votre accès ?\')']) }}
+			{{ Form::close() }}
+		</div>
 
 	</section>
 
