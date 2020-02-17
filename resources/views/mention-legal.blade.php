@@ -21,8 +21,8 @@
 			   </nav>
 
 			   <h2>Mentions légales</abbr></h2>
-			   <p>Le service Open cyclo est une création de Sébastien Sénéchal, dans le cadre d'une formation. Il n'est pas référencé et le restera pour le moment.<br />
-			   Ce projet est suceptible de prendre de l'ampleur dans les mois à venir.</p>
+			   <p><strong>Le service Open cyclo est une création de Sébastien Sénéchal, dans le cadre d'une formation. Il n'est pas référencé et le restera pour le moment.<br />
+			   Ce projet est suceptible de prendre de l'ampleur dans les mois à venir.</strong></p>
 
 		   </header>
 

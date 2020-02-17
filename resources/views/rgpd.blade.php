@@ -21,9 +21,9 @@
 				</nav>
 
 				<h2>Réglement général pour la protection des données <abbr title="Réglement général pour la protection des données">RGPD</abbr></h2>
-				<p>Vos données peuvent faire l’objet d’un traitement, notamment dans le cadre du suivi de fréquentation.
+				<p><strong>Vos données peuvent faire l’objet d’un traitement, notamment dans le cadre du suivi de fréquentation.
 				Lorsque certaines informations sont obligatoires pour accéder à des fonctionnalités spécifiques, ce caractère obligatoire est indiqué au moment de la collecte de la saisie des données.
-				Je ne collecte que le strict minimum et les adresses IP sont cryptées et anonymisées par Google Analytics.</p>
+				Je ne collecte que le strict minimum et les adresses IP sont cryptées et anonymisées par Google Analytics.</strong></p>
 			</header>
 
 			<h3>Données enregistrées</h3>
@@ -59,8 +59,8 @@
 			<p>Contactez-nous directement sur notre formulaire de contact</p>
 
 			<h3>Réclamation</h3>
-			Si vous estimez, après nous avoir contactés, que vos droits Informatique et Libertés ne sont pas respectés, vous avez la possibilité d’introduire une réclamation auprès de la CNIL.</p>
-			</article>
-		</section>
+			<p>Si vous estimez, après nous avoir contactés, que vos droits Informatique et Libertés ne sont pas respectés, vous avez la possibilité d’introduire une réclamation auprès de la CNIL.</p>
+		</article>
+	</section>
 
 @endsection

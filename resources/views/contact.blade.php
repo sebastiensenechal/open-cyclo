@@ -10,18 +10,18 @@
 
 @section('contenu')
 
-<section class="form-center">
-	<header id="header-content">
-		<nav id="breadcrumb" aria-label="breadcrumb">
-			<ol class="breadcrumb">
-				<li class="breadcrumb-item"><a href="{{ route('map') }}">Accueil</a></li>
-				<li class="breadcrumb-item" aria-current="page">Nous contacter</li>
-			</ol>
-		</nav>
+	<section class="form-center">
+		<header id="header-content">
+			<nav id="breadcrumb" aria-label="breadcrumb">
+				<ol class="breadcrumb">
+					<li class="breadcrumb-item"><a href="{{ route('map') }}">Accueil</a></li>
+					<li class="breadcrumb-item" aria-current="page">Nous contacter</li>
+				</ol>
+			</nav>
 
-		<h2>Nous sommes à votre écoute</h2>
+			<h2>Nous sommes à votre écoute</h2>
 
-		<p>&laquo;&nbsp;Pédagogie&nbsp;&raquo;, voilà un mot qui revet un sens particulier chez OpenCyclo.<br />
+			<p>&laquo;&nbsp;Pédagogie&nbsp;&raquo;, voilà un mot qui revet un sens particulier chez OpenCyclo.<br />
 			Nous mettons un point d'honneur à informer et à fournir des guides, pour un cyclisme en toute sécurité.<br />
 			<a href="newsletter#header-content">Inscrivez-vous à notre newsletters</a></p>
 		</header>
@@ -44,6 +44,7 @@
 		</div>
 		{{ Form::submit('Envoyer !') }}
 		{{ Form::close() }}
+
 	</section>
 
 @endsection

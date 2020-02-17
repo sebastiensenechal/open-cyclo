@@ -39,7 +39,6 @@
 			<p>C'est très simple, pour ajouter un signalement vous devez être connecté. Pour cela, inscrivez-vous gratuitement avec votre pseudo et une adresse email, c'est tout !</p>
 			<p>Une fois inscrit, vous êtes libre de contribuer et d'enrichir la carte Open cyclo.</p>
 
-
 		</article>
 	</section>
 
