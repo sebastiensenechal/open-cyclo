@@ -19,7 +19,7 @@
 @section('content')
 	<section id="intro">
 		<header>
-			<h2>Le guide tous terrains</h2>
+			<h2>Le guide tout-terrain</h2>
 		</header>
 		<article>
 			<h3>Vous êtes cycliste, juste curieux&nbsp;?</h3>
