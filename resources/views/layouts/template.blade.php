@@ -14,7 +14,7 @@
 	    <meta property="og:url" content="https://opencyclo.sebastiensenechal.com/" />
 	    <meta property="og:title" content="Open Cyclo" />
 	    <meta property="og:description" content="La carte des pistes cyclables dans le monde. Un couteau suisse, un guide tous terrains des cyclistes." />
-	    <meta property="og:image" content="https://sebastiensenechal.com/openclassroom/miniblog/public/img/montagnes-pyrenees-480.jpg" />
+	    <meta property="og:image" content="https://opencyclo.sebastiensenechal.com/img/abstract.jpg" />
 	    <meta property="og:type" content="website" />
 		<link rel="icon" type="image/ico" href="https://sebastiensenechal.com/favicon.ico" />
 
