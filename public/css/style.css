@@ -1089,4 +1089,50 @@ RESPONSIVE
 
 @media print {
 	/* Print */
+	body, h1, h2, h1#title-home, #container-home main #intro h2 {
+		color: #333;
+	}
+	body {
+	    font-size: 1.2em;
+	}
+	.custom .leaflet-popup-content-wrapper a:visited, .custom .leaflet-popup-content-wrapper a {
+	    color: #333;
+	}
+	nav, div.arrow {
+		display: none;
+	}
+	#container-home main {
+		flex-direction: column;
+	}
+	#container-home main #intro {
+		width: 100vw;
+		background: none;
+	}
+	div#map, div#mapid {
+		width: 100vw;
+	}
+	#header #left {
+		background: none;
+		width: 100vw;
+	}
+	body #header {
+		background:none;
+		color:#333;
+	}
+	#header #right {
+		background: none;
+		width: 100vw;
+		padding: 0;
+		justify-content: flex-start;
+		align-content: flex-start;
+	}
+	#left > div, #container-home header, body #header {
+		justify-content: flex-start;
+		align-items: flex-start;
+		text-align: left;
+		margin: 0;
+	}
+	section, #page-container #post-container {
+		width: 100vw;
+	}
 }
