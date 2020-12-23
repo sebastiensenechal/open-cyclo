@@ -30,7 +30,7 @@
         "@fortawesome/fontawesome-free": "^5.12.0",
         "kind-of": "^6.0.3",
         "leaflet": "^1.6.0",
-        "tinymce": "^5.2.2",
+        "tinymce": "^5.4.0",
         "vue2-google-maps": "^0.10.7",
         "vue2-leaflet": "^2.4.2"
     }
