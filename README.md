@@ -1,6 +1,8 @@
-## Open Cyclo
+## Open Cyclo ##
 
-Open Cyclo est un projet personnel, initialement conçu dans le cadre d'un parcours diplomant chez Openclassrooms.
-Il s'agit ici de la première version.
+Open Cyclo est un projet personnel de cartographie et d'aide à la circulation pour les cyclistes.
+L'utilisateur peut se géolocaliser et une fois identifié, indiquer l'emplacement d'un accident ou d'un problème sur le trajet.
+Le marker est alors partagé à toute la communauté.
+Il contient également une page d'actualités que les administrateurs ou contributeurs remplissent.
 
-Une nouvelle version est en cours de développement, le repository sera partagé en temps voulu. Cette nouvelle version devra optimiser le code en back et front office. Pour la partie cartographie en front, c'est le framework Vue JS qui sera utilisé, très intéressant avec Laravel.
+Une nouvelle version est en cours de développement avec montée de version de Laravel et VueJS.
