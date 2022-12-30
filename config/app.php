@@ -51,7 +51,7 @@ return [
     |
     */
 
-    'debug' => env('APP_DEBUG', true), // false for production
+    'debug' => (bool) env('APP_DEBUG', true),
 
     /*
     |--------------------------------------------------------------------------
