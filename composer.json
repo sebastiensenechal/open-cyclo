@@ -19,7 +19,8 @@
         "laravel/tinker": "^2.7",
         "laravel/ui": "^4.1",
         "laravelcollective/html": "^6.3",
-        "symfony/mailer": "^6.2"
+        "symfony/mailer": "^6.2",
+        "symfony/twig-bridge": "^6.2"
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "*",
