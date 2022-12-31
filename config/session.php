@@ -1,6 +1,6 @@
 <?php
 
-use Illuminate\Support\Str;
+use Illuminate\Support\Str; 
 
 return [
 
@@ -166,7 +166,7 @@ return [
     |
     */
 
-    'secure' => env('SESSION_SECURE_COOKIE', false),
+    'secure' => env('SESSION_SECURE_COOKIE', null),
 
     /*
     |--------------------------------------------------------------------------
