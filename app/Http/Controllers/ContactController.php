@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use Mail;
+//use Mail;
 use App\Http\Requests\ContactRequest;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\Contact;
 
 class ContactController extends Controller
 {
@@ -14,10 +16,8 @@ class ContactController extends Controller
 
     public function postForm(ContactRequest $request)
     {
-        Mail::send('email_contact', $request->all(), function($message)
-        {
-            $message->to('sebast.senechal@gmail.com')->subject('Contact');
-        });
+        Mail::to('test@sebastiensenechal.com')
+            ->send(new Contact($request->except('_token')));
 
         return view('confirm');
     }
